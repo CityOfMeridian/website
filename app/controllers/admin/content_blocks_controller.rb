@@ -4,7 +4,7 @@ module Admin
     private
 
     def fae_pages
-      [LibraryPage, PolicePage, VfdPage, EdcPage, CalendarPage]
+      [LibraryPage, PolicePage, VfdPage, EdcPage, CalendarPage, CityCouncilPage]
     end
   end
 end

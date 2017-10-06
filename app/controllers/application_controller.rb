@@ -12,5 +12,8 @@ class ApplicationController < ActionController::Base
 
   def calendar
     @calendar_page = CalendarPage.instance
+
+  def council
+    @city_council = CityCouncilPage.instance
   end
 end

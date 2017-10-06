@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "application#index"
   get "/edc" => "application#edc"
   get "/calendar" => "application#calendar"
+  get "/city_council" => "application#council"
 
   namespace :admin do
     resources :agendas
