@@ -33,12 +33,13 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: url(../img/plus.png) no-repeat center center rgba(108, 168, 255, 0.7);
+    background: url(../img/plus.png) no-repeat center center rgba(22, 82, 131, 0.7);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
     -webkit-transition: opacity 250ms linear;
     transition: opacity 250ms linear;
+    border-radius: 7px 7px 0 0;
 }
 
 .item-img-wrap:hover .item-img-overlay span{
@@ -134,14 +135,24 @@
 }
 .work-desc{
     padding: 20px;
-    background-color: #fff;
+    background-color: $oceanblue;
     border-bottom: 1px solid #ddd;
+    border-radius: 0 0 3px 3px;
 }
 .work-desc h5{
     margin: 0px;
     display: inline-block;
     font-size: 15px;
 }
+
+.work-desc h5 a{
+    color: #fff;
+}
+
+.work-desc h5 a:hover{
+    color: $grey;
+}
+
 .work-desc i{
     width:32px;
     height: 32px;
@@ -374,7 +385,7 @@
         line-height: 50px;
         width:50px;
         text-shadow: none;
-        color:$skincolor;
+        color:$oceanblue;
 
         &:before{
             text-shadow: none;
@@ -420,7 +431,7 @@
 .post-deatil li a{
     color:$skincolor;
 }
-.post-deatil li a:hover{
+.post-deatil li a{
     color:#000;
 }
 .comments-list {
@@ -694,6 +705,45 @@ span.popular-tag{
     margin-bottom: 5px;
 }
 
+/******** Meridian custom ********/
+
+ul.nav li a{
+  font-family: 'Quicksand', sans-serif;
+}
+
+.navbar-brand a {
+  font-family: 'Qwigley', cursive;
+  font-size: 50px; 
+  vertical-align: middle; 
+  display: block; 
+  padding-bottom: 10px;
+}
+
+.navbar-brand {
+    color: $oceanblue;
+}
+
+.navbar-brand:hover {
+    color: $grey;
+}
+
+.navbar-brand a span {
+  display: block; font-size: 15px;
+  text-align: right; 
+  padding-top: 5px; 
+  font-family: 'Quicksand', sans-serif;
+}
+
+.img-responsive {
+    border-radius: 10px 10px 0 0;
+}
+
+.img-responsive:hover {
+    border-radius: 10px 10px 0 0;
+}
+
+
+/****** media queries ******/
 @media(max-width:767px){
     .main-slider{
         height: 300px;

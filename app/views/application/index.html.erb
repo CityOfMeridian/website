@@ -2,6 +2,7 @@
     <div class="flexslider">
         <ul class="slides">
             <li style="background: linear-gradient(rgba(128,128,128, .25), rgba(128,128,128, .25)), url(<%= asset_path('bank-clock-courthouse.jpg') %>); background-size: 100%; background-repeat: no-repeat; background-position: 0% 5%">
+            <li>
                 <div class="slider-text">
                     <div class="inner">
                         <div class="container text-center">
@@ -16,7 +17,7 @@
                     </div>
                 </div> 
             </li>
-            <li style="background: url(<%= asset_path('showcase-2.jpg') %>)">
+            <li>
                 <div class="slider-text">
                     <div class="inner">
                         <div class="container text-center">
@@ -31,7 +32,7 @@
                     </div>
                 </div> 
             </li>
-            <li style="background: url(<%= asset_path('showcase-3.jpg') %>)">
+            <li>
                 <div class="slider-text">
                     <div class="inner">
                         <div class="container text-center">
@@ -62,7 +63,7 @@
                     <div>
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap ">
-                                <img src="img/work-1.png" class="img-responsive" alt="workimg">
+                                <%= image_tag('work-1.png', alt: "workimg", class: 'img-responsive') %>
                                 <div class="item-img-overlay">
                                     <span></span>
                                 </div>
@@ -76,7 +77,7 @@
                     <div> 
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap">
-                                <img src="img/work-2.png" class="img-responsive" alt="workimg">
+                                <%= image_tag('work-2.png', alt: "workimg", class: 'img-responsive') %>
                                 <div class="item-img-overlay">
                                     <span></span>
                                 </div>
@@ -90,7 +91,7 @@
                     <div> 
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap">
-                                <img src="img/work-3.png" class="img-responsive" alt="workimg">
+                                <%= image_tag('work-3.png', alt: "workimg", class: 'img-responsive') %>
                                 <div class="item-img-overlay">
                                     <span></span>
                                 </div>
@@ -104,7 +105,7 @@
                     <div> 
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap">
-                                <img src="img/work-5.png" class="img-responsive" alt="workimg">
+                                <%= image_tag('work-5.png', alt: "workimg", class: 'img-responsive') %>
                                 <div class="item-img-overlay">
                                     <span></span>
                                 </div>
@@ -118,7 +119,7 @@
                     <div> 
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap">
-                                <img src="img/work-6.png" class="img-responsive" alt="workimg">
+                                <%= image_tag('work-6.png', alt: "workimg", class: 'img-responsive') %>
                                 <div class="item-img-overlay">
                                     <span></span>
                                 </div>
@@ -132,7 +133,7 @@
                     <div> 
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap">
-                                <img src="img/work-7.png" class="img-responsive" alt="workimg">
+                                <%= image_tag('work-7.png', alt: "workimg", class: 'img-responsive') %>
                                 <div class="item-img-overlay">
                                     <span></span>
                                 </div>
@@ -195,7 +196,7 @@
             <div class="post-wrap wow animated fadeInLeft">
                 <a href="blog-post.html">
                     <div class="item-img-wrap">
-                        <img src="img/work-7.png" class="img-responsive" alt="workimg">
+                        <%= image_tag('work-7.png', alt: "workimg", class: 'img-responsive') %>
                         <div class="item-img-overlay">
                             <span></span>
                         </div>
@@ -214,7 +215,7 @@
             <div class="post-wrap wow animated fadeInLeft">
                 <a href="blog-post.html">
                     <div class="item-img-wrap">
-                        <img src="img/work-5.png" class="img-responsive" alt="workimg">
+                        <%= image_tag('work-5.png', alt: "workimg", class: 'img-responsive') %>
                         <div class="item-img-overlay">
                             <span></span>
                         </div>
@@ -233,7 +234,7 @@
             <div class="post-wrap wow animated fadeInLeft">
                 <a href="blog-post.html">
                     <div class="item-img-wrap">
-                        <img src="img/work-8.png" class="img-responsive" alt="workimg">
+                        <%= image_tag('work-8.png', alt: "workimg", class: 'img-responsive') %>
                         <div class="item-img-overlay">
                             <span></span>
                         </div>
@@ -313,7 +314,7 @@
         </div><!--contact col-->
         <div class="col-md-7 about-us">
             <h3 class="heading">Little About us</h3>
-            <img src="img/team-3.jpg" class="img-responsive" alt="">
+            <%= image_tag('team-3.png', alt: "workimg", class: 'img-responsive') %>
             <p class="dropcap">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
                 Suspendisse sit amet erat volutpat, fermentum massa in, faucibus sem.
@@ -382,7 +383,7 @@
                     <ul class="list-unstyled popular-post">
                         <li>
                             <div class="popular-img">
-                                <a href="#"> <img src="img/work-6.png" class="img-responsive" alt=""></a>
+                                <a href="#"><%= image_tag('work-6.png', alt: "workimg", class: 'img-responsive') %></a>
                             </div>
                             <div class="popular-desc">
                                 <h5> <a href="#">blog post image</a></h5>
@@ -391,7 +392,7 @@
                         </li>
                         <li>
                             <div class="popular-img">
-                                <a href="#"> <img src="img/work-2.png" class="img-responsive" alt=""></a>
+                                <a href="#"> <%= image_tag('work-2.png', alt: "workimg", class: 'img-responsive') %></a>
                             </div>
                             <div class="popular-desc">
                                 <h5> <a href="#">blog post image</a></h5>
@@ -400,7 +401,7 @@
                         </li>
                         <li>
                             <div class="popular-img">
-                                <a href="#"> <img src="img/work-5.png" class="img-responsive" alt=""></a>
+                                <a href="#"> <%= image_tag('work-5.png', alt: "workimg", class: 'img-responsive') %></a>
                             </div>
                             <div class="popular-desc">
                                 <h5> <a href="#">blog post image</a></h5>
@@ -447,31 +448,31 @@
                     <h3 class="heading">Recent Work</h3>
                     <div class=" footer-work">
                         <a href="#">
-                            <img src="img/work-1.png" class="img-responsive" alt="">
+                            <%= image_tag('work-1.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-2.png" class="img-responsive" alt="">
+                            <%= image_tag('work-2.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-10.jpg" class="img-responsive" alt="">
+                            <%= image_tag('work-10.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-4.jpg" class="img-responsive" alt="">
+                            <%= image_tag('work-4.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-5.png" class="img-responsive" alt="">
+                            <%= image_tag('work-5.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-6.png" class="img-responsive" alt="">
+                            <%= image_tag('work-6.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-7.png" class="img-responsive" alt="">
+                            <%= image_tag('work-7.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-8.png" class="img-responsive" alt="">
+                            <%= image_tag('work-8.png', alt: "", class: 'img-responsive') %>
                         </a>
                         <a href="#">
-                            <img src="img/work-9.png" class="img-responsive" alt="">
+                            <%= image_tag('work-9.png', alt: "", class: 'img-responsive') %>
                         </a>
                     </div>
                 </div><!--footer col-->
