@@ -11,8 +11,10 @@
     position: relative;
     text-align: center;
     overflow: hidden;
-
+    border-radius: 10px 10px 0 0;
+    border-color: #fff;
 }
+
 .item-img-wrap img{
     -webkit-transition:all 200ms linear; 
     -moz-transition:all 200ms linear; 
@@ -33,18 +35,19 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: url(../img/plus.png) no-repeat center center rgba(22, 82, 131, 0.7);
+    background: url(asset-path('plus.png')) no-repeat center center rgba(22, 82, 131, 0.7);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
     -webkit-transition: opacity 250ms linear;
     transition: opacity 250ms linear;
-    border-radius: 7px 7px 0 0;
 }
 
 .item-img-wrap:hover .item-img-overlay span{
     opacity: 1;
+    border-radius: 10px 10px 0 0;
 }
+
 .item-img-wrap:hover img{
     -moz-transform: scale(1.1); 
     -webkit-transform: scale(1.1); 
@@ -66,7 +69,7 @@
 }
 /*progress rounded*/
 .process-rounded{
-    background: url(../img/showcase-2.jpg);
+    background: url(asset-path('showcase-2.jpg'));
     padding: 50px 0;
 }
 .process-rounded h3{
@@ -126,7 +129,7 @@
 /**************work and portfolio whole*******/
 /* mouse grab icon */
 .grabbing { 
-    cursor:url(../img/grabbing.png) 8 8, move !important;
+    cursor:url(asset-path('grabbing.png')) 8 8, move !important;
 }
 
 .portfolio{
@@ -200,7 +203,7 @@
 
 /*testimonials parallax*/
 .testimonials{
-    background: url(../img/showcase-3.jpg);
+    background: url(asset-path('showcase-3.jpg'));
     padding: 50px 0;
 }
 .testimonials h4{
@@ -233,7 +236,7 @@
 
 /**************coming soon*************/
 .soon-bg{
-    background: url(../img/showcase-1.jpg);
+    background: url(asset-path('showcase-1.jpg'));
     padding: 150px 0;
 }
 .soon-bg h2{
@@ -272,7 +275,7 @@
 
 /****fun facts*****/
 .fun-fact-wrap{
-    background: url(../img/showcase-1.jpg);
+    background: url(asset-path('showcase-1.jpg'));
     padding-top:50px;
     padding-bottom: 30px;
 }
@@ -738,8 +741,48 @@ ul.nav li a{
     border-radius: 10px 10px 0 0;
 }
 
-.img-responsive:hover {
-    border-radius: 10px 10px 0 0;
+.post-desc{
+    background-color: $oceanblue
+}
+
+.post-desc h4 a {
+    color: #fff;
+}
+
+.post-desc h4 a {
+    color: #fff;
+}
+
+.post-desc p {
+    color: #fff;
+}
+
+.dropdown-menu, .dropdown-menu li {
+    background-color: $skincolor;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #fff;
+    background-color: $skincolor;
+}
+
+.navbar-default .navbar-nav > li:hover{
+    background-color: $lightgrey;
+}
+
+.navbar-default .navbar-nav > li:hover a{
+    color: #fff;
+}
+
+.dropdown-menu li:hover a{
+    background-color: $oceanblue;
+}
+.dropdown-menu li a{
+    color: #fff;
+}
+
+.dropdown-toggle {
+    border-radius: 3px 3px 0 0;
 }
 
 
