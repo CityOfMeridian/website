@@ -69,9 +69,17 @@
 }
 /*progress rounded*/
 .process-rounded{
-    background: url(asset-path('showcase-2.jpg'));
+    background: url(asset-path('road.png'));
+    background-position-x: 50%;
+    background-position-y: 60%;
     padding: 50px 0;
 }
+
+.process-rounded:before {
+    opacity: .6;
+    background-color: #fff;
+}
+
 .process-rounded h3{
     color:#fff;
     margin-bottom: 50px;
@@ -95,7 +103,7 @@
     transition: all 0.4s ease-in-out;
 }
 .process-box:hover i{
-    color:#fff;
+    color:#fff!important;
     background-color: $skincolor;
 }
 .process-box h4{
@@ -711,7 +719,7 @@ span.popular-tag{
 /******** Meridian custom ********/
 
 ul.nav li a{
-  font-family: 'Quicksand', sans-serif;
+  font-family: $primary-font;
 }
 
 .navbar .dropdown-menu li a {
@@ -763,7 +771,7 @@ ul.nav li a{
 }
 
 .dropdown-menu, .dropdown-menu li {
-    background-color: $skincolor;
+    background-color: $oceanblue;
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
@@ -782,6 +790,7 @@ ul.nav li a{
 .dropdown-menu li:hover a{
     background-color: $grey;
 }
+
 .dropdown-menu li a{
     color: #fff;
 }
@@ -799,12 +808,41 @@ ul.nav li a{
 }
 
 .dropdown-header {
-    background-color: $oceanblue;
+    background-color: $skincolor;
     color: #fff;
     border-bottom: 1px solid white;
     font-size: 14px;
 }
 
+.process-box i.fa, .footer-col i.fa{
+    color: $oceanblue;
+}
+
+.fa .fa-facebook {
+    color: white;
+}
+
+
+.skincolor {
+    color: $skincolor!important;
+}
+
+.text-center {
+    background: rgba(255,255,255,.7);
+    padding-bottom: 10px;
+}
+
+.text-center .row div p, .text-center .row div h1 {
+    color: $skincolor!important;
+}
+
+.main-slider .flexslider .slides li .slider-text .inner h1 {
+    text-transform: none;
+}
+
+.address-info.list-unstyled li i{
+    color: #fff;
+}
 
 /****** media queries ******/
 @media(max-width:767px){

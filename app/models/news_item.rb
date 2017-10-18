@@ -5,8 +5,6 @@ class NewsItem < ApplicationRecord
     title
   end
 
-  has_fae_file :file
-
   has_fae_image :image
 
 

@@ -22,28 +22,28 @@
   <%= stylesheet_link_tag :application, media: "all" %>
   <%= csrf_meta_tags %>
 
-<link href="https://fonts.googleapis.com/css?family=Quicksand|Qwigley" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Mukta|Qwigley|Open+Sans|" rel="stylesheet">
 <body>
- <!--  <div class="top-bar-wrap hidden-xs">
-    <div class="container">
-        <div class="top-bar">
-            <div class="pull-left">
-                <a href="#">Support@designmylife.com</a>
-            </div>
-            <div class="pull-right">
-                <ul class="list-inline social-1">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                </ul>
+    <% if @public_notice.present? %>
+   <div class="top-bar-wrap hidden-xs">
+        <div class="container">
+            <div class="top-bar">
+                <div class="pull-left">
+                    Public Notice: <a href="#"><%= @public_notice.title %></a>
+                </div>
+                <div class="pull-right">
+                    <ul class="list-inline social-1">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div> --><!--top bar wrap end-->
-<!--navigation -->
-<!-- Static navbar -->
+    <% end %>
 <div class="navbar navbar-default navbar-static-top sticky" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -58,86 +58,52 @@
             </div>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Visit Meridian</a></li>
-                <li class="active dropdown">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown">City<i class="fa fa-angle-down"></i></a>
+            <ul class="nav navbar-nav">
+                <li class='active dropdown'>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Visit</a>
                     <ul class="dropdown-menu" role="menu">
+                        <li><a href="attractions">Attractions</a></li>
+                        <li><a href="history">History</a></li>
+                        <li><a href="dining">Dining</a></li>
+                        <li><a href="shopping">Shopping</a></li>
+                    </ul>
+                </li>
+                <li class="active dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">City</a>
+                    <ul class="dropdown-menu divided" role="menu">
                         <span class='dropdown-header'>About</span>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Visit Meridian</a></li>
-                        <li><a href="#">History</a></li>
+                        <li><a href="news">News</a></li>
+                        <li><a href='visit'>Visit Meridian</a></li>
+                        <li><a href="history">History</a></li>
                         <span class="dropdown-header">Government</span>
                         <li><a href="#">Mayor</a></li>
-                        <li><a href="#">City Council</a></li>
-                        <li><a href="#">Municipal Court</a></li>
-                        <li><a href="#">Economic Development Corporation</a></li>
-
+                        <li><a href="city-council">City Council</a></li>
+                        <li><a href="court">Municipal Court</a></li>
+                        <li><a href="edc">Economic Development<br>Corporation</a></li>
                         <span class="dropdown-header">Services</span>
                         <div class="row">
                             <div class='col-sm-6 split-menu-1'>
-                                <li><a href="#">Water</a></li>
-                                <li><a href="#">Waste</a></li>
-                                <li><a href="#">Parks</a></li>
+                                <li><a href="water">Water</a></li>
+                                <li><a href="garbage">Garbage</a></li>
+                                <li><a href="parks">Parks</a></li>
                             </div>
                             <div class='col-sm-6 split-menu-2'>
-                                <li><a href="#">Library</a></li>
-                                <li><a href="#">Police</a></li>
-                                <li><a href="#">Fire</a></li>
+                                <li><a href="library">Library</a></li>
+                                <li><a href="http://www.meridianpd.com">Police</a></li>
+                                <li><a href="vfd">Fire</a></li>
                             </div>
                         </div>
                     </ul>
                 </li><!--.dropdown-->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown">Community<i class="fa fa-angle-down"></i></a>
+                <li class="active dropdown no-divide">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown">Community</i></a>
                     <ul class="dropdown-menu" role="menu">
-                        <span class='dropdown-header'>Civic Organizations</span>
-                        <li><a href="#">Meridian Grassroots</a></li>
-                        <li><a href="#">Chamber of Commerce</a></li>
-                        <li><a href="#">Lion's Club</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="/calendar">Community Calendar</a></li>
+                        <li><a href="civic-organizations">Civic Organizations</a></li>
+                        <li><a href="churches">Churches</a></li>
+                        <li><a href="events">Events</a></li>
+                        <li><a href="get-involved">Get Involved</a></li>
                     </ul>
                 </li><!--.dropdown-->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Economic Development<i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="side-nav.html">Side Navigation</a></li>
-                        <li><a href="blank-page.html">Blank Page</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="pricing.html">Our Pricing</a></li>
-                        <li><a href="faq.html">FAQS</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="login-register.html">Login / Register</a></li>
-                        <li><a href="error.html">Error - 404</a></li>
-                    </ul>
-                </li><!--.dropdown-->
-                <!-- <li class="dropdown">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown">Features <i class="fa fa-angle-down"></i></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="element.html">Elements</a></li>
-                        <li><a href="home-soon.html">Coming Soon</a></li>
-                    </ul>
-                </li> --><!--.dropdown-->
-                <li class="dropdown " data-animate="animated fadeInUp" style="z-index:500;">
-                    <a href="#" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-search"></i></a>
-                    <ul class="dropdown-menu animated fadeInUp">
-                        <li id="dropdownForm">
-                            <div class="dropdown-form">
-                                <form class=" form-inline">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="search...">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-theme-bg" type="button">Go!</button>
-                                        </span>
-                                    </div><!--input group-->
-                                </form><!--form-->
-                            </div><!--.dropdown form-->
-                        </li><!--.drop form search-->
-                    </ul><!--.drop menu-->
-                </li><!--nav search form-->
             </ul><!--navbar-right for navbar-left replace class with navbar-left-->
         </div><!--/.nav-collapse -->
     </div><!--.container-->
