@@ -1,8 +1,7 @@
 <section class="main-slider">
     <div class="flexslider">
         <ul class="slides">
-            <li style="background: linear-gradient(rgba(128,128,128, .25), rgba(128,128,128, .25)), url(<%= asset_path('courthouse-min.png') %>); background-size: 75%; background-repeat: no-repeat; background-position: 50%">
-            <li>
+            <li style="background: url(<%= asset_path('clock-tower-flag.jpg') %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
                 <div class="slider-text">
                     <div class="inner">
                         <div class="container text-center">
@@ -10,42 +9,11 @@
                                 <div class="col-md-8 col-md-offset-2">
                                     <h1>Welcome to Meridian</h1>
                                     <p>Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit. Lorem ipsum dolor sit amet, consectetur.</p>
-                                    <a href="#" class="btn btn-lg border-white">Learn More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div> 
-            </li>
-            <li>
-                <div class="slider-text">
-                    <div class="inner">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <h1>Thrive</h1>
-                                    <p>Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit.Lorem ipsum dolor sit amet, consectetur.</p>
-                                    <a href="#" class="btn btn-lg border-white">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </li>
-            <li>
-                <div class="slider-text">
-                    <div class="inner">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <h1>Relax</h1>
-                                    <p>Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit.Lorem ipsum dolor sit amet, consectetur.</p>
-                                    <a href="#" class="btn btn-lg border-white">Learn More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>   
             </li>
         </ul>
     </div>
@@ -54,12 +22,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h3 class="heading">Recent work</h3>
+                <h3 class="heading">Recent News</h3>
             </div>                   
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div id="work-carousel" class="owl-carousel owl-spaced">
+                    <% @news_items.each do |news_item| %>
                     <div>
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap ">
@@ -71,79 +40,10 @@
                         </a><!--work link-->
                         <div class="work-desc">
                             <i class="fa fa-twitter"></i>
-                            <h5><a href="#">Project Name</a></h5>
+                            <h5><a href="#"><%= news_item.title %></a></h5>
                         </div><!--work desc-->
                     </div><!--owl item-->
-                    <div> 
-                        <a href="portfolio-single.html">
-                            <div class="item-img-wrap">
-                                <%= image_tag('work-2.png', alt: "workimg", class: 'img-responsive') %>
-                                <div class="item-img-overlay">
-                                    <span></span>
-                                </div>
-                            </div>                       
-                        </a><!--work link-->
-                        <div class="work-desc">
-                            <i class="fa fa-twitter"></i>
-                            <h5><a href="#">Project Name</a></h5>
-                        </div><!--work desc-->
-                    </div><!--owl item-->
-                    <div> 
-                        <a href="portfolio-single.html">
-                            <div class="item-img-wrap">
-                                <%= image_tag('work-3.png', alt: "workimg", class: 'img-responsive') %>
-                                <div class="item-img-overlay">
-                                    <span></span>
-                                </div>
-                            </div>                       
-                        </a><!--work link-->
-                        <div class="work-desc">
-                            <i class="fa fa-twitter"></i>
-                            <h5><a href="#">Project Name</a></h5>
-                        </div><!--work desc-->
-                    </div><!--owl item-->
-                    <div> 
-                        <a href="portfolio-single.html">
-                            <div class="item-img-wrap">
-                                <%= image_tag('work-5.png', alt: "workimg", class: 'img-responsive') %>
-                                <div class="item-img-overlay">
-                                    <span></span>
-                                </div>
-                            </div>                       
-                        </a><!--work link-->
-                        <div class="work-desc">
-                            <i class="fa fa-twitter"></i>
-                            <h5><a href="#">Project Name</a></h5>
-                        </div><!--work desc-->
-                    </div><!--owl item-->
-                    <div> 
-                        <a href="portfolio-single.html">
-                            <div class="item-img-wrap">
-                                <%= image_tag('work-6.png', alt: "workimg", class: 'img-responsive') %>
-                                <div class="item-img-overlay">
-                                    <span></span>
-                                </div>
-                            </div>                       
-                        </a><!--work link-->
-                        <div class="work-desc">
-                            <i class="fa fa-twitter"></i>
-                            <h5><a href="#">Project Name</a></h5>
-                        </div><!--work desc-->
-                    </div><!--owl item-->
-                    <div> 
-                        <a href="portfolio-single.html">
-                            <div class="item-img-wrap">
-                                <%= image_tag('work-7.png', alt: "workimg", class: 'img-responsive') %>
-                                <div class="item-img-overlay">
-                                    <span></span>
-                                </div>
-                            </div>                       
-                        </a><!--work link-->
-                        <div class="work-desc">
-                            <i class="fa fa-twitter"></i>
-                            <h5><a href="#">Project Name</a></h5>
-                        </div><!--work desc-->
-                    </div><!--owl item-->
+                    <% end %>
                 </div>
             </div>
         </div><!--row-->
@@ -155,335 +55,75 @@
         </div>
     </div><!--container-->
 </section><!--recent work section -->
-<section class="testimonials parallax" data-stellar-background-ratio="0.5">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
-                <div id="testi-carousel" class="owl-carousel owl-spaced">
-                    <div>
-                        <h4>
-                            <i class="fa fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia.
-                        </h4>
-                        <p>-Rakesh sharma</p>
-                    </div><!--testimonials item like paragraph-->
-                    <div>
-                        <h4>
-                            <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia.
-                        </h4>
-                        <p>-Rakesh sharma</p>
-                    </div><!--testimonials item like paragraph-->
-                    <div>
-                        <h4>
-                            <i class="fa fa-quote-left"></i>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta. Quisque ut nulla at nunc vehicula lacinia.
-                        </h4>
-                        <p>-Rakesh sharma</p>
-                    </div><!--testimonials item like paragraph-->
-                </div>
-            </div>
-        </div>
-    </div>
-</section><!--testimonials-->
-<div class="divide80"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="heading">Latest From Blog</h3>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 margin20">
-            <div class="post-wrap wow animated fadeInLeft">
-                <a href="blog-post.html">
-                    <div class="item-img-wrap">
-                        <%= image_tag('work-7.png', alt: "workimg", class: 'img-responsive') %>
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
-                    </div>                       
-                </a><!--post link--> 
-                <div class="post-desc">
-                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
-                    <p>
-                        Quisque ligulas ipsum, euismod atras vulputate <span class="text-color">iltricies</span> etri elit. Lorem ipsum dolor sit amet, consectetur.
-                    </p>
-                    <p><a href="blog-post.html">Read More...</a></p>
-                </div><!--post-desc-->
-            </div><!-- post wrap-->
-        </div>
-        <div class="col-md-4 margin20">
-            <div class="post-wrap wow animated fadeInLeft">
-                <a href="blog-post.html">
-                    <div class="item-img-wrap">
-                        <%= image_tag('work-5.png', alt: "workimg", class: 'img-responsive') %>
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
-                    </div>                       
-                </a><!--post link--> 
-                <div class="post-desc">
-                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
-                    <p>
-                        Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit. <span class="text-color">Lorem ipsum dolor</span> sit amet, consectetur.
-                    </p>
-                    <p><a href="blog-post.html">Read More...</a></p>
-                </div><!--post-desc-->
-            </div><!-- post wrap-->
-        </div>
-        <div class="col-md-4 margin20">
-            <div class="post-wrap wow animated fadeInLeft">
-                <a href="blog-post.html">
-                    <div class="item-img-wrap">
-                        <%= image_tag('work-8.png', alt: "workimg", class: 'img-responsive') %>
-                        <div class="item-img-overlay">
-                            <span></span>
-                        </div>
-                    </div>                       
-                </a><!--post link--> 
-                <div class="post-desc">
-                    <h4><a href="#">Lorem ipsum dollor Sit amet</a></h4>
-                    <p>
-                        Quisque ligulas ipsum, <span class="text-bg">euismod atras</span> vulputate iltricies etri elit. Lorem ipsum dolor sit amet, consectetur.
-                    </p>
-                    <p><a href="blog-post.html">Read More...</a></p>
-                </div><!--post-desc-->
-            </div><!-- post wrap-->
-        </div>
-    </div>
-</div><!--latest news-->
-
-
 <section class="parallax process-rounded" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3>Our Process</h3>
+                <h3 class='skincolor'>Quick Links</h3>
             </div> 
         </div>
         <div class="row">
             <div class="col-md-3 margin20">
                 <div class="process-box">
-                    <i class="fa fa-lightbulb-o"></i>
-                    <h4>Create Ideas</h4>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <h4 class='skincolor'>City Council</h4>
+                    </a>
                 </div><!--process box-->
             </div><!--process col-->
             <div class="col-md-3 margin20">
                 <div class="process-box">
-                    <i class="fa fa-pencil"></i>
-                    <h4>Built Design</h4>
+                    <a href="#">
+                        <i class="fa fa-tint"></i>
+                        <h4 class='skincolor'>Pay Your Water Bill</h4>
+                    </a>
                 </div><!--process box-->
             </div><!--process col-->
             <div class="col-md-3 margin20">
                 <div class="process-box">
-                    <i class="fa fa-bars"></i>
-                    <h4>Develop Website</h4>
-                </div><!--process box-->
-            </div><!--process col-->
-            <div class="col-md-3 margin20">
-                <div class="process-box">
-                    <i class="fa fa-plane"></i>
-                    <h4>Project Launch</h4>
+                    <a href="#">
+                        <i class="fa fa-bars"></i>
+                        <h4 class='skincolor'>City Ordinances</h4>
+                    </a>
                 </div><!--process box-->
             </div><!--process col-->
         </div>
     </div>
 </section><!--process rounded-->
-<div class="divide80"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-5 margin30">
-            <h3 class="heading">Get In Touch</h3>
-            <div class="contact-form">
-                <form role="form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="mail">Email</label>
-                        <input type="email" class="form-control" id="mail" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea class="form-control" rows="6" id="message" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-theme-bg">Send Message</button>
-                </form><!--form-->
-            </div><!--contact-form-->
-        </div><!--contact col-->
-        <div class="col-md-7 about-us">
-            <h3 class="heading">Little About us</h3>
-            <%= image_tag('team-3.jpg', alt: "workimg", class: 'img-responsive') %>
-            <p class="dropcap">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                Suspendisse sit amet erat volutpat, fermentum massa in, faucibus sem.
-            </p>
-            <p>
-                Duis nisl est, porta eu augue et, tempor congue mauris. Praesent a ligula in urna consectetur rhoncus. Curabitur ut nulla a velit feugiat venenatis. Nulla facilisi. Fusce viverra eu libero non euismod. Aenean in orci facilisis, ornare purus sed, lobortis augue. Cras lacinia felis ac elit elementum posuere. Vestibulum in urna metus. Suspendisse sit amet erat volutpat, fermentum massa in, faucibus sem.
-            </p>
-            <div class="divide30"></div>
-            <blockquote>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                    Suspendisse sit amet erat volutpat, fermentum massa in, faucibus sem.
-                </p>
-            </blockquote>
-
-        </div>
-    </div>
-</div><!--contact and about us end-->
-<div class="divide60"></div>
-<div class="container">    
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="heading">Some Facts</h3>
-        </div>
-    </div>
-    <div class="divide40"></div>
-    <div class="row">
-        <div class="col-md-3 margin20 facts-in">
-            <h3><i class="fa fa-image"></i><span class="counter">6858</span></h3>
-            <h4>Projects Complete</h4>
-        </div><!--facts in-->
-        <div class="col-md-3 margin20 facts-in">
-            <h3><i class="fa fa-users"></i><span class="counter">685</span></h3>
-            <h4>Happy Customers</h4>
-        </div><!--facts in-->
-        <div class="col-md-3 margin20 facts-in">
-            <h3><i class="fa fa-clock-o"></i><span class="counter">6000</span></h3>
-            <h4>Hours Work </h4>
-        </div><!--facts in-->
-        <div class="col-md-3 margin20 facts-in">
-            <h3><i class="fa fa-coffee"></i><span class="counter">2500</span></h3>
-            <h4>Cups of tea</h4>
-        </div><!--facts in-->
-    </div>
-</div><!--fun facts container-->
-
 <footer id="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-3 margin30">
                 <div class="footer-col">
-                    <h3 class="heading">About us</h3>
+                    <h3 class="heading">About</h3>
                     <p>
-                        Duis nisl est, porta eu augue et, tempor congue mauris. Praesent a ligula in urna consectetur rhoncus.
+                        Meridian, Texas - Top of the Hill Country
                     </p>
                     <ul class="address-info list-unstyled">
-                        <li><i class="fa fa-home"></i> Vaishali nagar, Jaipur, 302012</li>  
-                        <li><i class="fa fa-phone"></i> +91 123456789</li>  
-                        <li><i class="fa fa-envelope"></i> <a href="#">support@designmylife.com</a></li> 
+                        <li>
+                            <i class="fa fa-home"></i> 
+                            111 Main Street, Meridian, TX 76665
+                        </li>  
+                        <li>
+                            <i class="fa fa-phone"></i> 
+                            (254) 435-2381
+                        </li>  
+                        <li>
+                            <i class="fa fa-envelope"></i> 
+                            <a href="#">info@meridiantexas.us</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook" data-placement="top"></i>
+                            <a href="https://www.facebook.com/meridiantx">meridiantx</a>
+                        </li> 
                     </ul>
                 </div>
             </div>
             <div class="col-md-3 margin30">
                 <div class="footer-col">
-                    <h3 class="heading">Recent Post</h3>
-                    <ul class="list-unstyled popular-post">
-                        <li>
-                            <div class="popular-img">
-                                <a href="#"><%= image_tag('work-6.png', alt: "workimg", class: 'img-responsive') %></a>
-                            </div>
-                            <div class="popular-desc">
-                                <h5> <a href="#">blog post image</a></h5>
-                                <h6>31st july 2014</h6>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="popular-img">
-                                <a href="#"> <%= image_tag('work-2.png', alt: "workimg", class: 'img-responsive') %></a>
-                            </div>
-                            <div class="popular-desc">
-                                <h5> <a href="#">blog post image</a></h5>
-                                <h6>31st july 2014</h6>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="popular-img">
-                                <a href="#"> <%= image_tag('work-5.png', alt: "workimg", class: 'img-responsive') %></a>
-                            </div>
-                            <div class="popular-desc">
-                                <h5> <a href="#">blog post image</a></h5>
-                                <h6>31st july 2014</h6>
-                            </div>
-                        </li>
-                    </ul><!--latest post-->
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Meridian,Texas&zoom=10&size=200x200&key=AIzaSyAbCF00Hq53Y3_8ixi4svCfvzT-XMNaW34">
                 </div>
             </div><!--footer col-->
-            <div class="col-md-3 margin30">
-                <div class="footer-col">
-                    <h3 class="heading">Elsewhere</h3>
-                    <ul class="list-inline social-1">
-                        <li><a href="#"><i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook" data-placement="top"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" data-toggle="tooltip" title="" data-original-title="Twitter" data-placement="top"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" title="" data-original-title="Google pluse" data-placement="top"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest" data-toggle="tooltip" title="" data-original-title="Pinterest" data-placement="top"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble" data-toggle="tooltip" title="" data-original-title="Dribbble" data-placement="top"></i></a></li>
-                    </ul>
-                </div>
-                <div class="divide30"></div>
-                <div class="footer-col">
-                    <h3 class="heading">Newsletter</h3>
-                    <p>
-                        Duis nisl est, porta eu augue et, tempor congue mauris.
-                    </p>
-                    <form class="newsletter-form">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="input-group">
-                                    <label class="sr-only" for="subscribe-email">Email address</label>
-                                    <input type="email" class="form-control" id="subscribe-email" placeholder="Enter your email">
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-theme-bg btn-lg">OK</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 margin30">
-                <div class="footer-col">
-                    <h3 class="heading">Recent Work</h3>
-                    <div class=" footer-work">
-                        <a href="#">
-                            <%= image_tag('work-1.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-2.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-10.jpg', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-4.jpg', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-5.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-6.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-7.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-8.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                        <a href="#">
-                            <%= image_tag('work-9.png', alt: "", class: 'img-responsive') %>
-                        </a>
-                    </div>
-                </div><!--footer col-->
-            </div>
-        </div><!--row-->
-        <div class="row">
-            <div class="col-md-12">
-                <div class="footer-btm">
-                    <span>&copy; Copyright 2014. Theme by Design_mylife</span>
-                </div>
-            </div>
         </div>
     </div>
 </footer><!--footer end-->

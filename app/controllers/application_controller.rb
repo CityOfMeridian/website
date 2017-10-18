@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @title = 'City of Meridian'
+    @news_items = NewsItem.where('created_at < ?', 2.weeks.ago)
   end
 
   def edc
