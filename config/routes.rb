@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: "application#index"
+  get "/index" => "application#index"
+
   get "/edc" => "application#edc"
   get "/calendar" => "application#calendar"
   get "/city_council" => "application#council"
