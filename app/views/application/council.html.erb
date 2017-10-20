@@ -3,8 +3,9 @@
         <div class="row">
             <div class="col-sm-6">
                 <h4>Meet the Mayor</h4>
-                <span><%= @city_council.meet_mayor.content %></span>
-                <img src="@city_council.mayor_image.asset.url" alt="#{}">
+                <!-- # <span><%= @city_council.meet_mayor.content %></span> -->
+                <!-- <img src="@city_council.mayor_image.asset.url" alt="#{}"> -->
+                <%= image_tag @city_council.mayor_image.asset.url %>
             </div>
             <div class="col-sm-6 hidden-xs text-right">
                 <ol class="breadcrumb">
@@ -29,7 +30,7 @@
         <div class="col-md-4 margin30">
             <div class="default-wrap">
                 <div class="img">
-                    <img src="/../images/stock_member2.jpg" class="img-responsive" alt="Mr. Councilman">
+                    <%= image_tag "stock_member2.jpg", class: "img-responsive", alt: "Mr. Councilman" %>
                 </div><!--person image-->
                 <div class="description">
                     <h4>July Augusto</h4>
