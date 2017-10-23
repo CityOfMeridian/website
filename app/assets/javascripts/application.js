@@ -24,4 +24,5 @@
 //= require owl.carousel
 //= require wow
 //= require narani
+//=require custom
 //= require_tree .
