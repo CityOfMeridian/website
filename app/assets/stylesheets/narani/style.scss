@@ -722,9 +722,14 @@ ul.nav li a{
   font-family: $primary-font;
 }
 
-.navbar .dropdown-menu li a {
+.navbar .dropdown-menu li a, span.dropdown-header {
     color: #fff;
-    font-size: 12px;
+    font-size: $large-font-size;
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-size: $navbar-font-size;
+    text-transform: none;
 }
 
 .navbar-brand a {
@@ -843,6 +848,22 @@ ul.nav li a{
 .address-info.list-unstyled li i{
     color: #fff;
 }
+
+.nav.nav-pills.nav-stacked .active a{
+    background-color: $oceanblue;
+}
+
+.navbar-nav .nav-item .btn.button-black {
+    color: #fff;
+    background-color: #16837e;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.owl-item div a .item-img-wrap .img-responsive {
+    height: 250px;
+}
+
 
 /****** media queries ******/
 @media(max-width:767px){

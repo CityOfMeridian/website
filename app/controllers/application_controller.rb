@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
   def council
     @city_council = CityCouncilPage.instance
   end
+
+  def not_found
+    render '404'
+  end
+
+  def attractions
+  end
 end
