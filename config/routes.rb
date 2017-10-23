@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "/edc" => "application#edc"
   get "/calendar" => "application#calendar"
-  get "/city_council" => "application#council"
+  get "/city-council" => "application#council"
   get "/404" => "application#not_found"
   get "/edc" => "application#edc"
   get "/calendar" => "application#calendar"
