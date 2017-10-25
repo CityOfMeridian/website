@@ -57,6 +57,7 @@
             <div class="col-md-12">
                 <div id="work-carousel" class="owl-carousel owl-spaced">
                     <% @news_items.each do |news_item| %>
+                        <% if news_item.image.asset.url.present? %>
                     <div>
                         <a href="portfolio-single.html">
                             <div class="item-img-wrap ">
@@ -67,6 +68,7 @@
                             </div>                       
                         </a><!--work link-->
                     </div><!--owl item-->
+                        <% end %>
                     <% end %>
                 </div>
             </div>
