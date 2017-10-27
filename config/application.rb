@@ -1,11 +1,9 @@
 require_relative 'boot'
-
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-require 'dotenv/load'
 
 module CityOfMeridian
   class Application < Rails::Application
@@ -15,6 +13,9 @@ module CityOfMeridian
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+    Raven.configure do |config|
+      config.dsn = 'https://ab70bfc9799e48fa973284d37697865c:e0ce02e98ee243b6b3f754d5a0484d30@sentry.io/237465'
+    end
     config.time_zone = 'Central Time (US & Canada)'
     config.exception_app = self.routes
   end

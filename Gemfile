@@ -10,8 +10,8 @@ gem 'rails', '~> 5.0.5'
 gem "rails-ujs"
 gem "delayed_job_active_record"
 gem "bootstrap-sass", "~> 3.3.7"
+gem "fog"
 gem "fae-rails"
-gem "fog-aws"
 gem "font-awesome-rails"
 gem 'mysql2'
 gem "owlcarousel-rails"
@@ -24,12 +24,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'wow-rails'
 gem 'simple_calendar', '~> 2.0'
+gem 'sentry-raven'
+gem 'dotenv-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
