@@ -1,10 +1,12 @@
 Fae.setup do |config|
   config.devise_secret_key = '56f0ec8bbcea4db9b36126d85365a65de52ca8b5d55292ce29381bc4a772d0314c80efef4af60246fd8774af57fef7cee3bc1976eedb3e082d0442ae82d39b05'
-  CarrierWave.configure do |config|
-      config.fog_credentials = {
+  CarrierWave.configure do |config2|
+      config2.provider = 'fog/aws'
+      config2.fog_credentials = {
         provider: "AWS",
         aws_access_key_id: ENV.fetch('DREAMOBJECTS_PUBLIC_KEY'),
         aws_secret_access_key: ENV.fetch('DREAMOBJECTS_SECRET_KEY'),
+        region: 'us-west-1'
         host: 'objects-us-west-1.dream.io',
         # this is the real kicker...
         # if you don't do this you'll just keep getting 400 bad request returned
@@ -12,11 +14,11 @@ Fae.setup do |config|
         aws_signature_version: 2
       }
     # bucket name from above...
-    config.fog_public = true
+    config2.fog_public = true
     # include bucket name from above in url...
-    config.asset_host = "http://city-of-meridian.objects-us-west-1.dream.io"
+    config2.asset_host = "http://city-of-meridian.objects-us-west-1.dream.io"
     # this is a heroku thing - you may or may not need to consider this 
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
+    config2.cache_dir = "#{Rails.root}/tmp/uploads"
   end
 module Fae
   class ImageUploader < CarrierWave::Uploader::Base
