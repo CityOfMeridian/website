@@ -21,7 +21,7 @@
 //= require jquery/jquery.nicescroll.min
 //= require jquery/jquery.stellar.min
 //= require jquery/jquery.sticky
-//= require owl.carousel
 //= require wow
+//= require owl.carousel
 //= require narani
 //= require custom
