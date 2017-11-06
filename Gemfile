@@ -26,6 +26,7 @@ gem 'wow-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'sentry-raven'
 gem 'dotenv-rails'
+gem "animate-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

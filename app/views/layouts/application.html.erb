@@ -104,6 +104,43 @@
   </div><!--.navbar-default-->
   <%= render "flashes" -%>
   <%= yield %>
+  <footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 margin30">
+                <div class="footer-col">
+                    <h3 class="heading">About</h3>
+                    <p>
+                        Meridian, Texas - Top of the Hill Country
+                    </p>
+                    <ul class="address-info list-unstyled">
+                        <li>
+                            <i class="fa fa-home"></i> 
+                            111 Main Street, Meridian, TX 76665
+                        </li>  
+                        <li>
+                            <i class="fa fa-phone"></i> 
+                            (254) 435-2381
+                        </li>  
+                        <li>
+                            <i class="fa fa-envelope"></i> 
+                            <a href="#">info@meridiantexas.us</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-facebook" data-toggle="tooltip" title="" data-original-title="Facebook" data-placement="top"></i>
+                            <a href="https://www.facebook.com/meridiantx">meridiantx</a>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 margin30">
+                <div class="footer-col">
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Meridian,Texas&zoom=10&size=200x200&key=AIzaSyAbCF00Hq53Y3_8ixi4svCfvzT-XMNaW34">
+                </div>
+            </div><!--footer col-->
+        </div>
+    </div>
+</footer><!--footer end-->
   <%= render "javascript" %>
   <%= render "css_overrides" %>
 </body>

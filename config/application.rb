@@ -17,6 +17,6 @@ module CityOfMeridian
       config.dsn = 'https://ab70bfc9799e48fa973284d37697865c:e0ce02e98ee243b6b3f754d5a0484d30@sentry.io/237465'
     end
     config.time_zone = 'Central Time (US & Canada)'
-    config.exception_app = self.routes
+    config.exceptions_app = self.routes
   end
 end
