@@ -22,8 +22,7 @@
 //= require jquery/jquery.stellar.min
 //= require jquery/jquery.sticky
 //= require owl.carousel
-//= require animate
 //= require wow
 //= require narani
-//=require custom
+//= require custom
 //= require_tree .
