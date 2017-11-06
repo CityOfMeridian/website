@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get "/dining" => "application#dining"
   get "/shopping" => "application#shopping"
 
+
   namespace :admin do
+    get '/login' => 'sessions#new'
     resources :agendas
     resources :news_items
     resources :events
