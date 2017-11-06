@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Fae::Role.create(name: 'edc admin')
+Fae::Role.create(name: 'city admin')
+Fae::Role.create(name: 'library admin')
+Fae::Role.create(name: 'vfd admin')

@@ -19,7 +19,17 @@ module Fae
       #  'content_blocks/about_us' => ['super admin']
       # }
       def access_map
-        {}
+        {
+          'agendas' => ['super admin', 'city admin', 'edc admin'],
+          'minutes' => ['super admin', 'city admin', 'edc admin'],
+          'news_items' => ['super admin', 'city admin', 'edc admin'],
+          'content_blocks/edc' => ['super admin', 'edc admin'],
+          'content_blocks/city_council' => ['super admin', 'city admin'],
+          'content_blocks/library' => ['super admin', 'library admin'],
+          'content_blocks/police' => ['super admin', 'city admin'],
+          'content_blocks/vfd' => ['super admin', 'city admin', 'vfd admin'],
+          'content_blocks/calendar' => ['super admin', 'city admin']
+        }
       end
 
     end
