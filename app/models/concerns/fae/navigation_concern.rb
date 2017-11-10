@@ -37,9 +37,22 @@ module Fae
             item('Calendar', path: fae.edit_content_block_path('calendar')),
             item('City Council', path: fae.edit_content_block_path('city_council'))
         ]),
+        item('Organizations', path: admin_organizations_path, subitems: organization_subitems),
         # scaffold inject marker
       ]
     end
 
+    private 
+
+    def organization_subitems
+      array = []
+      Organization.all.each do |org|
+        array << item(org.name, path: edit_admin_organization_path(id: org.id), 
+            subitems: [
+                item('Meetings', path: admin_organization_meetings_path(organization_id: org.id)) 
+                ])
+      end
+      array
+    end
   end
 end
