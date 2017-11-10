@@ -6,6 +6,6 @@
   main.content
     = fae_input f, :name
 
-  == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date]
+== render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date]
     
 
