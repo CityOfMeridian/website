@@ -2,10 +2,6 @@
   header.content-header.js-content-header
     == render 'fae/shared/form_header', header: @klass_name
   == render 'fae/shared/errors'
-
-  main.content
-    = fae_input f, :name
-
 == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date]
     
 

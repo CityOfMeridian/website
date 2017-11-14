@@ -1,6 +1,9 @@
 class Meeting < ApplicationRecord
   include Fae::BaseModelConcern
 
+  has_fae_file :agenda
+  has_fae_file :minutes
+
   belongs_to :organization, touch: true
   belongs_to :place
 
@@ -13,5 +16,7 @@ class Meeting < ApplicationRecord
   def fae_display_field
     title
   end
+
+
 
 end

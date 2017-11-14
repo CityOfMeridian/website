@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110123036) do
-
-  create_table "agendas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "meeting_date"
-    t.string   "title"
-    t.text     "content",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
+ActiveRecord::Schema.define(version: 20171114184207) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -93,6 +85,8 @@ ActiveRecord::Schema.define(version: 20171110123036) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "organization_id"
+    t.index ["organization_id"], name: "index_fae_roles_on_organization_id", using: :btree
   end
 
   create_table "fae_static_pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -184,14 +178,6 @@ ActiveRecord::Schema.define(version: 20171110123036) do
     t.index ["organization_id"], name: "index_meetings_on_organization_id", using: :btree
   end
 
-  create_table "minutes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "meeting_date"
-    t.string   "title"
-    t.text     "content",      limit: 65535
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
   create_table "news_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.text     "content",    limit: 65535
@@ -212,5 +198,6 @@ ActiveRecord::Schema.define(version: 20171110123036) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "fae_roles", "organizations"
   add_foreign_key "meetings", "organizations"
 end
