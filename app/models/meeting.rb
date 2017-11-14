@@ -7,6 +7,8 @@ class Meeting < ApplicationRecord
   belongs_to :organization, touch: true
   belongs_to :place
 
+  delegate :name, to: :place, prefix: true, allow_nil: true
+
   default_scope { order(:date) }
 
   def fae_nested_parent
@@ -16,6 +18,7 @@ class Meeting < ApplicationRecord
   def fae_display_field
     title
   end
+
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114184207) do
+ActiveRecord::Schema.define(version: 20171114190442) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -175,7 +175,11 @@ ActiveRecord::Schema.define(version: 20171114184207) do
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "place_id_id"
+    t.integer  "place_id"
     t.index ["organization_id"], name: "index_meetings_on_organization_id", using: :btree
+    t.index ["place_id"], name: "index_meetings_on_place_id", using: :btree
+    t.index ["place_id_id"], name: "index_meetings_on_place_id_id", using: :btree
   end
 
   create_table "news_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -200,4 +204,5 @@ ActiveRecord::Schema.define(version: 20171114184207) do
 
   add_foreign_key "fae_roles", "organizations"
   add_foreign_key "meetings", "organizations"
+  add_foreign_key "meetings", "places"
 end
