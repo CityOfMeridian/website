@@ -1,2 +1,18 @@
 // Do Not Delete this page! FAE depends on it in order to set its highlight color.
 // $c-custom-highlight: #9aa142;
+.half-span {
+    width: 50%;
+    display:inline-block;
+    vertical-align: top;
+}
+
+.col-10 {
+  width: 75%;
+  display: inline-block;
+  padding-top: 20px;
+}
+
+.col-1 {
+  width: 12.5%;
+  display: inline-block;
+}

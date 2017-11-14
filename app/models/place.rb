@@ -1,11 +1,11 @@
-class Agenda < ApplicationRecord
+class Place < ApplicationRecord
   include Fae::BaseModelConcern
 
-  def fae_display_field
-    title
-  end
+  has_many :meetings
 
-  has_fae_file :file
+  def fae_display_field
+    name
+  end
 
 
 end

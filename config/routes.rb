@@ -16,6 +16,11 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    resources :meetings
+    resources :organizations do
+      resources :meetings
+      resources :places
+    end
     get '/login' => 'sessions#new'
     resources :agendas
     resources :news_items
