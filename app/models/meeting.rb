@@ -19,7 +19,8 @@ class Meeting < ApplicationRecord
     title
   end
 
-
-
+  def ordered
+    order(:date)
+  end
 
 end

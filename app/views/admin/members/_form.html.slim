@@ -1,0 +1,20 @@
+= simple_form_for(['admin', @item], html: {multipart: true, novalidate: true, class: 'js-file-form'}, remote: true, data: {type: "html"}) do |f|
+  .col-6
+    = fae_input f, :name
+    = fae_input f, :email
+    = fae_input f, :description
+  .col-6
+    .col-1
+    .col-10
+      = fae_image_form f, :image
+    .col-1
+    - Organization::EXPECTED_LEADER_TITLES.each do |title|
+      .col-1
+      .col-10
+        = f.check_box "#{title}?"
+        = f.label title, style: 'display: inline-block;'
+      .col-1
+    = f.hidden_field :organization_id
+
+  = f.submit
+  = button_tag 'Cancel', type: 'button', class: 'js-cancel-nested cancel-nested-button'

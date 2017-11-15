@@ -6,3 +6,7 @@
 .col-10
   == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
 .col-1
+.col-1
+.col-10
+  == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :titles]
+.col-1

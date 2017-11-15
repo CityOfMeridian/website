@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
+    resources :members
     resources :meetings
     resources :organizations do
       resources :meetings
