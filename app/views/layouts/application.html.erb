@@ -24,12 +24,12 @@
 
 <link href="https://fonts.googleapis.com/css?family=Mukta|Qwigley|Open+Sans|" rel="stylesheet">
 <body>
-    <% if @public_notice.present? %>
+    <% if @latest_public_notice.present? %>
    <div class="top-bar-wrap hidden-xs">
         <div class="container">
             <div class="top-bar">
                 <div class="pull-left">
-                    Public Notice: <a href="#"><%= @public_notice.title %></a>
+                    A new Public Notice: <%= link_to(truncate(@latest_public_notice.title), public_notices_path) %>
                 </div>
                 <div class="pull-right">
                     <ul class="list-inline social-1">
@@ -133,11 +133,25 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-md-3 margin30">
                 <div class="footer-col">
                     <img src="https://maps.googleapis.com/maps/api/staticmap?center=Meridian,Texas&zoom=10&size=200x200&key=AIzaSyAbCF00Hq53Y3_8ixi4svCfvzT-XMNaW34">
                 </div>
             </div><!--footer col-->
+            <div class="col-md-3 margin30">
+                <div class="footer-col">
+                    <h3 class="heading">Links</h3>
+                    <ul class="address-info list-unstyled">
+                        <li>
+                            <a href='/'>Home</a> 
+                        </li>                        
+                        <li>
+                            <a href='/public_notices'>Public Notices</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </footer><!--footer end-->

@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   get "/history" => "application#history"
   get "/dining" => "application#dining"
   get "/shopping" => "application#shopping"
-
+  
+  resources :public_notices, only: [:index, :show] do
+    get :noticeable
+  end
 
   namespace :admin do
+    resources :public_notices
     resources :members
     resources :meetings
     resources :organizations do

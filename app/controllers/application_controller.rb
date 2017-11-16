@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   def index
     @title = 'City of Meridian'
     @news_items = NewsItem.where('created_at > ?', 2.weeks.ago)
+    @latest_public_notice = latest_public_notice
   end
 
   def edc
@@ -23,5 +24,17 @@ class ApplicationController < ActionController::Base
   end
 
   def attractions
+  end
+
+  private
+
+  def latest_public_notice
+    return @public_notices.first if public_notices?
+    nil
+  end
+
+  def public_notices?
+    @public_notices = PublicNotice.active
+    @public_notices.count > 0
   end
 end

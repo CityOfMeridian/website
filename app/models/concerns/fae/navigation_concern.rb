@@ -25,8 +25,6 @@ module Fae
 
     def structure
       structure = [
-            item('Events', path: admin_events_path),
-            item('News Items', path: admin_news_items_path),
             item('Pages', subitems: [
                 item('Library', path: fae.edit_content_block_path('library')),
                 item('VFD', path: fae.edit_content_block_path('vfd')),
@@ -35,7 +33,10 @@ module Fae
                 item('Calendar', path: fae.edit_content_block_path('calendar')),
                 item('City Council', path: fae.edit_content_block_path('city_council'))
                 ]
-            )
+            ),
+            item('Events', path: admin_events_path),
+            item('News Items', path: admin_news_items_path),
+            item('Public Notices', path: admin_public_notices_path),
         ]
         if current_user.organizations.count > 1
             subitems = []
