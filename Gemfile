@@ -7,6 +7,7 @@ end
 
 
 gem 'rails', '~> 5.0.5'
+gem 'pry'
 gem "rails-ujs"
 gem "delayed_job_active_record"
 gem "bootstrap-sass", "~> 3.3.7"

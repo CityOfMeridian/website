@@ -1,9 +1,9 @@
 = simple_form_for(['admin', @item], html: {multipart: true, novalidate: true, class: 'js-file-form'}, remote: true, data: {type: "html"}) do |f|
-  .half-span
+  .col-6
     = fae_input f, :title
     = fae_datepicker f, :date
     = fae_association f, :place
-  .half-span
+  .col-6
     = fae_file_form f, :agenda
     = fae_file_form f, :minutes
 
