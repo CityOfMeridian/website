@@ -175,11 +175,9 @@ ActiveRecord::Schema.define(version: 20171114222006) do
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "place_id_id"
     t.integer  "place_id"
     t.index ["organization_id"], name: "index_meetings_on_organization_id", using: :btree
     t.index ["place_id"], name: "index_meetings_on_place_id", using: :btree
-    t.index ["place_id_id"], name: "index_meetings_on_place_id_id", using: :btree
   end
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -222,7 +220,6 @@ ActiveRecord::Schema.define(version: 20171114222006) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "fae_roles", "organizations"
   add_foreign_key "meetings", "organizations"
   add_foreign_key "meetings", "places"
 end

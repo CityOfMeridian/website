@@ -5,5 +5,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+
+    add_reference :fae_roles, :organization
   end
 end
