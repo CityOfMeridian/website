@@ -6,6 +6,7 @@ class Meeting < ApplicationRecord
 
   belongs_to :organization, touch: true
   belongs_to :place
+  has_many :public_notices, as: :noticeable
 
   delegate :name, to: :place, prefix: true, allow_nil: true
 

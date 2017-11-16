@@ -1,0 +1,38 @@
+        <section class="bread-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Public Notices</h4>
+                    </div>
+                </div>
+            </div>
+        </section><!--.bread-wrap-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5></h5>
+                    <p class="lead">
+                    </p>
+                    <!--collapse-->
+                    <div class="panel-group" id="accordion">
+                    <%= @public_notices.each do |public_notice| %>
+                        <div class="panel panel-default">
+                            <div class="panel-heading light-grey">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                        <%= public_notice.title %>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <%= public_notice.description %>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                    </div><!--categories--> 
+                </div><!--faqs sidebar col-->
+            </div>
+        </div><!--faq-container-->
+        <div class="divide80"></div>

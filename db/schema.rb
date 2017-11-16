@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114222006) do
+ActiveRecord::Schema.define(version: 20171116125029) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -218,6 +218,18 @@ ActiveRecord::Schema.define(version: 20171114222006) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "public_notices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.text     "description",     limit: 65535
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "noticeable_type"
+    t.integer  "noticeable_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["noticeable_type", "noticeable_id"], name: "index_public_notices_on_noticeable_type_and_noticeable_id", using: :btree
   end
 
   add_foreign_key "meetings", "organizations"
