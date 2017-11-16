@@ -24,35 +24,30 @@ module Fae
     # end
 
     def structure
-      [
-        item('Events', path: admin_events_path),
-        item('News Items', path: admin_news_items_path),
-        item('Agendas', path: admin_agendas_path),
-        item('Minutes', path: admin_minutes_path),
-        item('Pages', subitems: [
-            item('Library', path: fae.edit_content_block_path('library')),
-            item('VFD', path: fae.edit_content_block_path('vfd')),
-            item('Police', path: fae.edit_content_block_path('police')),
-            item('EDC', path: fae.edit_content_block_path('edc')),
-            item('Calendar', path: fae.edit_content_block_path('calendar')),
-            item('City Council', path: fae.edit_content_block_path('city_council'))
-        ]),
-        item('Organizations', path: admin_organizations_path, subitems: organization_subitems),
-        # scaffold inject marker
-      ]
+      structure = [
+            item('Events', path: admin_events_path),
+            item('News Items', path: admin_news_items_path),
+            item('Pages', subitems: [
+                item('Library', path: fae.edit_content_block_path('library')),
+                item('VFD', path: fae.edit_content_block_path('vfd')),
+                item('Police', path: fae.edit_content_block_path('police')),
+                item('EDC', path: fae.edit_content_block_path('edc')),
+                item('Calendar', path: fae.edit_content_block_path('calendar')),
+                item('City Council', path: fae.edit_content_block_path('city_council'))
+                ]
+            )
+        ]
+        if current_user.organizations.count > 1
+            subitems = []
+            current_user.organizations.all.each do |org|
+                subitems.unshift(item(org.name, path: edit_admin_organization_path(id: org.id)))
+            end 
+            structure.unshift(item('Organizations', subitems: subitems))
+        else
+            structure.unshift(item(current_user.organizations[0].name, path: edit_admin_organization_path(id: current_user.organizations[0].id)))
+        end
+        structure
     end
 
-    private 
-
-    def organization_subitems
-      array = []
-      Organization.all.each do |org|
-        array << item(org.name, path: edit_admin_organization_path(id: org.id), 
-            subitems: [
-                item('Meetings', path: admin_organization_meetings_path(organization_id: org.id)) 
-                ])
-      end
-      array
-    end
   end
 end
