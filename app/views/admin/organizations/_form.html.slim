@@ -2,11 +2,18 @@
   header.content-header.js-content-header
     == render 'fae/shared/form_header', header: @klass_name
   == render 'fae/shared/errors'
+  .col-1
+  .col-10
+    .col-6
+      = fae_pulldown f, :leader, label: @item.leader_title.humanize, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
+    .col-6
+      = fae_pulldown f, :second_leader, label: @item.second_leader_title.humanize, collection: Member.active.where(organization: @item).all
+  .col-1
 .col-1
 .col-10
   == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
 .col-1
 .col-1
 .col-10
-  == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :titles]
+  == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :active, :term_start, :term_end]
 .col-1

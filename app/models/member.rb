@@ -11,6 +11,7 @@ class Member < ApplicationRecord
   belongs_to :organization, touch: true, foreign_key: :organization_id
   belongs_to :organization_led, class_name: 'Organization', foreign_key: :leader_id
   belongs_to :organization_second_led, class_name: 'Organization', foreign_key: :second_leader_id
+  scope :active, -> { where(active: true).order(:active) }
 
 
   def fae_nested_parent
@@ -20,14 +21,5 @@ class Member < ApplicationRecord
   def fae_display_field
     name
   end
-
-  def titles
-    titles = []
-    return titles if organization.nil?
-    titles << organization.leader_title if organization == organization_led
-    titles << organization.second_leader_title if organization == organization_second_led
-    titles
-  end
-  
 
 end

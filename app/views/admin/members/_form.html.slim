@@ -7,14 +7,14 @@
     .col-1
     .col-10
       = fae_image_form f, :image
+      .col-4
+        = fae_datepicker f, :term_start
+      .col-4
+      .col-4
+        = fae_datepicker f, :term_end
     .col-1
-    - Organization::EXPECTED_LEADER_TITLES.each do |title|
-      .col-1
-      .col-10
-        = f.check_box "#{title}?"
-        = f.label title, style: 'display: inline-block;'
-      .col-1
     = f.hidden_field :organization_id
 
+  = f.input :active
   = f.submit
   = button_tag 'Cancel', type: 'button', class: 'js-cancel-nested cancel-nested-button'
