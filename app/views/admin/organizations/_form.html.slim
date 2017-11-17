@@ -4,6 +4,7 @@
   == render 'fae/shared/errors'
   .col-1
   .col-10
+    = fae_input f, :members_collection_name, label: 'Member Group Name'
     .col-6
       = fae_pulldown f, :leader, label: @item.leader_title.humanize, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
     .col-6

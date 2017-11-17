@@ -100,8 +100,7 @@
             <div class="col-md-3 margin20">
                 <div class="process-box">
                     <a href="#">
-                        <i class="fa fa-users"></i>
-                        <h4 class='skincolor'>City Council</h4>
+                        <%= link_to "<i class=\"fa fa-users\"></i><h4 class=\"skincolor\">#{@default_members_collection}</h4>".html_safe, members_path %>
                     </a>
                 </div><!--process box-->
             </div><!--process col-->

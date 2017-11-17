@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :default_members_collection
 
   def index
     @title = 'City of Meridian'
@@ -36,5 +37,9 @@ class ApplicationController < ActionController::Base
   def public_notices?
     @public_notices = PublicNotice.active
     @public_notices.count > 0
+  end
+
+  def default_members_collection
+    @default_members_collection = Organization.default_members_collection_name
   end
 end
