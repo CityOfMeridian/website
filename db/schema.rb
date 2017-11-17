@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116125029) do
+ActiveRecord::Schema.define(version: 20171116160130) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -202,13 +202,14 @@ ActiveRecord::Schema.define(version: 20171116125029) do
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "leader_id"
-    t.string   "leader_title",        default: "mayor"
+    t.string   "leader_title",            default: "mayor"
     t.integer  "second_leader_id"
-    t.string   "second_leader_title", default: "mayor_pro_tem"
+    t.string   "second_leader_title",     default: "mayor_pro_tem"
     t.integer  "total_members"
+    t.string   "members_collection_name"
     t.index ["leader_id"], name: "index_organizations_on_leader_id", using: :btree
     t.index ["second_leader_id"], name: "index_organizations_on_second_leader_id", using: :btree
   end

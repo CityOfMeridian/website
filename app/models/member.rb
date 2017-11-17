@@ -1,10 +1,5 @@
 class Member < ApplicationRecord
   include Fae::BaseModelConcern
-  Organization::EXPECTED_LEADER_TITLES.each do |title|
-    define_method("#{title}?") do
-      titles.include? title
-    end
-  end
 
   has_fae_image :image
 
@@ -20,6 +15,14 @@ class Member < ApplicationRecord
 
   def fae_display_field
     name
+  end
+
+  def leader?
+    self == organization.leader
+  end
+
+  def second_leader?
+    self == organization.second_leader
   end
 
 end

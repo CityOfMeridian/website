@@ -1,0 +1,55 @@
+<section class="bread-wrap">
+    <div class="container">
+        <h3><%= @organization.members_collection_name %></h3>
+        <div class="row">
+            <% if @leader.present? %>
+            <h4>Meet the <%= @organization.leader_title.titleize %></h4>
+            <br>
+            <div class="col-md-4 margin30">
+                <div class="default-wrap">
+                    <div class="img">
+                        <%= image_tag(@leader.image.asset_url, class: "img-responsive") unless @leader.image.asset_url.nil? %>
+                    </div><!--person image-->
+                    <div class="description">
+                        <h4><%= @leader.name%></h4>
+                        <span><%= @organization.leader_title.titleize %></span>
+                    </div><!--desrciption-->
+                    <div class="hover-desc" style="background-color: #787F96 !important; color: #f5f4f4 !important;">
+                        <p><%= @leader.description %></p>
+                         <ul class="list-inline social-1">
+                            <li><%= mail_to '<i class="fa fa-envelope-o fa-4x" data-toggle="tooltip" title="" data-original-title="Email" data-placement="top"></i>'.html_safe, @leader.email %></li>
+                        </ul>
+                    </div>
+                </div><!--default-wrap-->
+            </div><!--team col-4-->
+            <% end %>
+        </div>
+    </div>
+</section><!--.bread-wrap-->
+
+
+<div class="divide80"></div>
+<div class="container">
+    <div class="row">               
+        <% @members.each do |member| %>
+        <div class="col-md-4 margin30">
+            <div class="default-wrap">
+                <div class="img">
+                    <%= image_tag(member.image.asset.url, class: "img-responsive") unless member.image.asset_url.nil?%>
+                </div><!--person image-->
+                <div class="description">
+                    <h4><%= member.name %></h4>
+                    <span><%= @organization.second_leader_title.titleize if member.second_leader? %></span>
+                </div><!--desrciption-->
+                <div class="hover-desc" style="background-color: #787F96 !important; color: #f5f4f4 !important;">
+                    <p><%= member.description %></p>
+                     <ul class="list-inline social-1">
+                        <li><%= mail_to '<i class="fa fa-envelope-o fa-4x" data-toggle="tooltip" title="" data-original-title="Email" data-placement="top"></i>'.html_safe, member.email %></li>
+                    </ul>
+                </div>
+            </div><!--default-wrap-->
+        </div><!--team col-4-->
+        <% end %>
+    </div><!--row-->
+</div><!--row-->
+</div>

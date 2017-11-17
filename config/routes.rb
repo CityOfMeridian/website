@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get "/edc" => "application#edc"
   get "/calendar" => "application#calendar"
-  get "/city-council" => "application#council"
   get "/404" => "errors#not_found"
   get "/500" => "errors#internal_error"
   get "/edc" => "application#edc"
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
   resources :public_notices, only: [:index, :show] do
     get :noticeable
   end
+
+  resources :members, only: [:index]
 
   namespace :admin do
     resources :public_notices
