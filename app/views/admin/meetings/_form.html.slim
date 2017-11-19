@@ -1,8 +1,12 @@
-= simple_form_for(['admin', @item], html: {multipart: true, novalidate: true, class: 'js-file-form'}, remote: true, data: {type: "html"}) do |f|
+= simple_form_for(['admin', @item], html: { multipart: true, novalidate: true, class: 'js-file-form'}, remote: true, data: {type: "html"}) do |f|
   .col-6
     = fae_input f, :title
     = fae_datepicker f, :date
     = fae_association f, :place
+    label.inline Create public notice?
+    = f.check_box :create_public_notice do
+      = check_box_tag :create_public_notice?
+
   .col-6
     = fae_file_form f, :agenda
     = fae_file_form f, :minutes
