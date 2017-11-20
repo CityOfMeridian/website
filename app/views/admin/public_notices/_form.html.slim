@@ -4,7 +4,14 @@
   == render 'fae/shared/errors'
 
   main.content
-    = fae_input f, :title
-    = fae_input f, :description
-    = fae_datepicker f, :start_date
-    = fae_datepicker f, :end_date
+    div.col-6
+      = fae_input f, :title
+      = fae_input f, :description
+    div.col-6
+      label
+        = "Select item to be linked to this public notice"
+      select#public_notice_noticeable name="public_notice_noticeable"
+        = grouped_options_for_select(@noticeables, nil, prompt: "------------------")
+      .margin-top
+        = fae_datepicker f, :start_date
+        = fae_datepicker f, :end_date

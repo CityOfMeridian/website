@@ -1,5 +1,6 @@
 class Meeting < ApplicationRecord
   include Fae::BaseModelConcern
+  attr_accessor  :public_notice_title
 
   has_fae_file :agenda
   has_fae_file :minutes
@@ -23,5 +24,7 @@ class Meeting < ApplicationRecord
   def ordered
     order(:date)
   end
+
+
 
 end

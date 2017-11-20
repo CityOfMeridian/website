@@ -69,6 +69,10 @@ module Fae
       return Organization.all if super_admin?
       [role.organization]
     end
+
+    def organization
+      role.organization || organizations.second
+    end
   end
 end
 
