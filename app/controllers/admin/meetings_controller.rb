@@ -14,6 +14,7 @@ module Admin
         @public_notice = PublicNotice.new(
           title: params[:meeting][:public_notice_title], 
           organization: Organization.find(params[:meeting][:organization_id]))
+      end
       yield
       @item.public_notices << @public_notice unless @public_notice.nil?
     end
