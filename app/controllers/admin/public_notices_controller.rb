@@ -17,10 +17,12 @@ module Admin
     end
 
     def selected_noticeable
-      param_elements = params[:public_notice_noticeable].split(/\[(.*?)\]/)
-      noticeable_klass = param_elements.second.constantize
-      @item.noticeable =  noticeable_klass.find(param_elements.third)
-      @item.save
+      unless params[:public_notice_noticeable].empty?
+        param_elements = params[:public_notice_noticeable].split(/\[(.*?)\]/)
+        noticeable_klass = param_elements.second.constantize
+        @item.noticeable =  noticeable_klass.find(param_elements.third)
+        @item.save
+      end
     end
 
     private
