@@ -1,18 +1,39 @@
+
 = simple_form_for(['admin', @item], html: { multipart: true, novalidate: true, class: 'js-file-form'}, remote: true, data: {type: "html"}) do |f|
   .col-6
     = fae_input f, :title
     = fae_datepicker f, :date
     = fae_association f, :place
-    label.inline Create public notice?
-    = f.check_box :create_public_notice do
-      = check_box_tag :create_public_notice?
+
 
   .col-6
     = fae_file_form f, :agenda
     = fae_file_form f, :minutes
+    div
+      input type='radio' name='new_or_existing' value='new'
+        = "New public notice"
+    div
+      input type='radio' name='new_or_existing' value='existing'
+        = "Existing public notice"
+    div.margin-top
+      div.meridian-hidden.new-public-notice
+        = f.input :public_notice_title, placeholder: 'New Public Notice Title', label: false 
+      div.meridian-hidden.existing-public-notice
+        = fae_association f, :public_notices,label: "Choose existing public notice", include_blank: true
 
   = f.submit
   = button_tag 'Cancel', type: 'button', class: 'js-cancel-nested cancel-nested-button'
   = f.hidden_field :organization_id
+  javascript:
+    $(document).ready(function(){
+      $("input[type='radio']").on('click', function(){
+        value = $(this).val()
+        var opposite = value == 'new' ? 'existing' : 'new'
+        $('.meridian-hidden.' + value + '-public-notice').show()
+        $('.meridian-hidden.' + opposite + '-public-notice').hide()
+      })
+    });
 
-  
+    function untoggable(disabled, type){
+      $('.meeting_public_notices').prop('disabled', !disabled)
+    }

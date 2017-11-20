@@ -1,8 +1,6 @@
 class Meeting < ApplicationRecord
   include Fae::BaseModelConcern
-  attr_accessor :create_public_notice
-
-  before_save :create_public_notice
+  attr_accessor  :public_notice_title
 
   has_fae_file :agenda
   has_fae_file :minutes
@@ -27,7 +25,6 @@ class Meeting < ApplicationRecord
     order(:date)
   end
 
-  def create_public_notice
-    PublicNotice.create(title: title, noticeable: self, start_date: Date.current, end_date: self.date)
-  end
+
+
 end

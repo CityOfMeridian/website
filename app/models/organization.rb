@@ -7,6 +7,9 @@ class Organization < ApplicationRecord
   has_many :roles
   has_many :meetings
   has_many :members
+  has_many :public_notices
+  has_many :events
+  has_many :news_items
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
 

@@ -24,4 +24,3 @@
 //= require wow
 //= require owl.carousel
 //= require narani
-//= require custom

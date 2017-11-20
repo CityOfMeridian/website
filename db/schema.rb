@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116160130) do
+ActiveRecord::Schema.define(version: 20171120015139) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "message",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "message",         limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "organization_id"
+    t.index ["organization_id"], name: "index_events_on_organization_id", using: :btree
   end
 
   create_table "fae_changes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -195,9 +197,11 @@ ActiveRecord::Schema.define(version: 20171116160130) do
 
   create_table "news_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "content",         limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.integer  "organization_id"
+    t.index ["organization_id"], name: "index_news_items_on_organization_id", using: :btree
   end
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -230,9 +234,14 @@ ActiveRecord::Schema.define(version: 20171116160130) do
     t.integer  "noticeable_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "organization_id"
     t.index ["noticeable_type", "noticeable_id"], name: "index_public_notices_on_noticeable_type_and_noticeable_id", using: :btree
+    t.index ["organization_id"], name: "index_public_notices_on_organization_id", using: :btree
   end
 
+  add_foreign_key "events", "organizations"
   add_foreign_key "meetings", "organizations"
   add_foreign_key "meetings", "places"
+  add_foreign_key "news_items", "organizations"
+  add_foreign_key "public_notices", "organizations"
 end
