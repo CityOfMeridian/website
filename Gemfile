@@ -28,6 +28,7 @@ gem 'simple_calendar', '~> 2.0'
 gem 'sentry-raven'
 gem 'dotenv-rails'
 gem "animate-rails"
+gem 'heroku-deflater', :group => :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
