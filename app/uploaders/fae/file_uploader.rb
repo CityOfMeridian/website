@@ -6,12 +6,10 @@ module Fae
     include CarrierWave::RMagick
     include CarrierWave::MimeTypes
 
-    process :set_content_type
     process :save_file_size_in_model
+    process :convert => :pdf
+    process :save_content_type
 
-    # version :normal do
-    #   process :pdf_conversion
-    # end
 
     def save_file_size_in_model
       model.file_size = file.size
@@ -20,7 +18,7 @@ module Fae
     # Override the directory where uploaded files will be stored.
     # This is a sensible default for uploaders that are meant to be mounted:
     def store_dir
-      "city-of-meridian"
+      "city-of-meridian/files/"
     end
 
     # Add a white list of extensions which are allowed to be uploaded.
@@ -30,9 +28,12 @@ module Fae
     end
 
     def filename
-      "pdf:#{changed_filename(super)}"
+      "#{changed_filename(super)}.pdf"
     end
 
+    def save_content_type
+      file.instance_variable_set(:@content_type, 'application/octect-stream')
+    end
 
     private
 
