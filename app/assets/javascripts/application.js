@@ -13,14 +13,12 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap
-//= require jquery/jquery.countdown
-//= require jquery/jquery.counterup.min
-//= require jquery/jquery.easing.1.3.min
-//= require jquery/jquery.flexslider-min
-//= require jquery/jquery.mixitup.min
-//= require jquery/jquery.nicescroll.min
-//= require jquery/jquery.stellar.min
-//= require jquery/jquery.sticky
-//= require wow
-//= require owl.carousel
-//= require narani
+//= require green-college/bootstrap-hover-dropdown.min
+//= require green-college/jquery.placeholder
+//= require green-college/jquery.prettyPhoto
+//= require jquery.flexslider-min
+//= require green-college/jflickrfeed.min
+//= require green-college/main
+
+
+
