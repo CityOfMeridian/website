@@ -17,7 +17,12 @@ Rails.application.routes.draw do
     get :noticeable
   end
 
-  resources :members, only: [:index]
+  resources :news_items, only: [:index, :show]
+  resources :events, only: [:index, :show]
+
+  resources :organizations, only: [:show] do
+    resources :members, only: [:index]
+  end
 
   namespace :admin do
     resources :public_notices

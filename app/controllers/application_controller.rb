@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   def index
     @title = 'City of Meridian'
     @news_items = NewsItem.where('created_at > ?', 2.weeks.ago)
+    @events = Event.limit(4)
     @latest_public_notice = latest_public_notice
+    @city = Organization.find_by(name: 'City')
   end
 
   def edc
