@@ -14,6 +14,7 @@ class PublicNotice < ApplicationRecord
   delegate :title, to: :meeting, prefix: true
   delegate :title, to: :event, prefix: true
   delegate :news_item, to: :event, prefix: true
+  delegate :name, to: :organization, prefix: true
 
   def fae_display_field
     title

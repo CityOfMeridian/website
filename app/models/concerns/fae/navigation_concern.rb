@@ -37,6 +37,7 @@ module Fae
             item('Events', path: admin_events_path),
             item('News Items', path: admin_news_items_path),
             item('Public Notices', path: admin_public_notices_path),
+            item('Places', path: admin_places_path),
         ]
         if current_user.organizations.count > 1
             subitems = []

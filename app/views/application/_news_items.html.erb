@@ -1,0 +1,11 @@
+<% @news_items.each_with_index do |news_item, index| %>
+    <% if index+1 % 3 == 1 %>
+      <div class="item"> 
+    <% end %> 
+
+    <%= render news_item %>
+
+    <% if index+1 % 3 == 0 || index == @news_items.count-1 %>
+      </div>
+    <% end %>
+<% end %>
