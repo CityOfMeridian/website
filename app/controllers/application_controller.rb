@@ -28,6 +28,11 @@ class ApplicationController < ActionController::Base
   def attractions
   end
 
+  def redirect_to_www
+    pry
+    return redirect_to "www.#{ENV["HOST"]}/#{params[:path]}"
+  end
+
   private
 
   def public_notices
