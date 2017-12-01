@@ -10,12 +10,12 @@ gem 'rails', '~> 5.0.5'
 gem 'pry'
 gem "rails-ujs"
 gem "delayed_job_active_record"
-gem "bootstrap-sass", "~> 3.3.7"
+gem "bootstrap-sass"
 gem "fog"
 gem "fae-rails"
+gem "flex-slider-rails"
 gem "font-awesome-rails"
 gem 'mysql2'
-gem "owlcarousel-rails"
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -23,11 +23,9 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
-gem 'wow-rails'
 gem 'simple_calendar', '~> 2.0'
 gem 'sentry-raven'
 gem 'dotenv-rails'
-gem "animate-rails"
 gem 'heroku-deflater', :group => :production
 
 # Use Capistrano for deployment

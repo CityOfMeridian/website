@@ -1,1 +1,17 @@
+.slides li {
+  height: 350px;
+}
 
+.header .contact p {
+  float: none;
+}
+
+.home-page section .carousel-controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.home-page section.public_notices {
+  position: relative;
+}

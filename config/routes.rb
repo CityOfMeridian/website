@@ -17,7 +17,12 @@ Rails.application.routes.draw do
     get :noticeable
   end
 
-  resources :members, only: [:index]
+  resources :news_items, only: [:index, :show]
+  resources :events, only: [:index, :show]
+
+  resources :organizations, only: [:show] do
+    resources :members, only: [:index]
+  end
 
   namespace :admin do
     resources :public_notices
@@ -31,7 +36,7 @@ Rails.application.routes.draw do
     resources :agendas
     resources :news_items
     resources :events
-    resources :minutes
+    resources :places
   end
   # mount Fae below your admin namespec
   mount Fae::Engine => '/admin'

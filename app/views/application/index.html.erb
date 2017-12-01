@@ -1,125 +1,122 @@
-<section class="main-slider">
-    <div class="flexslider">
-        <ul class="slides">
-            <li style="background: url(<%= asset_path('clock-tower-flag-min.jpg') %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
-                <div class="slider-text">
-                    <div class="inner" style="vertical-align: bottom; "">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <h1>Welcome to Meridian</h1>
-                                    <p>Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit. Lorem ipsum dolor sit amet, consectetur.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </li>
-            <li style="background: url(<%= asset_path('veggies-min.jpg') %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
-                <div class="slider-text">
-                    <div class="inner" style="vertical-align: bottom;">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-md-8 col-md-offset-2">
-                                    <h1>Welcome to Meridian</h1>
-                                    <p>Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit. Lorem ipsum dolor sit amet, consectetur.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </li>
-            <li style="background: url(<%= asset_path('river-grass-min.jpg') %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
-                <div class="slider-text">
-                    <div class="inner" style="vertical-align: inherit;">
-                        <div class="container text-center">
-                            <div class="row" style='margin: none'>
-                                <div class="col-md-8 col-md-offset-2" >
-                                    <h1>Welcome to Meridian</h1>
-                                    <p>Quisque ligulas ipsum, euismod atras vulputate iltricies etri elit. Lorem ipsum dolor sit amet, consectetur.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </li>
-        </ul>
-    </div>
-</section>
-<section class="portfolio">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="heading">Recent News</h3>
-            </div>                   
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="work-carousel" class="owl-carousel owl-spaced">
-                    <% @news_items.each do |news_item| %>
-                        <% if news_item.image.asset.url.present? %>
-                    <div>
-                        <a href="portfolio-single.html">
-                            <div class="item-img-wrap ">
-                                <%= image_tag(news_item.image.asset.url, alt: "workimg", class: 'img-responsive') %>
-                                <div class="item-img-overlay">
-                                    <span><%= news_item.title %></span>
-                                </div>
-                            </div>                       
-                        </a><!--work link-->
-                    </div><!--owl item-->
-                        <% end %>
-                    <% end %>
+<div class="content container">
+            <div id="promo-slider" class="slider flexslider">
+                <ul class="slides">
+                    <!--- should be modularized for admin modification -->
+                    <li>
+                        <img src="assets/images/slides/slide-3.jpg"  alt="" />
+                        <p class="flex-caption">
+                            <span class="main" >Discover Meridian</span>
+                            <br />
+                            <span class="secondary clearfix" >
+                                The hidden gem at the top of the hill country
+                            </span>
+                        </p>
+                    </li>
+                    <li style="background: url(<%= asset_path "veggies-min.jpg" %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
+                        
+                        <p class="flex-caption">
+                            <span class="main" >Visit Our Farmer's Market</span>
+                            <br />
+                            <span class="secondary clearfix" >
+                                Shop among our local producers of meat, poultry, and produce
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <img src="assets/images/slides/slide-2.jpg"  alt="" />
+                        <p class="flex-caption">
+                            <span class="main" >Enjoy the Lake</span>
+                            <br />
+                            <span class="secondary clearfix">
+                                Kayaking, hiking, birdwatching, and more
+                            </span>
+                        </p>
+                    </li>
+                    <li>
+                        <img src="assets/images/slides/slide-4.jpg"  alt="" />
+                        <p class="flex-caption">
+                            <span class="main" >Community</span>
+                            <br />
+                            <span class="secondary clearfix" >
+                                Join a thriving, invested community
+                            </span>
+                        </p>
+                    </li>
+                </ul><!--//slides-->
+            </div><!--//flexslider-->
+            <section class="promo box box-dark">        
+                <div class="col-md-9">
+                <h1 class="section-heading">Top of the Hill Country</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum orci eget nulla mattis, quis viverra tellus porta. Donec vitae neque ut velit eleifend commodo. Maecenas turpis odio, placerat eu lorem ut, suscipit commodo augue.  </p>   
+                </div>  
+                <div class="col-md-3">
+                    <%= link_to "<i class=\"fa fa-play-circle\"></i> Visit Meridian".html_safe, "https://visit.meridiantexas.us", class: "btn btn-cta"%>  
                 </div>
-            </div>
-        </div><!--row-->
-        <div class="divide30"></div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <a href="#" class="btn border-black wow animated fadeInUp"> Load More Projects</a>
-            </div>
-        </div>
-    </div><!--container-->
-</section><!--recent work section -->
-<section class="parallax process-rounded" data-stellar-background-ratio="0.5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center" style='background-color: transparent;'>
-                <h3 class='skincolor'>Quick Links</h3>
-            </div> 
-        </div>
-        <div class="row">
-            <div class="col-md-3 margin20">
-                <div class="process-box">
-                    <a href="#">
-                        <i class="fa fa-users"></i>
-                        <h4 class='skincolor'>Visit</h4>
-                    </a>
-                </div><!--process box-->
-            </div><!--process col-->
-            <div class="col-md-3 margin20">
-                <div class="process-box">
-                    <a href="#">
-                        <%= link_to "<i class=\"fa fa-users\"></i><h4 class=\"skincolor\">#{@default_members_collection}</h4>".html_safe, members_path %>
-                    </a>
-                </div><!--process box-->
-            </div><!--process col-->
-            <div class="col-md-3 margin20">
-                <div class="process-box">
-                    <a href="#">
-                        <i class="fa fa-tint"></i>
-                        <h4 class='skincolor'>Pay Your Water Bill</h4>
-                    </a>
-                </div><!--process box-->
-            </div><!--process col-->
-            <div class="col-md-3 margin20">
-                <div class="process-box">
-                    <a href="#">
-                        <i class="fa fa-bars"></i>
-                        <h4 class='skincolor'>City Ordinances</h4>
-                    </a>
-                </div><!--process box-->
-            </div><!--process col-->
-        </div>
-    </div>
-</section><!--process rounded-->
+            </section><!--//promo-->
+            <section class="news">
+                <h1 class="section-heading text-highlight"><span class="line">Latest News</span></h1>     
+                <div class="carousel-controls">
+                    <a class="prev" href="#news-carousel" data-slide="prev"><i class="fa fa-caret-left"></i></a>
+                    <a class="next" href="#news-carousel" data-slide="next"><i class="fa fa-caret-right"></i></a>
+                </div><!--//carousel-controls--> 
+                <div class="section-content clearfix">
+                    <div id="news-carousel" class="news-carousel carousel slide">
+                        <div class="carousel-inner">
+                            <%= render 'news_items' %>
+                        </div><!--//carousel-inner-->
+                    </div><!--//news-carousel-->  
+                </div><!--//section-content-->     
+            </section><!--//news-->
+            <div class="row cols-wrapper">
+                <div class="col-md-3">
+                    <section class="events">
+                        <h1 class="section-heading text-highlight"><span class="line">Events</span></h1>
+                        <div class="section-content">
+                            <%= render @events %>
+                            <a class="read-more" href="events.html">All events<i class="fa fa-chevron-right"></i></a>
+                        </div><!--//section-content-->
+                    </section><!--//events-->
+                </div><!--//col-md-3-->
+                <div class="col-md-6">
+                    <section class="video">
+                        <h1 class="section-heading text-highlight"><span class="line">Meridian State Park</span></h1>
+                        <div class="section-content">    
+                           <div id="videos-carousel" class="videos-carousel carousel slide">
+                                <div class="carousel-inner">
+                                    <div class="item active">        
+                                        <iframe class="video-iframe" src="https://www.youtube.com/embed/yMkL0qEGnek?rel=0&amp;wmode=transparent" frameborder="0" allowfullscreen=""></iframe>
+                                    </div><!--//item-->
+                                </div><!--//carousel-inner-->
+                           </div><!--//videos-carousel-->                            
+                            <p class="description">Meridian State Park is home to a gorgeous lake and offers a variety of outdoor activities - <%= link_to "State Park Website", "https://tpwd.texas.gov/state-parks/meridian" %></p>
+                        </div><!--//section-content-->
+                    </section><!--//video-->
+                </div>
+                <div class="col-md-3">
+                    <section class="links">
+                        <h1 class="section-heading text-highlight"><span class="line">Quick Links</span></h1>
+                        <div class="section-content">
+                        <% if @quick_links.present? %>
+                            <% @quick_link.each do |quick_link| %>
+                            <p><%= link_to "<i class=\"fa fa-caret-right\"></i>#{quick_link.text}".html_safe, quick_link.path %></p>
+                            <% end %>
+                        <% end %>
+                        </div><!--//section-content-->
+                    </section><!--//links-->
+                    <section class="public_notices">
+                        <h1 class="section-heading text-highlight"><span class="line"> Public Notices</span></h1>
+                        <div class="carousel-controls">
+                            <a class="prev" href="#testimonials-carousel" data-slide="prev"><i class="fa fa-caret-left"></i></a>
+                            <a class="next" href="#testimonials-carousel" data-slide="next"><i class="fa fa-caret-right"></i></a>
+                        </div><!--//carousel-controls-->
+                        <div class="section-content">
+                            <div id="testimonials-carousel" class="testimonials-carousel carousel slide">
+                                <div class="carousel-inner">
+                                    <%= render @public_notices %>
+                                </div><!--//carousel-inner-->
+                            </div><!--//testimonials-carousel-->
+                        </div><!--//section-content-->
+                    </section><!--//testimonials-->
+                </div><!--//col-md-3-->
+            </div><!--//cols-wrapper-->
+        </div><!--//content-->

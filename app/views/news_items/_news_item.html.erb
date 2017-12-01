@@ -1,0 +1,7 @@
+<div class="col-md-4 news-item">
+    <h2 class="title"><a href="news-single.html"><%= news_item.title %></a></h2>
+    <%= image_tag news_item.image.asset.url if news_item.image.asset.present? %>
+    <p><%= truncate news_item.content, length: 60 %></p>
+    <%= link_to 'Read more <i class="fa fa-chevron-right"></i>'.html_safe,
+            news_item_path(news_item), class: 'read-more' %>
+</div>

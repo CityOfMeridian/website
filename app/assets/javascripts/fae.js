@@ -4,4 +4,3 @@
 
 // Uncomment the following line if you want to use Trumbowyg HTML Editor
 // //= require fae/vendor/trumbowyg
-//= require meridian-custom
