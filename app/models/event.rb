@@ -15,4 +15,16 @@ class Event < ApplicationRecord
     title
   end
 
+  def abbreviated_month
+    date.strftime("%b")
+  end
+
+  def day_date
+    date.day
+  end
+
+  def time
+    date.strftime("%l:%M%p")
+  end
+
 end

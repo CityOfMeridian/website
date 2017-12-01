@@ -3,7 +3,7 @@
       <div class="item"> 
     <% end %> 
 
-    <%= render news_item %>
+    <%= render partial: "mini_news_item", object: news_item %>
 
     <% if index+1 % 3 == 0 || index == @news_items.count-1 %>
       </div>
