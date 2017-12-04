@@ -1,4 +1,6 @@
-class ComingSoonController < ActionController::Base
+class ComingSoonController < ApplicationController
+
   def index
+
   end
 end
