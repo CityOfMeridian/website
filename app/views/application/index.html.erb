@@ -104,7 +104,7 @@
                 <div class="section-content">
                     <div id="testimonials-carousel" class="testimonials-carousel carousel slide">
                         <div class="carousel-inner">
-                            <%= render @public_notices %>
+                            <%= render @public_notices  if @public_notices.present? %>
                         </div><!--//carousel-inner-->
                     </div><!--//testimonials-carousel-->
                 </div><!--//section-content-->
