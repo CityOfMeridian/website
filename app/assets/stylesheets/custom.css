@@ -15,3 +15,26 @@
 .home-page section.public_notices {
   position: relative;
 }
+
+.navbar-brand a {
+  font-family: 'Qwigley', cursive;
+  font-size: 70px;
+  vertical-align: middle; 
+  display: block; 
+  padding-bottom: 10px;
+  color: white;
+  position: relative;
+  top:10px;
+}
+
+.navbar-brand a:hover {
+  color: rgb(68,68,68);
+}
+
+ul.social-icons li a:hover {
+  background-color: rgb(47, 80, 108)
+}
+
+.nav.navbar-nav.col-md-6.col-sm-6.col-xs-12 {
+  line-height: 80px;
+}

@@ -2,57 +2,19 @@
     <div id="promo-slider" class="slider flexslider">
         <ul class="slides">
             <!--- should be modularized for admin modification -->
-            <li>
-                <img src="assets/images/slides/slide-3.jpg"  alt="" />
+            <li style="background: url(<%= asset_path "MeridianSP-min.jpg" %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
+                <img src="assets/images/slides/slide-2.jpg"  alt="" />
                 <p class="flex-caption">
                     <span class="main" >Discover Meridian</span>
                     <br />
-                    <span class="secondary clearfix" >
-                        The hidden gem at the top of the hill country
-                    </span>
-                </p>
-            </li>
-            <li style="background: url(<%= asset_path "veggies-min.jpg" %>); background-size: cover; background-repeat: no-repeat; background-position: 2%">
-                
-                <p class="flex-caption">
-                    <span class="main" >Visit Our Farmer's Market</span>
-                    <br />
-                    <span class="secondary clearfix" >
-                        Shop among our local producers of meat, poultry, and produce
-                    </span>
-                </p>
-            </li>
-            <li>
-                <img src="assets/images/slides/slide-2.jpg"  alt="" />
-                <p class="flex-caption">
-                    <span class="main" >Enjoy the Lake</span>
-                    <br />
                     <span class="secondary clearfix">
-                        Kayaking, hiking, birdwatching, and more
-                    </span>
-                </p>
-            </li>
-            <li>
-                <img src="assets/images/slides/slide-4.jpg"  alt="" />
-                <p class="flex-caption">
-                    <span class="main" >Community</span>
-                    <br />
-                    <span class="secondary clearfix" >
-                        Join a thriving, invested community
+                        The hidden gem at the top of the hill country
                     </span>
                 </p>
             </li>
         </ul><!--//slides-->
     </div><!--//flexslider-->
-    <section class="promo box box-dark">        
-        <div class="col-md-9">
-        <h1 class="section-heading">Top of the Hill Country</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed bibendum orci eget nulla mattis, quis viverra tellus porta. Donec vitae neque ut velit eleifend commodo. Maecenas turpis odio, placerat eu lorem ut, suscipit commodo augue.  </p>   
-        </div>  
-        <div class="col-md-3">
-            <%= link_to "<i class=\"fa fa-play-circle\"></i> Visit Meridian".html_safe, "https://visit.meridiantexas.us", class: "btn btn-cta"%>  
-        </div>
-    </section><!--//promo-->
+    <% unless @news_items.empty? %>
     <section class="news">
         <h1 class="section-heading text-highlight"><span class="line">Latest News</span></h1>     
         <div class="carousel-controls">
@@ -67,6 +29,7 @@
             </div><!--//news-carousel-->  
         </div><!--//section-content-->     
     </section><!--//news-->
+    <% end %>
     <div class="row cols-wrapper">
         <%= render "events" %>
         <div class="col-md-6">
