@@ -21,6 +21,10 @@ class Organization < ApplicationRecord
     [leader_title, second_leader_title]
   end
 
+  def next_meeting
+    meetings.ordered.first
+  end
+
   class << self
     def default_organization
       Organization.find_by(name: Organization::DEFAULT_ORGANIZATION.first)

@@ -13,6 +13,8 @@ class Meeting < ApplicationRecord
 
   default_scope { order(:date) }
 
+  scope :ordered, -> { order('date desc') }
+
   def fae_nested_parent
     :organization
   end
@@ -21,10 +23,7 @@ class Meeting < ApplicationRecord
     title
   end
 
-  def ordered
-    order(:date)
+  def display_date
+    pretty_date(date)
   end
-
-
-
 end

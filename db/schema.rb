@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129050500) do
+ActiveRecord::Schema.define(version: 20171222210531) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(version: 20171129050500) do
     t.string   "second_leader_title",     default: "mayor_pro_tem"
     t.integer  "total_members"
     t.string   "members_collection_name"
+    t.string   "default_member_title"
     t.index ["leader_id"], name: "index_organizations_on_leader_id", using: :btree
     t.index ["second_leader_id"], name: "index_organizations_on_second_leader_id", using: :btree
   end
