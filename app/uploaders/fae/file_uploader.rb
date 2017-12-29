@@ -28,7 +28,8 @@ module Fae
     end
 
     def filename
-      "#{changed_filename(super)}.pdf"
+      return "#{changed_filename(original_filename)}.pdf" if original_filename.present?
+      super
     end
 
     def save_content_type

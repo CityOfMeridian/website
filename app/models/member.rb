@@ -35,7 +35,8 @@ class Member < ApplicationRecord
   end
 
   def term
-    "#{pretty_date(term_start)} - #{pretty_date(term_end)}"
+    return "#{pretty_date(term_start)} - #{pretty_date(term_end)}" if term_start.present? && term_end.present?
+    ""
   end
 
   def order_number

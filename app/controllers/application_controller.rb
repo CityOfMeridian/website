@@ -30,7 +30,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_www
-    pry
     return redirect_to "www.#{ENV["HOST"]}/#{params[:path]}"
   end
 

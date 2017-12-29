@@ -5,9 +5,7 @@
     <div class="details col-md-9 col-sm-8 col-xs-6">
         <h3 class="title"><%= member.name %></h3>
         <h6><%= member.title.titleize %></h6>
-        <% if member.term_start.present? %>
-          <h6><%= member.term %></h6>
-        <% end %>
+        <h6><%= member.term %></h6>
         <p><%= member.description %></p>
     </div>                               
 </div>
