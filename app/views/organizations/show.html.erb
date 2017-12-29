@@ -1,0 +1,40 @@
+<div class="content container">
+    <div class="page-wrapper">
+        <header class="page-heading clearfix">
+            <h1 class="heading-title pull-left"><%= @organization.members_collection_name %></h1>
+            <div class="breadcrumbs pull-right">
+                <ul class="breadcrumbs-list">
+                    <li class="breadcrumbs-label">You are here:</li>
+                    <li><a href="index.html">Home</a><i class="fa fa-angle-right"></i></li>
+                    <li class="current"><%= @organization.members_collection_name %></li>
+                </ul>
+            </div><!--//breadcrumbs-->
+        </header> 
+        <div class="page-content">
+            <div class="row page-row">
+                <div class="team-wrapper col-md-8 col-sm-7">
+                    <%= render @members %>
+                </div><!--//team-wrapper-->
+                <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">      
+                    <section class="widget has-divider" style="padding: 12px;">
+                        <h3 class="title">Next Council Meeting</h3>
+                        <h5><%= @next_meeting.display_date %></h5>
+                        <%= link_to "<i class=\"fa fa-download\"></i>Download Agenda".html_safe, @next_meeting.agenda.asset.url, class: "btn btn-theme btn-sm" if @next_meeting.present? %>
+                    </section><!--//widget-->              
+                    <section class="widget row-divider" style="padding: 12px;">
+                        <h3 class="title"><%= "#{Date.current.year} Meetings" %></h3>
+                        <div id="testimonials-carousel" class="testimonials-carousel carousel slide">
+                        <% @year_meetings.each do |meeting| %>
+                            <p><%= meeting.display_date %>: 
+                                <%= link_to "Agenda", meeting.agenda.asset.url if meeting.agenda.asset.present? %>
+                                <% if meeting.minutes.asset.present? %>
+                                " / #{link_to "Minutes", meeting.minutes.asset.url}
+                                <% end %>
+                        <% end %>
+                        </div><!--//testimonials-carousel-->                             
+                    </section><!--//widget-->
+                </aside>
+            </div><!--//page-row-->
+        </div><!--//page-content-->
+    </div><!--//page--> 
+</div><!--//content-->

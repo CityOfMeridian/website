@@ -60,7 +60,7 @@
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" href="#"><%= @city.name %> <i class="fa fa-angle-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><%= link_to @city.members_collection_name, organization_members_path(@city) %></li>
+                                <li><%= link_to @city.members_collection_name, organization_path(@city) %></li>
                                 <li class="dropdown-submenu">
                                     <a class="trigger" tabindex="-1" href="#">Services <i class="fa fa-angle-right"></i></a>
                                     <ul class="dropdown-menu">
