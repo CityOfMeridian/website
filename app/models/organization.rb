@@ -1,7 +1,7 @@
 class Organization < ApplicationRecord
   include Fae::BaseModelConcern
 
-  DEFAULT_ORGANIZATION = %w(city).freeze
+  DEFAULT_ORGANIZATION = %w(city_council).freeze
   EXPECTED_LEADER_TITLES = %w(mayor mayor_pro_tem).freeze
 
   has_many :roles
@@ -27,7 +27,7 @@ class Organization < ApplicationRecord
 
   class << self
     def default_organization
-      Organization.find_by(name: Organization::DEFAULT_ORGANIZATION.first)
+      Organization.find_by(name: Organization::DEFAULT_ORGANIZATION.first.humanize)
     end
 
     def default_members_collection_name
