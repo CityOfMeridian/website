@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def calendar
     @calendar_page = CalendarPage.instance
+    @events = Event.this_month
   end
 
   def council

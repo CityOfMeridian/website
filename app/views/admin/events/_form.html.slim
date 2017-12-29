@@ -6,6 +6,25 @@
   main.content
     = fae_input f, :title
     = fae_input f, :message
-    = fae_datepicker f, :date
+    = fae_datepicker(f, :date, style: "display: inline-block;")
+    = select_tag('date_time', options_for_select(@times), style: "display: inline-block;")
     = fae_association f, :place
+
+  javascript:
+    $('#date_time').change(function(){
+      let time = $('#date_time').find(":selected").text().trim();
+      date = stripTime($("#event_date").val())
+      $("#event_date").val(date + " " + time);
+    })
+
+    function stripTime(dateAndTime){
+      time = dateAndTime.match(/\d{1,2}:\d{2}(AM|PM|am|pm)$/g);
+      if(time){
+        time = time[0]
+        date = dateAndTime.replace(time, "").trim()
+      } else {
+        date = dateAndTime
+      }
+      return date
+    }
 
