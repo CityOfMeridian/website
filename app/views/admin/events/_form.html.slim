@@ -6,25 +6,43 @@
   main.content
     = fae_input f, :title
     = fae_input f, :message
-    = fae_datepicker(f, :date, style: "display: inline-block;")
-    = select_tag('date_time', options_for_select(@times), style: "display: inline-block;")
+    div.row
+      div.col-4
+        = fae_datepicker(f, :date, wrapper_class: "meridian-inline")
+        div.date_time_group.meridian-inline
+          = label_tag('Time')
+          = select_tag('date_time', options_for_select(@times), class: "meridian-select-width")
     = fae_association f, :place
 
   javascript:
-    $('#date_time').change(function(){
-      let time = $('#date_time').find(":selected").text().trim();
-      date = stripTime($("#event_date").val())
-      $("#event_date").val(date + " " + time);
+    $(document).ready(function(){
+
+      $(".event_date").addClass("meridian-inline")
+
+      var dateString = $("#event_date").val()
+      time = getTimeFromString(dateString)
+      $("#event_date").val(stripTime(dateString))
+      $('#date_time').val(time)
     })
 
+    $(".edit_event, #new_event.new_event").submit(function(e){
+      console.log($(this).attr('class'))
+      var time = getTimeFromSelect()
+      var date = stripTime($("#event_date").val())
+      $("#event_date").val(date + " " + time); 
+    })
+
+    function getTimeFromString(dateAndTime){
+      var time = dateAndTime.match(/\d{1,2}:\d{2}(AM|PM|am|pm)$/g);
+      return time ? time[0] : time
+    }
+
+    function getTimeFromSelect(){
+      return $('#date_time').find(":selected").val();
+    }
+
     function stripTime(dateAndTime){
-      time = dateAndTime.match(/\d{1,2}:\d{2}(AM|PM|am|pm)$/g);
-      if(time){
-        time = time[0]
-        date = dateAndTime.replace(time, "").trim()
-      } else {
-        date = dateAndTime
-      }
-      return date
+      var time = getTimeFromString(dateAndTime)
+      return time ? dateAndTime.replace(time, "").trim() : dateAndTime
     }
 

@@ -8,7 +8,7 @@ module Admin
       @times = []
       date = DateTime.new(2018, 1, 1, 8)
       (1..56).each do
-        @times << date.strftime("%l:%M%P")
+        @times << [date.strftime("%l:%M%P").strip, date.strftime("%I:%M%P").strip]
         date += 15.minutes
       end 
     end

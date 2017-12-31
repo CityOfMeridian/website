@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   attr_accessor :date_time
 
   before_create do
-    self.date = Date.current
+    self.date = Date.current if self.date.nil?
   end
 
   has_many :public_notices, as: :noticeable
