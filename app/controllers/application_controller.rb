@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def calendar
     @calendar_page = CalendarPage.instance
-    @events = Event.this_month
+    @events = Event.in_same_month_as(params[:start_date].to_date)
   end
 
   def council

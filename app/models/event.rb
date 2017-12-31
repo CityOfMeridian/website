@@ -11,7 +11,9 @@ class Event < ApplicationRecord
   belongs_to :organization
   belongs_to :place
 
-  scope :this_month, -> { where('extract(month from date) = ?', Date.current.month)}
+  scope :in_same_month_as, -> (date) { 
+    where('extract(month from date) = ?', date.month).
+    where('extract(year from date) = ?', date.year) }
 
   delegate :name, :address, to: :place, prefix: true
 
