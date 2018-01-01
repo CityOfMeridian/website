@@ -4,6 +4,6 @@
 
   main.content
     = fae_input f, :title
-
-    = fae_image_form f, :logo
-    = fae_content_form f, :introduction
+    = fae_content_form f, :content
+  javascript:
+    $("#library_page_content_attributes_content").trumbowyg();

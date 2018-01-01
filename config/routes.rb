@@ -2,19 +2,24 @@ Rails.application.routes.draw do
   constraints (-> (req) { ["meridiantx.xyz", "lvh.me"].include? req.domain }) do
     constraints subdomain: 'www' do
 
-      root to: "application#index"
-      get "/index" => "application#index"
+      root to: "pages#home"
 
-      get "/edc" => "application#edc"
-      get "/calendar" => "application#calendar"
       get "/404" => "errors#not_found"
       get "/500" => "errors#internal_error"
-      get "/edc" => "application#edc"
-      get "/calendar" => "application#calendar"
-      get "/visit" => "application#visit"
+
+      namespace :pages do
+        get "calendar"
+        get "library"
+        get "garbage"
+        get "water"
+        get "parks"
+        get "history"
+        get "library"
+
+        root to: "pages#home"
+      end
+
       get "/history" => "application#history"
-      get "/dining" => "application#dining"
-      get "/shopping" => "application#shopping"
       
       resources :public_notices, only: [:index, :show] do
         get :noticeable
@@ -28,6 +33,7 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        resources :page_contents
         resources :public_notices
         resources :members
         resources :meetings

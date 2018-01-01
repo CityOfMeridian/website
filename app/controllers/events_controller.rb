@@ -8,7 +8,6 @@ class EventsController < ApplicationController
 
   def show
     @events = Event.where(id: params[:id]).page(params[:page]).per(1)
-    # @events = Kaminari.paginate_array(@events).page(params[:page]).per(5)
     render 'index'
   end
 end

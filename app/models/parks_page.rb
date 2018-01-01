@@ -1,6 +1,6 @@
-class LibraryPage < Fae::StaticPage
+class ParksPage < Fae::StaticPage
 
-  @slug = 'library'
+  @slug = 'parks'
 
   # required to set the has_one associations, Fae::StaticPage will build these associations dynamically
   def self.fae_fields
@@ -8,6 +8,7 @@ class LibraryPage < Fae::StaticPage
       content: { type: Fae::TextArea }
     }
   end
+
 
   def content_text
     return content.content if content.present?

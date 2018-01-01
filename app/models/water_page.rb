@@ -1,6 +1,6 @@
-class LibraryPage < Fae::StaticPage
+class WaterPage < Fae::StaticPage
 
-  @slug = 'library'
+  @slug = 'water'
 
   # required to set the has_one associations, Fae::StaticPage will build these associations dynamically
   def self.fae_fields

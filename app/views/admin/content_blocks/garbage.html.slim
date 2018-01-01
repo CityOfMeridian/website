@@ -4,7 +4,6 @@
 
   main.content
     = fae_input f, :title
-
-    = fae_content_form f, :description
-    = fae_content_form f, :meet_mayor
-    = fae_image_form f, :mayor_image, label: 'mayor_image'
+    = fae_content_form f, :content
+  javascript:
+    $("#garbage_page_content_attributes_content").trumbowyg();

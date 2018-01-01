@@ -7,7 +7,12 @@
     </div><!--//date-label-wrapper-->
     <div class="details col-md-11 col-sm-10">
         <h3 class="title"><%= event.title %></h3>
-        <p class="meta"><span class="time"><i class="fa fa-clock-o"></i><%= event.time %></span><span class="location"><%= link_to "<i class=\"fa fa-map-marker\"></i> #{event.place_name}".html_safe, "https://maps.google.com?q=#{event.place_address}", target: "_blank" %></span></p>  
+        <p class="meta">
+            <span class="time">
+                <i class="fa fa-clock-o"></i><%= event.time %>
+            </span>
+            <span class="location"><%= link_to "<i class=\"fa fa-map-marker\"></i> #{event.place_name}".html_safe, "https://maps.google.com?q=#{event.place_address}", target: "_blank" %></span>
+        </p>
         <p class="desc"><%= event.message %></p>                       
     </div><!--//details-->
 </article><!--//events-item-->

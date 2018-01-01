@@ -27,11 +27,9 @@ module Fae
       structure = [
             item('Pages', subitems: [
                 item('Library', path: fae.edit_content_block_path('library')),
-                item('VFD', path: fae.edit_content_block_path('vfd')),
-                item('Police', path: fae.edit_content_block_path('police')),
-                item('EDC', path: fae.edit_content_block_path('edc')),
-                item('Calendar', path: fae.edit_content_block_path('calendar')),
-                item('City Council', path: fae.edit_content_block_path('city_council'))
+                item('Water', path: fae.edit_content_block_path('water')),
+                item('Garbage', path: fae.edit_content_block_path('garbage')),
+                item('Parks', path: fae.edit_content_block_path('parks')),
                 ]
             ),
             item('Events', path: admin_events_path),

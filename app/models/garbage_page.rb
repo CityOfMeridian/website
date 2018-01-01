@@ -1,6 +1,6 @@
-class LibraryPage < Fae::StaticPage
+class GarbagePage < Fae::StaticPage
 
-  @slug = 'library'
+  @slug = 'garbage'
 
   # required to set the has_one associations, Fae::StaticPage will build these associations dynamically
   def self.fae_fields
@@ -13,4 +13,5 @@ class LibraryPage < Fae::StaticPage
     return content.content if content.present?
     nil
   end
+
 end
