@@ -1,0 +1,10 @@
+<div class="contact-form">
+    <%= simple_form_for @contact do |f| %>
+        <%= f.input :name, input_html: {class: "form-control"}, wrapper_html: {class: "form-group name"}  %>
+        <%= f.input :email, input_html: {class: "form-control"}, wrapper_html: {class: "form-group email"} %>
+        <%= f.input :phone, input_html: {class: "form-control"}, wrapper_html: {class: "form-group phone"} %>
+        <%= f.input :message, input_html: {class: "form-control"}, wrapper_html: {class: "form-group message"}, label: "Message (please provide your address)" %>
+        <%= f.input :contact_type, as: :hidden, input_html:{value: params[:action]} %>
+        <%= f.button :submit, value: "Submit Request" %>
+    <% end %>
+</div>

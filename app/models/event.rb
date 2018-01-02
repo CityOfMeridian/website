@@ -1,13 +1,19 @@
 class Event < ApplicationRecord
   include Fae::BaseModelConcern
 
+  attr_accessor :date_time
+
   before_create do
-    self.date = Date.current
+    self.date = Date.current if self.date.nil?
   end
 
   has_many :public_notices, as: :noticeable
   belongs_to :organization
   belongs_to :place
+
+  scope :in_same_month_as, -> (date) { 
+    where('extract(month from date) = ?', date.month).
+    where('extract(year from date) = ?', date.year) }
 
   delegate :name, :address, to: :place, prefix: true
 
@@ -26,5 +32,6 @@ class Event < ApplicationRecord
   def time
     date.strftime("%l:%M%p")
   end
+
 
 end

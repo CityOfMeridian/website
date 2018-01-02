@@ -3,4 +3,4 @@
 // or just add your javascript directly to this file
 
 // Uncomment the following line if you want to use Trumbowyg HTML Editor
-// //= require fae/vendor/trumbowyg
+//= require fae/vendor/trumbowyg

@@ -6,7 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Fae::Role.create(name: 'edc admin', organization: Organization.find_or_create_by(name: 'EDC'))
 Fae::Role.create(name: 'city admin', organization: Organization.find_or_create_by(name: 'City'))
-Fae::Role.create(name: 'library admin', organization: Organization.find_or_create_by(name: 'Library'))
-Fae::Role.create(name: 'vfd admin', organization: Organization.find_or_create_by(name: 'VFD'))
+Fae::Role.create(name: 'edc admin', organization: Organization.find_or_create_by(name: 'EDC'))

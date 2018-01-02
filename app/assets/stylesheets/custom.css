@@ -38,3 +38,28 @@ ul.social-icons li a:hover {
 .nav.navbar-nav.col-md-6.col-sm-6.col-xs-12 {
   line-height: 80px;
 }
+
+aside section.widget {
+  padding: 12px;
+}
+
+h6, p {
+  margin-bottom: 0;
+}
+
+.city-state {
+  margin-top: 0;
+  padding: 0;
+}
+
+.address {
+  text-decoration: underline;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.bottom {
+  margin-bottom: 10px;
+}

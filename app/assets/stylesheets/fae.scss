@@ -1,5 +1,9 @@
 // Do Not Delete this page! FAE depends on it in order to set its highlight color.
 // $c-custom-highlight: #9aa142;
+.col-12 {
+  width: 100%;
+  display: inline-block;
+}
 
 .col-10 {
   width: 75%;
@@ -14,13 +18,28 @@
 }
 
 .col-4 {
+  display: inline-block;
+  width: 25%;
+}
+
+.col-3 {
   display:inline-block;
   width: 33%;
 }
 
-.col-1 {
+.col-2 {
   width: 12.5%;
   display: inline-block;
+}
+
+.col-1 {
+  display: inline-block;
+  width: 6.25%;
+}
+
+.col-custom {
+  display: inline-block;
+  width: 18%;
 }
 
 .inline {
@@ -33,4 +52,16 @@
 
 .margin-top {
   margin-top : 10px;
+}
+
+.meridian-select-width {
+  width: 150px;
+}
+
+.meridian-inline {
+  display: inline-block;
+}
+
+div.input.text.water_garbage_page_content_content {
+  max-width: 100%;
 }

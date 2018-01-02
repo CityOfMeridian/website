@@ -1,0 +1,48 @@
+
+<div class="content container">
+    <div class="page-wrapper">
+        <header class="page-heading clearfix">
+            <h1 class="heading-title pull-left">Meridian Public Library</h1>
+        </header> 
+        <div class="page-content">
+            <div class="row page-row">
+                <div class="course-wrapper col-md-8 col-sm-7">                         
+                    <article class="course-item">
+                        <p class="featured-image page-row"><%= image_tag @library.image.asset.url, class: "img-responsive" unless @library.image.nil? %></p>
+                    </article>
+                    <div class="page-row">
+                        <%= @library.content_text.html_safe %>
+                    </div>
+                </div>
+                <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">     
+                    <section class="widget has-divider">
+                        <h3 class="title">Our Location</h3>
+                        <%= link_to "<h6 class='address'><i class='fa fa-map-marker'></i> Physical Address</h6><p>118 N. Main<p class='city-state'>Meridian TX 76665</p>".html_safe, "https://maps.google.com?q=118 N. Main, Meridian,Texas 76665" %>
+                        <h6 class='address'>Mailing Address:</h6>
+                        <p>PO Box 679</p> 
+                        <p class='city-state bottom'>Meridian TX 76665</p>
+                        <%= link_to "<p class='facebook'><i class=\"fa fa-facebook\"></i> MeridianTexasPublicLibrary</p>".html_safe, "https://www.facebook.com/MeridianTexasPublicLibrary/" %>
+                        <p class="email"><i class="fa fa-envelope"></i>Email: <a href="#">library@meridiantexas.us</a></p>
+                        <p class="tel"><i class="fa fa-phone"></i>(254) 435-9100 x402</p>
+                    </section><!--//widget-->
+                    <section class="widget has-divider">
+                        <h3 class="title">Checkout our collection online</h3>
+                        <p>Our <%= link_to "online catalog", "https://meridian.biblionix.com/catalog/", target: "_blank" %> is our most current resource.</p>
+                    </section><!--//widget-->      
+                    <section class="widget has-divider">
+                        <h3 class="title">Hours</h3>
+                        <ul class="list-unstyled">
+                            <li>Monday-Closed</li>
+                                <li>Tuesday 12PM-7PM</li>
+                                <li>Wednesday 10AM-6PM</li>
+                                <li>Thursday 12PM-6PM</li>
+                                <li>Friday 12PM-6PM</li>
+                                <li>Saturday 10AM-1PM</li>
+                                <li>Sunday-Closed</li>
+                        </ul>
+                    </section><!--//widget-->
+                </aside>
+            </div><!--//page-row-->
+        </div><!--//page-content-->
+    </div><!--//page--> 
+</div><!--//content-->
