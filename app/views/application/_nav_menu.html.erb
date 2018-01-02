@@ -8,10 +8,9 @@
         <% end %>
             <li><a href="http://www.meridianpd.com">Police</a></li>
             <li><a href="https://www.facebook.com/meridianvfd/">Fire</a></li>
-            <li><a href="/pages/library">Library</a></li>
-            <li><a href="/pages/water">Water</a></li>
-            <li><a href="/pages/garbage">Garbage</a></li>
-            <li><a href="/pages/parks">Parks</a></li>
+            <li><%= link_to "Library", pages_library_path %></li>
+            <li><%= link_to "Water/Garbage", pages_water_garbage_path %></li>
+            <li><%= link_to "Parks", pages_parks_path %></li>
         </ul>
     </li>
     <li class="nav-item dropdown">

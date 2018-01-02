@@ -1,5 +1,9 @@
 // Do Not Delete this page! FAE depends on it in order to set its highlight color.
 // $c-custom-highlight: #9aa142;
+.col-12 {
+  width: 100%;
+  display: inline-block;
+}
 
 .col-10 {
   width: 75%;
@@ -56,4 +60,8 @@
 
 .meridian-inline {
   display: inline-block;
+}
+
+div.input.text.water_garbage_page_content_content {
+  max-width: 100%;
 }

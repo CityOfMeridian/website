@@ -1,0 +1,30 @@
+= simple_form_for @item, url: fae.update_content_block_path(slug: @item.slug), method: :put do |f|
+  header.content-header.js-content-header
+    == render 'fae/shared/form_header', header: @item
+
+  main.content
+    div.col-10
+      = fae_input f, :title
+      = fae_content_form f, :content
+    div.col-10
+      - unless @contacts.nil?
+          h4 = "Service Requests"
+          table.contacts
+            tr
+              thead
+                td = "Name"
+                td = "Email"
+                td = "Phone Number"
+                td = "Message"
+                td = 'Date'
+            tr
+                - @contacts.each do |contact|
+                  td = contact.name
+                  td = contact.email
+                  td = contact.phone
+                  td = contact.message
+                  td = contact.created_at
+          = paginate(@contacts)
+
+  javascript:
+    $("#water_garbage_page_content_attributes_content").trumbowyg();

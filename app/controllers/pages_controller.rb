@@ -16,6 +16,15 @@ class PagesController < ApplicationController
     @library = LibraryPage.instance
   end
 
+  def water_garbage
+    @water_garbage = WaterGarbagePage.instance
+    @contact = Contact.new
+  end
+
+  def parks
+    @parks = ParksPage.instance
+  end
+
   private
   def public_notices
     public_notices = PublicNotice.active

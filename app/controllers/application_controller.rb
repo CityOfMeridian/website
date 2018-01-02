@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
     return redirect_to "www.#{ENV["HOST"]}/#{params[:path]}"
   end
 
+  def privacy_policy
+  end
+
   private
   def default_members_collection
     @default_members_collection = Organization.default_members_collection_name

@@ -27,8 +27,7 @@ module Fae
       structure = [
             item('Pages', subitems: [
                 item('Library', path: fae.edit_content_block_path('library')),
-                item('Water', path: fae.edit_content_block_path('water')),
-                item('Garbage', path: fae.edit_content_block_path('garbage')),
+                item('Water/Garbage', path: fae.edit_content_block_path('water_garbage')),
                 item('Parks', path: fae.edit_content_block_path('parks')),
                 ]
             ),

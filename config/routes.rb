@@ -6,18 +6,19 @@ Rails.application.routes.draw do
 
       get "/404" => "errors#not_found"
       get "/500" => "errors#internal_error"
+      get "/privacy_policy" => "application#privacy_policy"
 
       namespace :pages do
         get "calendar"
         get "library"
-        get "garbage"
-        get "water"
+        get "water_garbage"
         get "parks"
         get "history"
         get "library"
 
         root to: "pages#home"
       end
+
 
       get "/history" => "application#history"
       
@@ -27,12 +28,14 @@ Rails.application.routes.draw do
 
       resources :news_items, only: [:index, :show]
       resources :events, only: [:index, :show]
+      resources :contacts, only: [:create]
 
       resources :organizations, only: [:show] do
         resources :members, only: [:index]
       end
 
       namespace :admin do
+        resources :contacts
         resources :page_contents
         resources :public_notices
         resources :members
