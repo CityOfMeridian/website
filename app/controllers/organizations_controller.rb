@@ -7,4 +7,8 @@ class OrganizationsController < ApplicationController
     @next_meeting = @organization.next_meeting
     @year_meetings = @organization.meetings.this_year
   end
+
+  def community_organizations
+    @organizations = Organization.community.page(params[:page]).per(5)
+  end
 end

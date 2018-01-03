@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       get "/404" => "errors#not_found"
       get "/500" => "errors#internal_error"
       get "/privacy_policy" => "application#privacy_policy"
-
+      get "/visit" => "visitor/application#index"
+      get "community_organizations" => "organizations#community_organizations", as: "community_organizations"
       namespace :pages do
         get "calendar"
         get "library"
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
       resources :events, only: [:index, :show]
       resources :contacts, only: [:create]
 
-      resources :organizations, only: [:show] do
+      resources :organizations, only: [:show, :community_organizations] do
         resources :members, only: [:index]
       end
 

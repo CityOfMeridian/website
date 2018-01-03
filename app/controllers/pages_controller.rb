@@ -25,6 +25,10 @@ class PagesController < ApplicationController
     @parks = ParksPage.instance
   end
 
+  def community_organizations
+    @organizations = CommunityOrganization.all
+  end
+
   private
   def public_notices
     public_notices = PublicNotice.active

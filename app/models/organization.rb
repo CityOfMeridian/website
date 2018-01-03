@@ -1,7 +1,7 @@
 class Organization < ApplicationRecord
   include Fae::BaseModelConcern
 
-  DEFAULT_ORGANIZATION = %w(city_council).freeze
+  DEFAULT_ORGANIZATION = %w(city).freeze
   EXPECTED_LEADER_TITLES = %w(mayor mayor_pro_tem).freeze
 
   has_many :roles
@@ -12,6 +12,9 @@ class Organization < ApplicationRecord
   has_many :news_items
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
+
+  scope :community, -> { where(community: true) }
+  scope :not_community, -> { where(community: false) }
 
   def fae_display_field
     name
