@@ -10,15 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require jquery
-//= require bootstrap
-//= require green-college/bootstrap-hover-dropdown.min
-//= require green-college/jquery.placeholder
-//= require green-college/jquery.prettyPhoto
-//= require jquery.flexslider-min
-//= require green-college/jflickrfeed.min
-//= require green-college/main
+
 
 
 
