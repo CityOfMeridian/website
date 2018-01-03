@@ -1,0 +1,16 @@
+= simple_form_for @item, url: fae.update_content_block_path(slug: @item.slug), method: :put do |f|
+  header.content-header.js-content-header
+    == render 'fae/shared/form_header', header: @item
+
+  main.content
+    = fae_input f, :title
+
+    = fae_image_form f, :banner_image
+    = fae_content_form f, :section_1_name
+    = fae_content_form f, :section_1
+    = fae_content_form f, :section_2_name
+    = fae_content_form f, :section_2
+    = fae_content_form f, :section_3_name
+    = fae_content_form f, :section_3
+    = fae_content_form f, :section_4_name
+    = fae_content_form f, :section_4

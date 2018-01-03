@@ -55,7 +55,7 @@ Rails.application.routes.draw do
     end
 
     constraints subdomain: "visit" do
-      get "/" => "vistors#index"
+      root to: "visitor/application#index"
       match "/*path" => redirect("/", subdomain: "visit"), via: :all
     end
     

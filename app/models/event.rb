@@ -15,6 +15,9 @@ class Event < ApplicationRecord
     where('extract(month from date) = ?', date.month).
     where('extract(year from date) = ?', date.year) }
 
+  scope :recent, -> (num=3){
+    order(:date).limit(num)
+  }
   delegate :name, :address, to: :place, prefix: true
 
   def fae_display_field
@@ -33,5 +36,7 @@ class Event < ApplicationRecord
     date.strftime("%l:%M%p")
   end
 
-
+  def display_date
+    pretty_date(date)
+  end
 end
