@@ -1,106 +1,63 @@
         <div class="one-page-static-wrap parallax" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="static-text">
-                    <h1>We are creative Agency</h1>
+                    <h1>&nbsp;</h1>
                 </div>
             </div>
         </div><!--static wrapper-->
-        <section id="about" class="padding-80">
+        <section id="scenic" class="padding-80">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="center-header">
-                            <h3 class="center-heading">About Us</h3>
+                            <h3 class="center-heading">Scenic</h3>
                             <span class="center-line"></span>
-                            <p>Shortly About us</p>
                         </div>
                     </div>
                 </div><!--center heading row-->
                 <div class="row">
                     <div class="col-md-7">
                         <p class="wow animated fadeInLeft">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                            Meridian in nestled at the north end of the Texas hill country in the center of Bosque County.  Home to Meridian Lake and <%= link_to "Meridian State Park", "https://tpwd.texas.gov/state-parks/meridian" %>, countless green pastures, and skies a plenty, Meridian boasts some of the best views this side of the DFW metroplex. Follow the Chisolm Trail and you'll find yourself in our backyard, enjoying the hilltop views and open skies.  Come see for yourself.
                         </p>
                     </div>
-                    <div class="col-md-5">
-                        <div class="skills-wrapper wow animated fadeInRight animated animated" data-wow-delay="0.2s">
-                            <h3 class="heading-progress">Web Design <span class="pull-right">88%</span></h3>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 88%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="88" role="progressbar">
-                                </div>
-                            </div>
-                            <h3 class="heading-progress">Web Development <span class="pull-right">78%</span></h3>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 78%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="78" role="progressbar">
-                                </div>
-                            </div>
-                            <h3 class="heading-progress">Marketing <span class="pull-right">82%</span></h3>
-                            <div class="progress">
-                                <div class="progress-bar" style="width: 82%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="82" role="progressbar">
-                                </div>
-                            </div>                    
-                        </div><!--skills-->
+                    <div class="col-md-5" style="text-align: center;">
+                        <%= image_tag 'MeridianSP-min.jpg', class: 'img-responsive' %>
                     </div>
                 </div>
             </div><!--intro and skills-->
-            <div class="divide30"></div>
-            <div class="container">    
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="heading">Some Facts</h3>
-                    </div>
-                </div>
-                <div class="divide40"></div>
-                <div class="row">
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><i class="fa fa-image"></i><span class="counter">6858</span></h3>
-                        <h4>Projects Complete</h4>
-                    </div><!--facts in-->
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><i class="fa fa-users"></i><span class="counter">685</span></h3>
-                        <h4>Happy Customers</h4>
-                    </div><!--facts in-->
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><i class="fa fa-clock-o"></i><span class="counter">6000</span></h3>
-                        <h4>Hours Work </h4>
-                    </div><!--facts in-->
-                    <div class="col-md-3 margin20 facts-in">
-                        <h3><i class="fa fa-coffee"></i><span class="counter">2500</span></h3>
-                        <h4>Cups of tea</h4>
-                    </div><!--facts in-->
-                </div>
             </div>
         </section>
         <section class="parallax process-rounded" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h3>Our Process</h3>
+                        <h3>Enjoy</h3>
                     </div> 
                 </div>
                 <div class="row">
                     <div class="col-md-3 margin20">
                         <div class="process-box wow animated fadeInUp">
-                            <i class="fa fa-lightbulb-o"></i>
-                            <h4>Create Ideas</h4>
+                            <%= link_to "<i class=\"fa fa-map-signs\"></i><h4>Get Here</h4>".html_safe,
+                                "https://www.google.com/maps/dir//Meridian+TX+76665", target: "_blank" %>
                         </div><!--process box-->
                     </div><!--process col-->
                     <div class="col-md-3 margin20">
                         <div class="process-box wow animated fadeInUp">
-                            <i class="fa fa-pencil"></i>
-                            <h4>Built Design</h4>
+                            <%= link_to "<i class=\"fa fa-hotel\"></i><h4>Stay</h4>".html_safe,
+                                "https://maps.google.com/?q=lodging+Meridian+TX", target: "_blank" %>
                         </div><!--process box-->
                     </div><!--process col-->
                     <div class="col-md-3 margin20">
                         <div class="process-box wow animated fadeInUp">
-                            <i class="fa fa-bars"></i>
-                            <h4>Develop Website</h4>
+                            <%= link_to "<i class=\"fa fa-shopping-bag\"></i><h4>Shop</h4>".html_safe,
+                                "https://maps.google.com/?q=shopping+Meridian+TX", target: "_blank" %>
                         </div><!--process box-->
                     </div><!--process col-->
                     <div class="col-md-3 margin20">
                         <div class="process-box wow animated fadeInUp">
-                            <i class="fa fa-plane"></i>
-                            <h4>Project Launch</h4>
+                            <%= link_to "<i class=\"fa fa-cutlery\"></i><h4>Dine</h4>".html_safe,
+                                "https://maps.google.com/?q=food+Meridian+TX", target: "_blank" %>
                         </div><!--process box-->
                     </div><!--process col-->
                 </div>

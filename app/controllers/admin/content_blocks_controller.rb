@@ -6,7 +6,7 @@ module Admin
     private
 
     def fae_pages
-      [ParksPage, LibraryPage, WaterGarbagePage]
+      [ParksPage, LibraryPage, WaterGarbagePage, VisitPage]
     end
 
     def set_contacts
