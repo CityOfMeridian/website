@@ -8,3 +8,5 @@
 
 Fae::Role.create(name: 'city admin', organization: Organization.find_or_create_by(name: 'City'))
 Fae::Role.create(name: 'edc admin', organization: Organization.find_or_create_by(name: 'EDC'))
+Fae::Role.create(name: 'library admin', organization: Organization.find_or_create_by(name: 'Library', fae_static_page: Fae::StaticPage.create(title: 'Library')))
+Fae::Role.create(name: 'library admin', organization: Organization.find_or_create_by(name: 'Library'))

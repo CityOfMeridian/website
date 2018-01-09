@@ -12,6 +12,7 @@ class Organization < ApplicationRecord
   has_many :news_items
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
+  belongs_to :fae_static_page, class_name: 'Fae::StaticPage'
 
   scope :community, -> { where(community: true) }
   scope :not_community, -> { where(community: false) }
@@ -28,6 +29,15 @@ class Organization < ApplicationRecord
     meetings.ordered.first
   end
 
+  def page_title
+    return fae_static_page.title if fae_static_page.present?
+    nil
+  end
+
+  def community?
+    type == 'community'
+  end
+
   class << self
     def default_organization
       Organization.find_by(name: Organization::DEFAULT_ORGANIZATION.first.humanize)
@@ -37,5 +47,4 @@ class Organization < ApplicationRecord
       default_organization.members_collection_name
     end
   end
-
 end

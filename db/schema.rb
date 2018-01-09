@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103173019) do
+ActiveRecord::Schema.define(version: 20180109040713) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -228,8 +228,11 @@ ActiveRecord::Schema.define(version: 20180103173019) do
     t.integer  "total_members"
     t.string   "members_collection_name"
     t.string   "default_member_title"
-    t.boolean  "community"
     t.string   "website"
+    t.integer  "fae_static_page_id"
+    t.string   "admin_prefix"
+    t.string   "type"
+    t.index ["fae_static_page_id"], name: "index_organizations_on_fae_static_page_id", using: :btree
     t.index ["leader_id"], name: "index_organizations_on_leader_id", using: :btree
     t.index ["second_leader_id"], name: "index_organizations_on_second_leader_id", using: :btree
   end
