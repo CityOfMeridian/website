@@ -22,13 +22,11 @@ module Fae
         {
           'agendas' => ['super admin', 'city admin', 'edc admin'],
           'minutes' => ['super admin', 'city admin', 'edc admin'],
-          'news_items' => ['super admin', 'city admin', 'edc admin'],
+          'events' => ['super admin', 'city admin', 'edc admin', 'citizen']
+          'news_items' => ['super admin', 'city admin', 'edc admin', 'citizen'],
           'content_blocks/edc' => ['super admin', 'edc admin'],
           'content_blocks/city_council' => ['super admin', 'city admin'],
-          'content_blocks/library' => ['super admin', 'library admin'],
-          'content_blocks/police' => ['super admin', 'city admin'],
-          'content_blocks/vfd' => ['super admin', 'city admin', 'vfd admin'],
-          'content_blocks/calendar' => ['super admin', 'city admin']
+          'content_blocks/library' => ['super admin', 'city_admin', 'library admin'],
         }
       end
 
