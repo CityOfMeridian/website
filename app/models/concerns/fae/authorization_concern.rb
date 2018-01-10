@@ -22,7 +22,7 @@ module Fae
         {
           'agendas' => ['super admin', 'city admin', 'edc admin'],
           'minutes' => ['super admin', 'city admin', 'edc admin'],
-          'events' => ['super admin', 'city admin', 'edc admin', 'citizen']
+          'events' => ['super admin', 'city admin', 'edc admin', 'citizen'],
           'news_items' => ['super admin', 'city admin', 'edc admin', 'citizen'],
           'content_blocks/edc' => ['super admin', 'edc admin'],
           'content_blocks/city_council' => ['super admin', 'city admin'],
