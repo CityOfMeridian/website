@@ -4,15 +4,17 @@ class Organization < ApplicationRecord
   DEFAULT_ORGANIZATION = %w(city).freeze
   EXPECTED_LEADER_TITLES = %w(mayor mayor_pro_tem).freeze
 
-  has_many :roles
   has_many :meetings
   has_many :members
   has_many :public_notices
   has_many :events
   has_many :news_items
+  has_and_belongs_to_many :pages, class_name: 'Fae::StaticPage', association_foreign_key: "fae_static_page_id"
+  has_and_belongs_to_many :roles, class_name: 'Fae::Role', association_foreign_key: "fae_role_id"
+
+  belongs_to :type, class_name: "OrganizationType"
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
-  belongs_to :fae_static_page, class_name: 'Fae::StaticPage'
 
   scope :community, -> { where(community: true) }
   scope :not_community, -> { where(community: false) }

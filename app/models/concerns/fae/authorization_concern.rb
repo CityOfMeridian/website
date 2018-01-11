@@ -26,7 +26,7 @@ module Fae
       end
 
       def access_map
-        @map = {}
+        @map = { 'organization_types': ['super_admin'] }
         add_organization_page_permissions
         add_organization_type_permissions
         @map

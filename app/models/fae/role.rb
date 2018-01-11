@@ -7,6 +7,7 @@ module Fae
     has_many :users
     belongs_to :organization
     delegate :name, :admin_prefix, to: :organization, prefix: true
+    has_and_belongs_to_many :organizations
 
     acts_as_list add_new_at: :bottom
     default_scope { order('-position DESC') }

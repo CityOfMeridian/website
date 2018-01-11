@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109040713) do
+ActiveRecord::Schema.define(version: 20180111030142) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -104,6 +104,11 @@ ActiveRecord::Schema.define(version: 20180109040713) do
     t.index ["organization_id"], name: "index_fae_roles_on_organization_id", using: :btree
   end
 
+  create_table "fae_roles_organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "fae_role_id"
+    t.integer "organization_id"
+  end
+
   create_table "fae_static_pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.integer  "position",   default: 0
@@ -113,6 +118,11 @@ ActiveRecord::Schema.define(version: 20180109040713) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["slug"], name: "index_fae_static_pages_on_slug", using: :btree
+  end
+
+  create_table "fae_static_pages_organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "fae_static_page_id"
+    t.integer "organization_id"
   end
 
   create_table "fae_text_areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -217,6 +227,12 @@ ActiveRecord::Schema.define(version: 20180109040713) do
     t.index ["organization_id"], name: "index_news_items_on_organization_id", using: :btree
   end
 
+  create_table "organization_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",                                        null: false
@@ -229,11 +245,10 @@ ActiveRecord::Schema.define(version: 20180109040713) do
     t.string   "members_collection_name"
     t.string   "default_member_title"
     t.string   "website"
-    t.integer  "fae_static_page_id"
     t.string   "admin_prefix"
-    t.string   "type"
-    t.index ["fae_static_page_id"], name: "index_organizations_on_fae_static_page_id", using: :btree
+    t.integer  "organization_type_id"
     t.index ["leader_id"], name: "index_organizations_on_leader_id", using: :btree
+    t.index ["organization_type_id"], name: "index_organizations_on_organization_type_id", using: :btree
     t.index ["second_leader_id"], name: "index_organizations_on_second_leader_id", using: :btree
   end
 
@@ -262,5 +277,6 @@ ActiveRecord::Schema.define(version: 20180109040713) do
   add_foreign_key "meetings", "organizations"
   add_foreign_key "meetings", "places"
   add_foreign_key "news_items", "organizations"
+  add_foreign_key "organizations", "organization_types"
   add_foreign_key "public_notices", "organizations"
 end
