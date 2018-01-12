@@ -24,29 +24,32 @@ module Fae
     # end
 
     def structure
-      structure = [
-            item('Pages', subitems: [
-                item('Library', path: fae.edit_content_block_path('library')),
-                item('Water/Garbage', path: fae.edit_content_block_path('water_garbage')),
-                item('Parks', path: fae.edit_content_block_path('parks')),
-                ]
-            ),
+      @structure = [
             item('Events', path: admin_events_path),
             item('News Items', path: admin_news_items_path),
             item('Public Notices', path: admin_public_notices_path),
             item('Places', path: admin_places_path),
+            item('Roles', path: admin_roles_path)
         ]
-        if current_user.organizations.count > 1
-            subitems = []
-            current_user.organizations.all.each do |org|
-                subitems.unshift(item(org.name, path: edit_admin_organization_path(id: org.id)))
-            end 
-            structure.unshift(item('Organizations', subitems: subitems))
-        else
-            structure.unshift(item(current_user.organizations[0].name, path: edit_admin_organization_path(id: current_user.organizations[0].id)))
-        end
-        structure
+        add_organization_nav_links
+        add_pages_nav_links
+        @structure
     end
 
+    def add_organization_nav_links
+        subitems = []
+        current_user.permitted_organizations.each do |org|
+            subitems.unshift(item(org.name, path: edit_admin_organization_path(id: org.id)))
+        end 
+        @structure.unshift(item('Organizations', subitems: subitems))
+    end
+
+    def add_pages_nav_links
+        subitems = []
+        current_user.pages.each do |page|
+            subitems.unshift(item(page.fae_display_field, path: fae.edit_content_block_path(page.fae_display_field)))
+        end 
+        @structure.unshift(item('Pages', subitems: subitems))
+    end
   end
 end

@@ -36,8 +36,9 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        resources :roles
+        resources :organization_types
         resources :contacts
-        resources :page_contents
         resources :public_notices
         resources :members
         resources :meetings

@@ -12,12 +12,14 @@ class Organization < ApplicationRecord
   has_and_belongs_to_many :pages, class_name: 'Fae::StaticPage', association_foreign_key: "fae_static_page_id"
   has_and_belongs_to_many :roles, class_name: 'Fae::Role', association_foreign_key: "fae_role_id"
 
-  belongs_to :type, class_name: "OrganizationType"
+  belongs_to :type, class_name: "OrganizationType", foreign_key: "organization_type_id"
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
 
-  scope :community, -> { where(community: true) }
-  scope :not_community, -> { where(community: false) }
+  delegate :name, to: :type, prefix: true
+
+  scope :community, -> { where(type: OrganizationType.community) }
+  scope :not_community, -> { where.not(type: OrganizationType.community) }
 
   def fae_display_field
     name

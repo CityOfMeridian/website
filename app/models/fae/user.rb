@@ -28,6 +28,7 @@ module Fae
 
     default_scope { order(:first_name, :last_name) }
 
+    has_many :organizations, through: :role
     scope :public_users, -> { joins(:role).where.not('fae_roles.name = ?', 'super admin') }
     scope :live_super_admins, -> { joins(:role).where(active: true, fae_roles: { name: 'super admin' }) }
 
@@ -51,6 +52,10 @@ module Fae
       "#{first_name} #{last_name}"
     end
 
+    def fae_display_field
+      full_name
+    end
+
     # Called by Devise to see if an user can currently be signed in
     def active_for_authentication?
       active? && super
@@ -65,13 +70,19 @@ module Fae
       [:reset_password_token, :reset_password_sent_at, :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip, :last_sign_in_ip, :confirmation_token, :confirmed_at, :confirmation_sent_at, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at]
     end
 
-    def organizations
-      return Organization.all if super_admin?
-      [role.organization]
+    def pages
+      permitted_organizations.map(&:pages).flatten.uniq
     end
 
-    def organization
-      role.organization || organizations.second
+    def permitted_organizations
+      return organizations unless super_admin?
+      Organization.all
+    end
+
+    class << self
+      def for_fae_index
+        order(:last_name)
+      end
     end
   end
 end

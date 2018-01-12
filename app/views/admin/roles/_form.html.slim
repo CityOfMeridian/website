@@ -1,0 +1,12 @@
+= simple_form_for(['admin', @item], html: {multipart: true, novalidate: true, class: 'js-file-form'}, remote: true, data: {type: "html"}) do |f|
+  header.content-header.js-content-header
+    == render 'fae/shared/form_header', header: @klass_name
+  == render 'fae/shared/errors'
+
+  main.content
+    = fae_input f, :name
+    = fae_multiselect f, :organizations
+    = fae_multiselect f, :users
+
+    = f.submit
+    = button_tag 'Cancel', type: 'button', class: 'js-cancel-nested cancel-nested-button'

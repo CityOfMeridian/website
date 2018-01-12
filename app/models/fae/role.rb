@@ -4,10 +4,9 @@ module Fae
     include Fae::BaseModelConcern
     include Fae::RoleConcern
 
-    has_many :users
-    belongs_to :organization
-    delegate :name, :admin_prefix, to: :organization, prefix: true
-    has_and_belongs_to_many :organizations
+    has_many :users, class_name: "Fae::User"
+    delegate :name, :admin_prefix, :type_name, to: :organization, prefix: true
+    has_and_belongs_to_many :organizations, foreign_key: "fae_role_id"
 
     acts_as_list add_new_at: :bottom
     default_scope { order('-position DESC') }
@@ -21,6 +20,10 @@ module Fae
 
     def organization_page_title
       organization.page_title
+    end
+
+    def fae_display_field
+      name
     end
   end
 end
