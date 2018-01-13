@@ -52,8 +52,12 @@ module Fae
       "#{first_name} #{last_name}"
     end
 
-    def fae_display_field
+    def name
       full_name
+    end
+
+    def fae_display_field
+      name
     end
 
     # Called by Devise to see if an user can currently be signed in
