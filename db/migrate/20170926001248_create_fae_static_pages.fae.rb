@@ -1,5 +1,5 @@
 # This migration comes from fae (originally 20141021184311)
-class CreateFaePages < ActiveRecord::Migration
+class CreateFaeStaticPages < ActiveRecord::Migration
   def change
     create_table :fae_static_pages do |t|
       t.string :title
@@ -7,6 +7,7 @@ class CreateFaePages < ActiveRecord::Migration
       t.boolean :on_stage, default: true
       t.boolean :on_prod, default: false
       t.string :slug, index: true
+      t.boolean :active
 
       t.timestamps
     end

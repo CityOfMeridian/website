@@ -6,8 +6,9 @@ class CreatePublicNotices < ActiveRecord::Migration[5.0]
       t.datetime :start_date
       t.datetime :end_date
       t.references :noticeable, polymorphic: true
+      t.references :organization
 
       t.timestamps
     end
-  end
+  end  
 end

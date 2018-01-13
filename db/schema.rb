@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111030142) do
+ActiveRecord::Schema.define(version: 20180102001912) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -25,11 +25,12 @@ ActiveRecord::Schema.define(version: 20180111030142) do
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.text     "message",         limit: 65535
+    t.datetime "date"
+    t.boolean  "approved"
+    t.integer  "organization_id"
+    t.integer  "place_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "organization_id"
-    t.datetime "date"
-    t.integer  "place_id"
     t.index ["organization_id"], name: "index_events_on_organization_id", using: :btree
     t.index ["place_id"], name: "index_events_on_place_id", using: :btree
   end
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 20180111030142) do
     t.boolean  "on_stage",   default: true
     t.boolean  "on_prod",    default: false
     t.string   "slug"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["slug"], name: "index_fae_static_pages_on_slug", using: :btree
@@ -198,9 +200,9 @@ ActiveRecord::Schema.define(version: 20180111030142) do
     t.string   "title"
     t.datetime "date"
     t.integer  "organization_id"
+    t.integer  "place_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "place_id"
     t.index ["organization_id"], name: "index_meetings_on_organization_id", using: :btree
     t.index ["place_id"], name: "index_meetings_on_place_id", using: :btree
   end
@@ -221,9 +223,10 @@ ActiveRecord::Schema.define(version: 20180111030142) do
   create_table "news_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.text     "content",         limit: 65535
+    t.boolean  "approved"
+    t.integer  "organization_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "organization_id"
     t.index ["organization_id"], name: "index_news_items_on_organization_id", using: :btree
   end
 
@@ -235,17 +238,16 @@ ActiveRecord::Schema.define(version: 20180111030142) do
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.integer  "leader_id"
     t.string   "leader_title",            default: "mayor"
-    t.integer  "second_leader_id"
-    t.string   "second_leader_title",     default: "mayor_pro_tem"
-    t.integer  "total_members"
-    t.string   "members_collection_name"
-    t.string   "default_member_title"
+    t.string   "second_leader_title",     default: "mayor pro tem"
+    t.string   "members_collection_name", default: "City Council"
+    t.string   "default_member_title",    default: "Council Member"
     t.string   "website"
     t.string   "admin_prefix"
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.integer  "leader_id"
+    t.integer  "second_leader_id"
     t.integer  "organization_type_id"
     t.index ["leader_id"], name: "index_organizations_on_leader_id", using: :btree
     t.index ["organization_type_id"], name: "index_organizations_on_organization_type_id", using: :btree
@@ -266,17 +268,12 @@ ActiveRecord::Schema.define(version: 20180111030142) do
     t.datetime "end_date"
     t.string   "noticeable_type"
     t.integer  "noticeable_id"
+    t.integer  "organization_id"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
-    t.integer  "organization_id"
     t.index ["noticeable_type", "noticeable_id"], name: "index_public_notices_on_noticeable_type_and_noticeable_id", using: :btree
     t.index ["organization_id"], name: "index_public_notices_on_organization_id", using: :btree
   end
 
-  add_foreign_key "events", "organizations"
   add_foreign_key "meetings", "organizations"
-  add_foreign_key "meetings", "places"
-  add_foreign_key "news_items", "organizations"
-  add_foreign_key "organizations", "organization_types"
-  add_foreign_key "public_notices", "organizations"
 end

@@ -4,6 +4,7 @@ class CreateMeetings < ActiveRecord::Migration[5.0]
       t.string :title
       t.datetime :date
       t.references :organization, foreign_key: true
+      t.references :place
 
       t.timestamps
     end
