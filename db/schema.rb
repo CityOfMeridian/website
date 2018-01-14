@@ -101,8 +101,6 @@ ActiveRecord::Schema.define(version: 20180102001912) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "organization_id"
-    t.index ["organization_id"], name: "index_fae_roles_on_organization_id", using: :btree
   end
 
   create_table "fae_roles_organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

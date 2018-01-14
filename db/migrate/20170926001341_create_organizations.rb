@@ -12,7 +12,6 @@ class CreateOrganizations < ActiveRecord::Migration[5.0]
       t.timestamps
     end
 
-    add_reference :fae_roles, :organization
     add_reference :organizations, :leader, references: :members
     add_reference :organizations, :second_leader, references: :members
     add_reference :organizations, :organization_type

@@ -1,6 +1,18 @@
 class PagesController < ApplicationController
   layout 'application'
   
+  # Fae::StaticPage.all.each do |page|
+  #   define_method page.slug.to_sym do
+  #     @page = constant_name(page.title).instance
+  #     send(page.slug)
+  #   end
+  # end
+
+
+  def contant_name(title)
+    "#{title.classify}Page".constantize
+  end
+  
   def home
     @title = 'City of Meridian'
     @events = Event.limit(4)

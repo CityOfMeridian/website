@@ -9,13 +9,9 @@ Rails.application.routes.draw do
       get "/privacy_policy" => "application#privacy_policy"
       get "/visit" => "visitor/application#index"
       get "community_organizations" => "organizations#community_organizations", as: "community_organizations"
+      
       namespace :pages do
-        get "calendar"
-        get "library"
-        get "water_garbage"
-        get "parks"
-        get "history"
-        get "library"
+        get "/:slug" => "pages#show", as: "slug"
 
         root to: "pages#home"
       end
@@ -36,9 +32,8 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
+        resources :pages, only: [:new, :create]
         resources :roles
-        resources :organization_types
-        resources :contacts
         resources :public_notices
         resources :members
         resources :meetings
@@ -51,6 +46,10 @@ Rails.application.routes.draw do
         resources :news_items
         resources :events
         resources :places
+        get "/" => "organizations#index"
+        # TODO: CRUD for organization_types and contacts
+        # resources :organization_types
+        # resources :contacts
       end
       # mount Fae below your admin namespec
       mount Fae::Engine => '/admin'

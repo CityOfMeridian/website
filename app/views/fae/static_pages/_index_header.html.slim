@@ -1,0 +1,19 @@
+ruby:
+  nested      ||= false
+  title       ||= @klass_humanized.pluralize.titleize
+  new_button    = !local_assigns[:new_button].eql?(false)
+  new_path    ||= "new_#{fae_path}_page_path"
+  button_text ||= "Add #{title.singularize}"
+  csv         ||= false
+  breadcrumb    = !local_assigns[:breadcrumbs].eql?(false)
+
+header.content-header.js-content-header
+  - if breadcrumb
+    == render 'breadcrumb'
+  - else
+    h1 = title
+
+  .content-header-buttons
+    = link_to button_text, send(new_path), class: "add-button"
+
+== render 'flash_messages'

@@ -10,5 +10,9 @@ class OrganizationType < ApplicationRecord
     def community
       self.where(name: "Community").first
     end
+
+    def for_fae_index
+      order(:name)
+    end
   end
 end

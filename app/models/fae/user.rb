@@ -83,6 +83,11 @@ module Fae
       Organization.all
     end
 
+    def permitted_pages
+      return pages unless super_admin?
+      Fae::StaticPage.all
+    end
+
     class << self
       def for_fae_index
         order(:last_name)

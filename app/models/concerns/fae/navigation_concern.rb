@@ -41,15 +41,15 @@ module Fae
         current_user.permitted_organizations.each do |org|
             subitems.unshift(item(org.name, path: edit_admin_organization_path(id: org.id)))
         end 
-        @structure.unshift(item('Organizations', subitems: subitems))
+        @structure.unshift(item('Organizations', subitems: subitems, path: admin_organizations_path))
     end
 
     def add_pages_nav_links
         subitems = []
-        current_user.pages.each do |page|
+        current_user.permitted_pages.each do |page|
             subitems.unshift(item(page.fae_display_field, path: fae.edit_content_block_path(page.fae_display_field)))
         end 
-        @structure.unshift(item('Pages', subitems: subitems))
+        @structure.unshift(item('Pages', subitems: subitems, path: fae.pages_path))
     end
   end
 end

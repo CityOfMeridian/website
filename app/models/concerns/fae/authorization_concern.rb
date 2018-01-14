@@ -27,40 +27,44 @@ module Fae
 
       def access_map
         @map = { 
-          organization_types: ['super_admin'],
-          roles: ['super_admin']
+          "organization_types" =>  ['super admin'],
+          "roles" => ['super admin']
         }
         add_organization_page_permissions
         add_organization_type_permissions
+        p @map
         @map
       end
 
       def add_organization_page_permissions
-        Fae::Role.public_roles.each do |role|
+        Fae::Role.all.each do |role|
           role.organizations.each do |organization|
-            if role.organization.fae_static_page.present?
-              page_name = "content_blocks/#{role.organization_page_title.downcase}"
-              admin_prefix = role.organization_admin_prefix.present? ? role.organization_admin_prefix : role.organization_name.downcase
-              @map[page_name] = ['super_admin', 'admin', "#{admin_prefix} admin"]
+            if organization.pages.any?
+              organization.pages.each do |page|
+                page_name = "content_blocks/#{page.title.downcase}"
+                admin_prefix = organization.admin_prefix.present? ? organization.admin_prefix : organization.name.downcase
+                @map[page_name] = ['super admin', 'admin', "#{admin_prefix} admin"] unless @map.has_key? page_name
+                @map[page_name] << "#{admin_prefix} admin" if !@map[page].include?(admin_prefix)
+              end
             end
           end
         end
       end
 
       def add_organization_type_permissions
-        Fae::Role.public_roles.each do |role|
+        Fae::Role.all.each do |role|
           role.organizations.each do |organization|
-            if role.organization_type_name == 'government'
+            if organization.type_name == 'government' || role.name == "super admin"
               government_access_map.each do |page|
-                admin_prefix = role.organization_prefix.present? ? role.organization_prefix : role.organization_name.downcase
-                @map[page] = ['super_admin', 'admin', "#{admin_prefix} admin"] unless @map.has_key? page
-                @map[page] << "#{admin_prefix} admin" if @map.has_key?(page) && !@map[page].include?(admin_prefix)
+                admin_prefix = organization.admin_prefix.present? ? organization.admin_prefix : organization.name.downcase
+                @map[page] = ['super admin', 'admin', "#{admin_prefix} admin"] unless @map.has_key? page
+                @map[page] << "#{admin_prefix} admin" unless !@map[page].include?(admin_prefix)
               end
-            elsif role.organization_type_name == 'community'
+            elsif organization.type_name == 'community' || role.name == "super admin"
               community_access_map.each do |page|
-                admin_prefix = role.organization_prefix.present? ? role.organization_prefix : role.organization_name.downcase
-                @map[page] = ['super_admin', 'admin', "#{admin_prefix} admin"] unless @map.has_key? page
-                @map[page] << "#{admin_prefix} admin" if @map.has_key?(page) && !@map[page].include?(admin_prefix)
+                admin_prefix = organization.admin_prefix.present? ? organization.admin_prefix : organization.name.downcase
+                @map[page] = ['super admin', 'admin', "#{admin_prefix} admin"] unless @map.has_key? page
+                @map[page] << "#{admin_prefix} admin" unless !@map[page].include?(admin_prefix)
               end
             end
           end

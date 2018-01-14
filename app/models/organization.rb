@@ -12,6 +12,7 @@ class Organization < ApplicationRecord
   has_and_belongs_to_many :pages, class_name: 'Fae::StaticPage', association_foreign_key: "fae_static_page_id"
   has_and_belongs_to_many :roles, class_name: 'Fae::Role', association_foreign_key: "fae_role_id"
 
+  belongs_to :organization_type
   belongs_to :type, class_name: "OrganizationType", foreign_key: "organization_type_id"
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
@@ -39,7 +40,7 @@ class Organization < ApplicationRecord
   end
 
   def community?
-    type == 'community'
+    type_name == 'community'
   end
 
   class << self

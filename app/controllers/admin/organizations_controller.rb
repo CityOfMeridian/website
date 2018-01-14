@@ -3,7 +3,7 @@ module Admin
     before_action :set_parent_item, only: [:edit]
 
     def index
-      @items = Organization.all
+      @items = current_user.organizations
       @meetings = Meeting.joins(:organizations).distinct
     end
 

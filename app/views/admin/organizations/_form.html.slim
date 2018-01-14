@@ -6,15 +6,15 @@
   .col-10
     = fae_input f, :name, label: 'Name'
     = fae_input f, :members_collection_name, label: 'Members Group Name', helper_text: "i.e., City Council, Board, Board of Directors, etc."
+    = fae_pulldown f, :type, collection: OrganizationType.all, label: "OrganizationType"
     = fae_input f, :website, helper_text: 'If other than this site'
-    = fae_input f, :type
     - unless @item.community?
       .col-6
         = fae_pulldown f, :leader, label: @item.leader_title.humanize, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
       .col-6
         = fae_pulldown f, :second_leader, label: @item.second_leader_title.humanize, collection: Member.active.where(organization: @item).all
   .col-2
-- unless @parent_item.nil?
+- unless @parent_item.nil? || @item.community?
   .col-2
   .col-10
     == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]

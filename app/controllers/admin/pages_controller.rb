@@ -1,13 +1,13 @@
 module Admin
-  class RolesController < Fae::BaseController
-    before_action :set_role, only: [:show, :edit]
+  class PagesController < Fae::BaseController
+    before_action :set_page, only: [:show, :edit]
 
     def new
-      @item = Fae::Role.new
+      @item = Fae::StaticPage.new
     end
 
     def create
-      role = Fae::Role.new(roles_params)
+      role = Fae::StaticPage.new(roles_params)
       if role.save
         flash[:info] = "The role was successfully created."
         redirect_to admin_roles_path
@@ -18,7 +18,7 @@ module Admin
     end
 
     def index
-      @items = Fae::Role.all
+      @items = current_user.pages
     end
 
     def show
@@ -33,11 +33,11 @@ module Admin
       params.require(:role).permit(:name, :organizations)
     end
 
-    def set_role
-      @item = Fae::Role.find(params[:id])
+    def set_page
+      @item = Fae::StaticPage.find(params[:id])
     end
 
-    def set_class_variables(class_name = 'Fae::Role')
+    def set_class_variables(class_name = 'Fae::StaticPage')
       klass_base = params[:controller].split('/').last
       @klass_name = class_name || klass_base               # used in form views
       @klass = @klass_name.classify.constantize             # used as class reference in this controller

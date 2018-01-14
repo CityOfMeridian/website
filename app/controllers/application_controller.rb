@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   private
   def default_members_collection
-    @default_members_collection = Organization.default_members_collection_name
+    @default_members_collection = Organization.default_members_collection_name || nil
   end
 
   def set_organizations

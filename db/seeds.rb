@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Fae::Role.create(name: 'city admin', organization: Organization.find_or_create_by(name: 'City'))
-Fae::Role.create(name: 'edc admin', organization: Organization.find_or_create_by(name: 'EDC'))
-Fae::Role.create(name: 'library admin', organization: Organization.find_or_create_by(name: 'Library', fae_static_page: Fae::StaticPage.create(title: 'Library')))
-Fae::Role.create(name: 'library admin', organization: Organization.find_or_create_by(name: 'Library'))
+org_type_government = OrganizationType.create(name: 'government')
+org_type_community = OrganizationType.create(name: 'community')
+
+Fae::Role.create(name: 'city admin').organizations << Organization.find_or_create_by(name: 'City', organization_type: org_type_government)
+Fae::Role.create(name: 'edc admin',).organizations << Organization.find_or_create_by(name: 'EDC', organization_type: org_type_government)
+Fae::Role.find_by(name: 'admin').organizations << Organization.all
