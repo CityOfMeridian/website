@@ -6,7 +6,8 @@ module Admin
     private
 
     def fae_pages
-      [ParksPage, LibraryPage, WaterGarbagePage, VisitPage]
+      return current_user.permitted_pages.active.map { |page| "#{page_name(page)}Page".constantize } unless current_user.super_admin?
+      current_user.permitted_pages.map { |page| "#{page_name(page)}Page".constantize }
     end
 
     def set_contacts
@@ -19,6 +20,11 @@ module Admin
 
     def params_has_page_slug?
       (params.has_key?('slug') && PAGE_SLUGS.include?(params['slug']))
+    end
+
+    def page_name(page)
+      return page.class_name unless page.class_name.nil?
+      page.title.titleize.delete(' ')
     end
   end
 end

@@ -12,7 +12,7 @@ gem "rails-ujs"
 gem "delayed_job_active_record"
 gem "bootstrap-sass"
 gem "fog"
-gem "fae-rails"
+gem "fae-rails", :github =>"RCulpepp/fae", :branch =>"fae_pages"
 gem "flex-slider-rails"
 gem "font-awesome-rails"
 gem 'mysql2'

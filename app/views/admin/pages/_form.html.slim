@@ -1,0 +1,12 @@
+= simple_form_for(['admin', @item], html: {multipart: true, novalidate: true, class: 'js-file-form'}, url: admin_pages_path) do |f|
+  header.content-header.js-content-header
+    == render 'fae/shared/form_header', header: @klass_name
+  == render 'fae/shared/errors'
+
+  main.content
+    = fae_input f, :title
+    = fae_multiselect f, :organizations, helper_text: "Administrators for selected organizations will have access to edit this page"
+    = fae_pulldown f, :meridian_template, collection: MeridianTemplate.all, label: "Template"
+
+    = f.submit
+    = button_tag 'Cancel', type: 'button', class: 'js-cancel-nested cancel-nested-button'

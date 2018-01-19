@@ -47,7 +47,7 @@ module Fae
     def add_pages_nav_links
         subitems = []
         current_user.permitted_pages.each do |page|
-            subitems.unshift(item(page.fae_display_field, path: fae.edit_content_block_path(page.fae_display_field)))
+            subitems.unshift(item(page.fae_display_field, path: fae.edit_content_block_path(page.slug)))
         end 
         @structure.unshift(item('Pages', subitems: subitems, path: fae.pages_path))
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102001912) do
+ActiveRecord::Schema.define(version: 20180119220628) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -110,11 +110,13 @@ ActiveRecord::Schema.define(version: 20180102001912) do
 
   create_table "fae_static_pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.integer  "position",   default: 0
-    t.boolean  "on_stage",   default: true
-    t.boolean  "on_prod",    default: false
+    t.string   "class_name"
+    t.integer  "position",             default: 0
+    t.boolean  "on_stage",             default: true
+    t.boolean  "on_prod",              default: false
     t.string   "slug"
     t.boolean  "active"
+    t.integer  "meridian_template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["slug"], name: "index_fae_static_pages_on_slug", using: :btree
@@ -216,6 +218,12 @@ ActiveRecord::Schema.define(version: 20180102001912) do
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
     t.index ["organization_id"], name: "index_members_on_organization_id", using: :btree
+  end
+
+  create_table "meridian_templates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "news_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -9,6 +9,14 @@
 org_type_government = OrganizationType.create(name: 'government')
 org_type_community = OrganizationType.create(name: 'community')
 
-Fae::Role.create(name: 'city admin').organizations << Organization.find_or_create_by(name: 'City', organization_type: org_type_government)
-Fae::Role.create(name: 'edc admin',).organizations << Organization.find_or_create_by(name: 'EDC', organization_type: org_type_government)
-Fae::Role.find_by(name: 'admin').organizations << Organization.all
+city_role = Fae::Role.create(name: 'city admin')
+city_role.organizations << Organization.find_or_create_by(name: 'City', organization_type: org_type_government)
+city_role.save
+
+edc_role = Fae::Role.create(name: 'edc admin')
+edc_role.organizations << Organization.find_or_create_by(name: 'EDC', organization_type: org_type_government)
+edc_role.save
+
+admin = Fae::Role.find_by(name: 'admin')
+admin.organizations = Organization.all
+admin.save

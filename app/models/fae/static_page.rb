@@ -5,9 +5,12 @@ module Fae
     include Fae::StaticPageConcern
 
     validates :title, presence: true
-    has_and_belongs_to_many :organizations
+    has_and_belongs_to_many :organizations, association_foreign_key: "organization_id"
+    belongs_to :meridian_template
 
     @singleton_is_setup = false
+
+    scope :active, -> {where(active: true)}
 
     def self.instance
       setup_dynamic_singleton
