@@ -3,10 +3,15 @@ module Fae
 
     include Fae::BaseModelConcern
     include Fae::StaticPageConcern
+    DEFAULT_TEMPLATE = "template1".freeze
+
+    alias_attribute :template, :meridian_template
 
     validates :title, presence: true
-    has_and_belongs_to_many :organizations, association_foreign_key: "organization_id"
+    has_and_belongs_to_many :organizations, join_table: "fae_static_pages_organizations", association_foreign_key: "organization_id"
     belongs_to :meridian_template
+
+    delegate :name, to: :meridian_template, prefix: :template
 
     @singleton_is_setup = false
 
@@ -21,6 +26,10 @@ module Fae
 
     def self.fae_fields
       {}
+    end
+
+    def constant_name
+      "#{class_name}Page".constantize
     end
 
     def fae_display_field

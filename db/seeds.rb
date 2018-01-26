@@ -20,3 +20,10 @@ edc_role.save
 admin = Fae::Role.find_by(name: 'admin')
 admin.organizations = Organization.all
 admin.save
+
+MeridianTemplate.create(name: "template1")
+
+Rails::Generators.invoke("fae:page", ["Library", "content:text", "image:image"])
+Rails::Generators.invoke("fae:page", ["WaterGarbage", "content:text", "image:image"])
+Rails::Generators.invoke("fae:page", ["City", "content:text"])
+Rails::Generators.invoke("fae:page", ["EDC", "content:text"])

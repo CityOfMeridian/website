@@ -1,6 +1,6 @@
 module Admin
   class PagesController < Fae::BaseController
-    before_action :set_page, only: [:show, :edit]
+    before_action :set_page, only: [:edit]
 
     def new
       @item = Fae::StaticPage.new
@@ -21,13 +21,25 @@ module Admin
           if @item.save
             @item.update_attributes(page_model_params)
             flash[:info] = "The page was successfully created."
-            redirect_to admin_pages_path
+            redirect_to fae.edit_content_block_path(@item.slug)
           else
             flash[:info] = role.errors.full_messages.first
             redirect_to new_admin_page_path
           end
         end
+      else
+        flash[:info] = "Please choose a different title."
+        redirect_to new_admin_page_path
       end
+    end
+
+    def destroy
+      if @item.present?
+        File.delete Rails.root.join('app','models', "#{@item.class_name.underscore}_page.rb").to_s
+        File.delete Rails.root.join('app','views', 'admin', 'content_blocks',"#{@item.class_name.underscore}.html.slim").to_s
+        @item.delete
+      end
+      redirect_to admin_pages_path
     end
 
     private

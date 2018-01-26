@@ -1,0 +1,31 @@
+<div class="content container">
+    <div class="page-wrapper">
+        <header class="page-heading clearfix">
+            <h1 class="heading-title pull-left"><%= @page.title %></h1>
+        </header> 
+        <div class="page-content">
+            <div class="row page-row">
+                <article class="welcome col-md-8 col-sm-7">
+                    <%= @page.main_content_content %>
+                </article><!--//page-content-->
+                <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
+                    <% unless @page.subfield_1_content.nil? %>
+                    <section class="widget has-divider">
+                        <%= @page.subfield_1_content %>
+                    </section><!--//widget-->
+                    <% end %>
+                    <% unless @page.subfield_2_content.nil? %>
+                    <section class="widget has-divider">
+                        <%= @page.subfield_2_content %>
+                    </section><!--//widget-->
+                    <% end %>
+                    <% unless @page.subfield_3_content.nil? %>
+                    <section class="widget">
+                        <%= @page.subfield_3_content %>
+                    </section><!--//widget--> 
+                    <% end %>
+                </aside>
+            </div><!--//page-row-->
+        </div><!--//page-content-->
+    </div><!--//page--> 
+</div><!--//content-->

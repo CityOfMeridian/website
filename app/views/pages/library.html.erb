@@ -11,7 +11,7 @@
                         <p class="featured-image page-row"><%= image_tag @library.image.asset.url, class: "img-responsive" unless @library.image.nil? %></p>
                     </article>
                     <div class="page-row">
-                        <%= @library.content_text.html_safe %>
+                        <%= @library.content_text.html_safe unless @library.content_text.nil? %>
                     </div>
                 </div>
                 <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">     

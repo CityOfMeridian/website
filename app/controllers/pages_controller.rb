@@ -1,16 +1,11 @@
 class PagesController < ApplicationController
   layout 'application'
-  
-  # Fae::StaticPage.all.each do |page|
-  #   define_method page.slug.to_sym do
-  #     @page = constant_name(page.title).instance
-  #     send(page.slug)
-  #   end
-  # end
 
-
-  def contant_name(title)
-    "#{title.classify}Page".constantize
+  def show
+    page = Fae::StaticPage.find_by(slug: params[:slug]) || Fae::StaticPage.first
+    @page = page.constant_name.instance
+    render "templates/#{page.template_name}" if page.template.present?
+    render "templates/#{Fae::StaticPage::DEFAULT_TEMPLATE}"
   end
   
   def home

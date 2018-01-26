@@ -9,13 +9,8 @@ Rails.application.routes.draw do
       get "/privacy_policy" => "application#privacy_policy"
       get "/visit" => "visitor/application#index"
       get "community_organizations" => "organizations#community_organizations", as: "community_organizations"
-      
-      namespace :pages do
-        get "/:slug" => "pages#show", as: "slug"
-
-        root to: "pages#home"
-      end
-
+      get "pages/library" => "pages#library"
+      get "pages/:slug" => "pages#show", as: "pages_slug"
 
       get "/history" => "application#history"
       
@@ -32,7 +27,7 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
-        resources :pages, only: [:new, :create]
+        resources :pages, only: [:new, :create, :destroy], param: :id
         resources :roles
         resources :public_notices
         resources :members
