@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   layout 'application'
 
   def show
-    page = Fae::StaticPage.find_by(slug: params[:slug]) || Fae::StaticPage.first
-    @page = page.constant_name.instance
+    @page_model = Fae::StaticPage.find_by(slug: params[:slug]) || Fae::StaticPage.first
+    @page = @page_model.constant_name.instance
     render page_view_file
   end
   
@@ -47,12 +47,12 @@ class PagesController < ApplicationController
   end
 
   def page_view_file
-    return "#{fae_page_klass_name.underscore}.html.erb" if has_custom_template?
-    return "templates/#{page.template_name}" if page.template.present?
+    return "#{@page_model.page_class_name.underscore}.html.erb" if has_custom_template?
+    return "templates/#{@page_model.template_name}" if @page_model.template.present?
     return "templates/#{Fae::StaticPage::DEFAULT_TEMPLATE}"
   end
 
   def has_custom_template?
-    File.exist? Rails.root.join('app','views', "pages", "#{fae_page_klass_name.underscore}.html.erb").to_s
+    File.exist? Rails.root.join('app','views', "pages", "#{@page_model.page_class_name.underscore}.html.erb").to_s
   end
 end

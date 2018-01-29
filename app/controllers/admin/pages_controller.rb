@@ -17,6 +17,7 @@ module Admin
           @item.subfield_3 = Fae::TextArea.new(content: pages_params[:subfield_3]) unless pages_params[:subfield_3].nil?
           @item.meridian_template = page_model_params["template"]
           @item.page_class_name = page_model_params["title"].titleize.delete(' ')
+          @item.slug = @item.page_class_name.underscore
 
           if @item.save
             @item.update_attributes(page_model_params)
