@@ -9,7 +9,7 @@
                     <article class="course-item">
                         <div class="featured-image page-row">
                             <%= image_tag @water_garbage.image.asset_url, class: "img-responsive" unless @water_garbage.image.asset.url.nil? %>
-                            <%= @water_garbage.content_text.html_safe %>
+                            <%= @water_garbage.content_text.html_safe if @water_garbage.content_text.present? %>
                         </div>
                         <div class="tabbed-info page-row">
                             <ul class="nav nav-tabs">
