@@ -11,8 +11,18 @@
   padding-top: 20px;
 }
 
+.col-10 h2{
+  padding-bottom: 15px;
+}
+
 .col-6 {
   width: 50%;
+  display:inline-block;
+  vertical-align: top;
+}
+
+.col-5 {
+  width: 37.5%;
   display:inline-block;
   vertical-align: top;
 }

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "/visit" => "visitor/application#index"
       get "community_organizations" => "organizations#community_organizations", as: "community_organizations"
       get "pages/library" => "pages#library"
+      get "pages/calendar" => "pages#calendar"
       get "pages/:slug" => "pages#show", as: "pages_slug"
 
       get "/history" => "application#history"
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
       resources :news_items, only: [:index, :show]
       resources :events, only: [:index, :show]
-      resources :contacts, only: [:create]
+      resources :contacts, only: [:create, :new]
 
       resources :organizations, only: [:show, :community_organizations] do
         resources :members, only: [:index]

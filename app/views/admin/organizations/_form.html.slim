@@ -8,18 +8,25 @@
     = fae_input f, :members_collection_name, label: 'Members Group Name', helper_text: "i.e., City Council, Board, Board of Directors, etc."
     = fae_pulldown f, :type, collection: OrganizationType.all, label: "OrganizationType"
     = fae_input f, :website, helper_text: 'If other than this site'
-    - unless @item.community?
-      .col-6
-        = fae_pulldown f, :leader, label: @item.leader_title.humanize, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
-      .col-6
-        = fae_pulldown f, :second_leader, label: @item.second_leader_title.humanize, collection: Member.active.where(organization: @item).all
   .col-2
-- unless @parent_item.nil? || @item.community?
-  .col-2
-  .col-10
-    == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
-  .col-2
-  .col-2
-  .col-10
-    == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :active, :term_start, :term_end]
-  .col-2
+  - unless @parent_item.nil? || @item.community?
+    .col-2
+    .col-10
+      == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
+    .col-2
+    .col-2
+    .col-10
+      h2="Leaders"
+    .col-2
+    .col-2
+    .col-5
+      = fae_input f, :leader_title, value: @item.leader_title.titleize
+      = fae_pulldown f, :leader, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
+    .col-5
+      = fae_input f, :second_leader_title, value: @item.second_leader_title.titleize
+      = fae_pulldown f, :second_leader, collection: Member.active.where(organization: @item).all
+    .col-2
+    .col-2
+    .col-10
+      == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :active, :term_start, :term_end]
+    .col-2

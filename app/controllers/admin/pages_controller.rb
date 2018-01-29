@@ -16,7 +16,7 @@ module Admin
           @item.subfield_2 = Fae::TextArea.new(content: pages_params[:subfield_2]) unless pages_params[:subfield_2].nil?
           @item.subfield_3 = Fae::TextArea.new(content: pages_params[:subfield_3]) unless pages_params[:subfield_3].nil?
           @item.meridian_template = page_model_params["template"]
-          @item.class_name = page_model_params["title"].titleize.delete(' ')
+          @item.page_class_name = page_model_params["title"].titleize.delete(' ')
 
           if @item.save
             @item.update_attributes(page_model_params)
@@ -35,8 +35,8 @@ module Admin
 
     def destroy
       if @item.present?
-        File.delete Rails.root.join('app','models', "#{@item.class_name.underscore}_page.rb").to_s
-        File.delete Rails.root.join('app','views', 'admin', 'content_blocks',"#{@item.class_name.underscore}.html.slim").to_s
+        File.delete Rails.root.join('app','models', "#{@item.page_class_name.underscore}_page.rb").to_s
+        File.delete Rails.root.join('app','views', 'admin', 'content_blocks',"#{@item.page_class_name.underscore}.html.slim").to_s
         @item.delete
       end
       redirect_to admin_pages_path

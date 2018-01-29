@@ -6,6 +6,7 @@ class OrganizationsController < ApplicationController
     end
     @next_meeting = @organization.next_meeting
     @year_meetings = @organization.meetings.this_year
+    @organization_page = @organization.fae_static_page.constant_name.instance if @organization.fae_static_page.present?
   end
 
   def community_organizations

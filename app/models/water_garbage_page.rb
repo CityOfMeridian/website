@@ -9,9 +9,5 @@ class WaterGarbagePage < Fae::StaticPage
       image: { type: Fae::Image }
     }
   end
-  
-  def content_text
-    return content.content if content.present?
-    nil
-  end
+
 end

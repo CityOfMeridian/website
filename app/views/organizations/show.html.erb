@@ -2,17 +2,11 @@
     <div class="page-wrapper">
         <header class="page-heading clearfix">
             <h1 class="heading-title pull-left"><%= @organization.members_collection_name %></h1>
-            <div class="breadcrumbs pull-right">
-                <ul class="breadcrumbs-list">
-                    <li class="breadcrumbs-label">You are here:</li>
-                    <li><a href="index.html">Home</a><i class="fa fa-angle-right"></i></li>
-                    <li class="current"><%= @organization.members_collection_name %></li>
-                </ul>
-            </div><!--//breadcrumbs-->
         </header> 
         <div class="page-content">
             <div class="row page-row">
                 <div class="team-wrapper col-md-8 col-sm-7">
+                    <p><%= @organization_page.content_text unless @organization_page.nil? %></p>
                     <%= render @members %>
                 </div><!--//team-wrapper-->
                 <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">      

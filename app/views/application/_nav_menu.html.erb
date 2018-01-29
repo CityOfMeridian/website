@@ -17,7 +17,6 @@
         <ul class="dropdown-menu">
             <li><%= link_to "Community Organizations", community_organizations_path %></a></li>
             <li><a href="/pages/calendar">Community Calendar</a></li>
-            <li><a href="events">Churches</a></li>
             <li>
         </ul>
     </li>
@@ -29,5 +28,5 @@
             <li><a href="https://www.meridianisd.org" target="_blank">Education</a></li>
         </ul>
     </li>
-    <li class="nav-item"><a href="contact.html">Contact</a></li>
+    <li class="nav-item"><%= link_to "Contact", new_contact_path %></li>
 </ul>

@@ -8,6 +8,7 @@ class CreateOrganizations < ActiveRecord::Migration[5.0]
       t.string :default_member_title, default: 'Council Member'
       t.string :website
       t.string :admin_prefix
+      t.references :fae_static_page
 
       t.timestamps
     end

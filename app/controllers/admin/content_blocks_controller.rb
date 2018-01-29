@@ -23,7 +23,7 @@ module Admin
     end
 
     def page_name(page)
-      return page.class_name unless page.class_name.nil?
+      return page.page_class_name unless page.page_class_name.nil?
       page.title.titleize.delete(' ')
     end
   end

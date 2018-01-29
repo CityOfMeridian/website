@@ -10,6 +10,7 @@ module Fae
     validates :title, presence: true
     has_and_belongs_to_many :organizations, join_table: "fae_static_pages_organizations", association_foreign_key: "organization_id"
     belongs_to :meridian_template
+    has_many :organizations
 
     delegate :name, to: :meridian_template, prefix: :template
 
@@ -29,7 +30,7 @@ module Fae
     end
 
     def constant_name
-      "#{class_name}Page".constantize
+      "#{page_class_name}Page".constantize
     end
 
     def fae_display_field
@@ -40,6 +41,11 @@ module Fae
       self.class.fae_fields.keys.map do |field|
         [field, field_json(field)]
       end.to_h
+    end
+
+    def content_text
+      return content.content if content.present?
+      nil
     end
 
   private

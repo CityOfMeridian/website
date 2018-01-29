@@ -9,6 +9,7 @@ class Organization < ApplicationRecord
   has_many :public_notices
   has_many :events
   has_many :news_items
+  belongs_to :fae_static_page, class_name: "Fae::StaticPage"
   has_and_belongs_to_many :pages, class_name: 'Fae::StaticPage', association_foreign_key: "fae_static_page_id"
   has_and_belongs_to_many :roles, class_name: 'Fae::Role', association_foreign_key: "fae_role_id"
 
@@ -17,7 +18,7 @@ class Organization < ApplicationRecord
   belongs_to :leader, class_name: 'Member'
   belongs_to :second_leader, class_name: 'Member'
 
-  delegate :name, to: :type, prefix: true
+  delegate :name, to: :type, prefix: true, allow_nil: true
 
   scope :community, -> { where(type: OrganizationType.community) }
   scope :not_community, -> { where.not(type: OrganizationType.community) }

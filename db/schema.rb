@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20180119220628) do
 
   create_table "fae_static_pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.string   "class_name"
+    t.string   "page_class_name"
     t.integer  "position",             default: 0
     t.boolean  "on_stage",             default: true
     t.boolean  "on_prod",              default: false
@@ -250,11 +250,13 @@ ActiveRecord::Schema.define(version: 20180119220628) do
     t.string   "default_member_title",    default: "Council Member"
     t.string   "website"
     t.string   "admin_prefix"
+    t.integer  "fae_static_page_id"
     t.datetime "created_at",                                         null: false
     t.datetime "updated_at",                                         null: false
     t.integer  "leader_id"
     t.integer  "second_leader_id"
     t.integer  "organization_type_id"
+    t.index ["fae_static_page_id"], name: "index_organizations_on_fae_static_page_id", using: :btree
     t.index ["leader_id"], name: "index_organizations_on_leader_id", using: :btree
     t.index ["organization_type_id"], name: "index_organizations_on_organization_type_id", using: :btree
     t.index ["second_leader_id"], name: "index_organizations_on_second_leader_id", using: :btree
