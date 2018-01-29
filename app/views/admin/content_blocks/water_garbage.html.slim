@@ -5,6 +5,7 @@
   main.content
     div.col-10
       = fae_input f, :title
+      = fae_image_form f, :image
       = fae_content_form f, :content
     div.col-10
       - unless @contacts.nil?

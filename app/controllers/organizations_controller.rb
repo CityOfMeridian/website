@@ -10,6 +10,6 @@ class OrganizationsController < ApplicationController
   end
 
   def community_organizations
-    @organizations = Organization.community.page(params[:page]).per(5)
+    @community_organizations = Organization.community.page(params[:page]).per(5)
   end
 end

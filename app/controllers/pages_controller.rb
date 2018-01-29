@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def show
     @page_model = Fae::StaticPage.find_by(slug: params[:slug]) || Fae::StaticPage.first
-    @page = @page_model.constant_name.instance
+    set_page_variable
     render page_view_file
   end
   
@@ -54,5 +54,14 @@ class PagesController < ApplicationController
 
   def has_custom_template?
     File.exist? Rails.root.join('app','views', "pages", "#{@page_model.page_class_name.underscore}.html.erb").to_s
+  end
+
+  def set_page_variable
+    if has_custom_template?
+      instance_variable_set("@#{@page_model.page_class_name.underscore}", @page_model.constant_name.instance)
+      @contact = Contact.new
+    else
+      @page = @page_model.constant_name.instance
+    end
   end
 end
