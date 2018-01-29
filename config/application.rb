@@ -18,5 +18,6 @@ module CityOfMeridian
     end
     config.time_zone = 'Central Time (US & Canada)'
     config.exceptions_app = self.routes
+    config.cache_classes = false
   end
 end
