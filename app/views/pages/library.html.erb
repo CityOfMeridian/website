@@ -8,7 +8,7 @@
             <div class="row page-row">
                 <div class="course-wrapper col-md-8 col-sm-7">                         
                     <article class="course-item">
-                        <p class="featured-image page-row"><%= image_tag @library.image.asset.url, class: "img-responsive" unless @library.image.nil? %></p>
+                        <p class="featured-image page-row"><%= image_tag @library.image.asset.url, class: "img-responsive" unless @library.image.nil? || @library.image.asset.nil? %></p>
                     </article>
                     <div class="page-row">
                         <%= @library.content_text.html_safe unless @library.content_text.nil? %>

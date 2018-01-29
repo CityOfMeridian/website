@@ -4,8 +4,7 @@ class PagesController < ApplicationController
   def show
     page = Fae::StaticPage.find_by(slug: params[:slug]) || Fae::StaticPage.first
     @page = page.constant_name.instance
-    render "templates/#{page.template_name}" if page.template.present?
-    render "templates/#{Fae::StaticPage::DEFAULT_TEMPLATE}"
+    render page_view_file
   end
   
   def home
@@ -45,5 +44,15 @@ class PagesController < ApplicationController
   def start_date
     return params[:start_date].to_date if params[:start_date].present? && params[:start_date].respond_to?(:to_date)
     Date.current
+  end
+
+  def page_view_file
+    return "#{fae_page_klass_name.underscore}.html.erb" if has_custom_template?
+    return "templates/#{page.template_name}" if page.template.present?
+    return "templates/#{Fae::StaticPage::DEFAULT_TEMPLATE}"
+  end
+
+  def has_custom_template?
+    File.exist? Rails.root.join('app','views', "pages", "#{fae_page_klass_name.underscore}.html.erb").to_s
   end
 end
