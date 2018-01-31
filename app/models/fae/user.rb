@@ -84,7 +84,7 @@ module Fae
     end
 
     def permitted_pages
-      return pages.map(&:active) unless super_admin?
+      return pages.select!(&:active) unless super_admin?
       Fae::StaticPage.all
     end
 
