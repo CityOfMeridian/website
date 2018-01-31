@@ -6,7 +6,7 @@ module Admin
     private
 
     def fae_pages
-      return current_user.permitted_pages.active.map { |page| "#{page_name(page)}Page".constantize } unless current_user.super_admin?
+      return current_user.permitted_pages.map { |page| "#{page_name(page)}Page".constantize } unless current_user.super_admin?
       current_user.permitted_pages.map { |page| "#{page_name(page)}Page".constantize }
     end
 
