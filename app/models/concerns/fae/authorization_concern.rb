@@ -44,7 +44,7 @@ module Fae
                 page_name = "content_blocks/#{page.title.downcase}"
                 admin_prefix = organization.admin_prefix.present? ? organization.admin_prefix : organization.name.downcase
                 @map[page_name] = ['super admin', 'admin', "#{admin_prefix} admin"] unless @map.has_key? page_name
-                @map[page_name] << "#{admin_prefix} admin" if @map.has_key? page_name && !@map[page].include?(admin_prefix)
+                @map[page_name] << "#{admin_prefix} admin" if @map.has_key? page_name && !@map[page_name].include?(admin_prefix)
               end
             end
           end

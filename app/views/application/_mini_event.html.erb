@@ -6,7 +6,7 @@
     <div class="details">
         <h2 class="title"><%= mini_event.title %></h2>
         <p class="time"><i class="fa fa-clock-o"></i><%= mini_event.time %></p>
-        <% if minievent.place.present? %>
+        <% if mini_event.place.present? %>
             <p class="location">
               <%= link_to "<i class=\"fa fa-map-marker\"></i> #{mini_event.place_name}".html_safe, "https://maps.google.com?q=#{mini_event.place_address}", target: "_blank" %>
             </p>
