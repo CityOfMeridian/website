@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get "/404" => "errors#not_found"
       get "/500" => "errors#internal_error"
       get "/privacy_policy" => "application#privacy_policy"
+      get "/terms_and_conditions" => "application#terms_and_conditions"
       get "/visit" => "visitor/application#index"
       get "community_organizations" => "organizations#community_organizations", as: "community_organizations"
       get "pages/library" => "pages#library"

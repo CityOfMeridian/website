@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
   def privacy_policy
   end
 
+  def terms_and_conditions
+  end
+
   private
   def default_members_collection
     @default_members_collection = Organization.default_members_collection_name || nil

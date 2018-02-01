@@ -46,7 +46,7 @@
                     <%= render 'nav_menu' %>
                     <ul class="social-icons pull-right">
                         <li data-toggle="tooltip" title="(254) 435-2381"><a href="#" ><i class="fa fa-phone"></i></a></li>
-                        <li data-toggle="tooltip" title="info@meridiantexas.us"><a href="#" ><i class="fa fa-envelope"></i></a></li>
+                        <li data-toggle="tooltip" title="info@meridiantexas.us"><%= link_to "<i class=\"fa fa-envelope\"></i>".html_safe, new_contact_path %></li>
                         <li class="row-end" data-toggle="tooltip" title="meridiantx"><a href="https://www.facebook.com/meridiantx" ><i class="fa fa-facebook"></i></a></li>
                     </ul><!--//social-icons-->
                 </div><!--//navabr-collapse-->
@@ -64,10 +64,15 @@
                     <div class="footer-col-inner">
                         <h3>About</h3>
                         <ul>
-                            <li><a href="about.html"><i class="fa fa-caret-right"></i>About us</a></li>
-                            <li><a href="contact.html"><i class="fa fa-caret-right"></i>Contact us</a></li>
-                            <li><a href="privacy_policy"><i class="fa fa-caret-right"></i>Privacy policy</a></li>
-                            <li><a href="terms-and-conditions.html"><i class="fa fa-caret-right"></i>Terms & Conditions</a></li>
+                            <li>
+                                <%= link_to "<i class=\"fa fa-caret-right\"></i>Contact us".html_safe, new_contact_path %>
+                            </li>
+                            <li>
+                                <%= link_to "<i class=\"fa fa-caret-right\"></i>Privacy policy".html_safe, privacy_policy_path %>
+                            </li>
+                            <li>
+                                <%= link_to "<i class=\"fa fa-caret-right\"></i>Terms & Conditions".html_safe, terms_and_conditions_path %>
+                            </li>
                         </ul>
                     </div><!--//footer-col-inner-->
                 </div><!--//foooter-col-->
