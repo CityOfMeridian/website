@@ -51,6 +51,8 @@
             <section class="links">
                 <h1 class="section-heading text-highlight"><span class="line">Quick Links</span></h1>
                 <div class="section-content">
+                <p><%= link_to "<i class=\"fa fa-caret-right\"></i>Pay Water Bill".html_safe, "https://www.officialpayments.com/control/opay.srv?action=pc_main&type=Local&continue_main.x=yes" %></p>
+                <p><%= link_to "<i class=\"fa fa-caret-right\"></i>Community Calendar".html_safe, "pages/calendar" %></p>
                 <% if @quick_links.present? %>
                     <% @quick_link.each do |quick_link| %>
                     <p><%= link_to "<i class=\"fa fa-caret-right\"></i>#{quick_link.text}".html_safe, quick_link.path %></p>
