@@ -46,7 +46,7 @@ class Organization < ApplicationRecord
 
   class << self
     def default_organization
-      Organization.find_by(name: Organization::DEFAULT_ORGANIZATION.first.humanize)
+      Organization.find_by(name: Organization::DEFAULT_ORGANIZATION.first.humanize) || Organization.first
     end
 
     def default_members_collection_name

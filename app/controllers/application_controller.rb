@@ -23,8 +23,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_organizations
-    @organizations = Organization.not_community
-    @city = Organization.find_by(name: 'City') || Organization.find_by(name: "City Council")
+    @organizations ||= Organization.not_community
+    @city ||= Organization.find_by(name: 'City') || Organization.find_by(name: "City Council")
   end
 
   def set_news_items
