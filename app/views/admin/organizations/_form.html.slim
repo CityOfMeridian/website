@@ -1,32 +1,31 @@
+
 = simple_form_for(['admin', @item]) do |f|
   header.content-header.js-content-header
     == render 'fae/shared/form_header', header: @klass_name
   == render 'fae/shared/errors'
   .col-2
   .col-10
+    h2="Organization Information"
     = fae_input f, :name, label: 'Name'
     = fae_input f, :members_collection_name, label: 'Members Group Name', helper_text: "i.e., City Council, Board, Board of Directors, etc."
-    = fae_pulldown f, :type, collection: OrganizationType.all, label: "OrganizationType"
+    = fae_association f, :organization_type
     = fae_input f, :website, helper_text: 'If other than this site'
-  .col-2
-  - unless @parent_item.nil? || @item.community?
-    .col-2
-    .col-10
-      == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
-    .col-2
-    .col-2
-    .col-10
+    - unless @item.community?
+      hr
       h2="Leaders"
-    .col-2
-    .col-2
-    .col-5
-      = fae_input f, :leader_title, value: @item.leader_title.titleize
-      = fae_pulldown f, :leader, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
-    .col-5
-      = fae_input f, :second_leader_title, value: @item.second_leader_title.titleize
-      = fae_pulldown f, :second_leader, collection: Member.active.where(organization: @item).all
-    .col-2
-    .col-2
-    .col-10
-      == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :active, :term_start, :term_end]
-    .col-2
+      .col-6
+        = fae_input f, :leader_title
+        = fae_pulldown f, :leader, collection: Member.active.where(organization: @item).all, style: 'display: inline-block'
+      .col-6
+        = fae_input f, :second_leader_title
+        = fae_pulldown f, :second_leader, collection: Member.active.where(organization: @item).all
+  .col-2
+- unless @parent_item.nil? || @item.community?
+  .col-2
+  .col-10
+    == render 'fae/shared/nested_table', assoc: :members, parent_item: @parent_item, cols: [:name, :email, :active, :term_start, :term_end]
+  .col-2
+  .col-2
+  .col-10
+    == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
+.col-2
