@@ -1,17 +1,16 @@
 <div class="item active">
+    <%= link_to public_notices_path do %>
     <blockquote class="quote">                                  
         <span class='label label-warning'>
             <i class="fa fa-info-circle" ></i> Public Notice
         </span>
         <h4>
-            <%= public_notice.title %>
+            <%= truncate(public_notice.title, length: 100)%>
             <small><%= public_notice.description %></small>
         </h4>
-    <div class="row">
-        <p class="people col-md-8 col-sm-3 col-xs-8"><span class="text-success"><%= public_notice.organization_name if public_notice.organization.present? %></span><br /><span class="title"><%= public_notice.start_date.strftime("%b %e, %Y") %></span></p>
-        <!-- insert organization logo
-            <img class="profile col-md-4 pull-right" src="assets/images/testimonials/profile-1.png"  alt="" />
-        -->
-    </div>                               
-    </blockquote>                
+        <div class="row">
+            <p class="people col-md-8 col-sm-3 col-xs-8"><span class="text-success"><%= public_notice.organization_name if public_notice.organization.present? %></span><br /><span class="title"><%= public_notice.start_date.strftime("%b %e, %Y") %></span></p>
+        </div>
+    </blockquote>
+    <% end %>
 </div><!--//item-->

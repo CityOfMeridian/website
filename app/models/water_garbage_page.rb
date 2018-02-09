@@ -5,7 +5,9 @@ class WaterGarbagePage < Fae::StaticPage
   # required to set the has_one associations, Fae::StaticPage will build these associations dynamically
   def self.fae_fields
     {
-      content: { type: Fae::TextArea },
+      water: { type: Fae::TextArea },
+      garbage: { type: Fae::TextArea },
+      payment: { type: Fae::TextArea },
       image: { type: Fae::Image }
     }
   end

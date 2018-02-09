@@ -7,12 +7,14 @@
             <div class="row page-row">
                 <div class="team-wrapper col-md-8 col-sm-7">
                     <p><%= @organization_page.content_text unless @organization_page.nil? %></p>
-                    <%= render @members %>
+                    <div style="margin-top: 15px;">
+                        <%= render @members %>
+                    </div>
                 </div><!--//team-wrapper-->
                 <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">      
                     <% if @next_meeting.present? %>
                     <section class="widget has-divider" style="padding: 12px;">
-                        <h3 class="title">Next Council Meeting</h3>
+                        <h3 class="title">Next <%= @organization.members_collection_name.titleize %> Meeting</h3>
                         <h5><%= @next_meeting.display_date %></h5>
                         <%= link_to "<i class=\"fa fa-download\"></i>Download Agenda".html_safe, @next_meeting.agenda.asset.url, class: "btn btn-theme btn-sm"%>
                     </section><!--//widget-->

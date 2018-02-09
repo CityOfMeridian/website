@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @events = Event.where(id: params[:id]).page(params[:page]).per(1)
+    @events = Event.find(id: params[:id])
     render 'index'
   end
 end
