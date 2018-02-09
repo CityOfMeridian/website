@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
       get "/history" => "application#history"
       
-      resources :public_notices, only: [:index, :show] do
+      resources :public_notices, only: [:index] do
         get :noticeable
       end
 

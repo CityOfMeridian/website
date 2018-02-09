@@ -6,9 +6,9 @@
     div.col-10
       = fae_input f, :title
       = fae_image_form f, :image
-    = fae_content_form f, :water
-    = fae_content_form f, :garbage
-    = fae_content_form f, :payment
+      = fae_content_form f, :water
+      = fae_content_form f, :garbage
+      = fae_content_form f, :payment
     div.col-10
       - unless @contacts.nil?
           h4 = "Service Requests"
