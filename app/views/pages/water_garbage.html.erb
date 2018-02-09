@@ -9,51 +9,25 @@
                     <article class="course-item">
                         <div class="featured-image page-row">
                             <%= image_tag @water_garbage.image.asset_url, class: "img-responsive" unless @water_garbage.image.asset.url.nil? %>
-                            <%= @water_garbage.content_text.html_safe if @water_garbage.content_text.present? %>
                         </div>
                         <div class="tabbed-info page-row">
                             <ul class="nav nav-tabs">
-                              <li class='active'><a href="#tab1" data-toggle="tab">Payment</a></li>
-                              <li><a href="#tab2" data-toggle="tab">Service Request</a></li>
+                              <li class='active'><a href="#water" data-toggle="tab">Water</a></li>
+                              <li><a href="#garbage" data-toggle="tab">Garbage</a></li>
+                              <li><a href="#payment" data-toggle="tab">Payment</a></li>
+                              <li><a href="#contact" data-toggle="tab">Service Request</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="tab1">
-                                    <p><%= link_to 'Pay Online', "https://www.officialpayments.com/control/opay.srv?action=pc_main&type=Local&continue_main.x=yes" %> (processing fee added)</p>
-                                    <p>Pay by check in person at <%= link_to "City Hall", "https://maps.google.com/q=111 Main Street, Meridian, Texas 76665"%> or mail to: PO Box 306, Meridian, TX 76665</p>
-                                    <p>Contact City Hall to set up auto draft from a checking account with no additional fees</p>
-                                    <p>Customers are billed monthly around the 1st and bills are due on the 15th.  Meters are read around the middle of the month.</p>
-
-                                    <h5>Current Prices: </h5>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Price</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Water</td>
-                                                    <td>Approx. 1.1¢/gallon </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Garbage</td>
-                                                    <td>$13</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>CareFlite</td>
-                                                    <td>$1</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tax</td>
-                                                    <td>$1.07</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="tab-pane active" id="water">
+                                    <%= @water_garbage.water_content.html_safe if @water_garbage.water.present? %>
                                 </div>
-                                <div class="tab-pane" id="tab2">
+                                <div class="tab-pane" id="garbage">
+                                    <%= @water_garbage.garbage_content.html_safe if @water_garbage.garbage.present? %>
+                                </div>
+                                <div class="tab-pane" id="payment">
+                                    <%= @water_garbage.payment_content.html_safe if @water_garbage.payment.present? %>
+                                </div>
+                                <div class="tab-pane" id="contact">
                                     <p>Request new service</p>
                                     <%= render 'flashes' %>
                                     <%= render 'contact_form' %>
