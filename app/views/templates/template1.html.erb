@@ -5,23 +5,25 @@
         </header> 
         <div class="page-content">
             <div class="row page-row">
+                <% unless @page.main_content_content.nil? %>
                 <article class="welcome col-md-8 col-sm-7">
-                    <%= @page.main_content_content %>
+                    <%= @page.main_content_content.html_safe %>
                 </article><!--//page-content-->
+                <% end %>
                 <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">
                     <% unless @page.subfield_1_content.nil? %>
                     <section class="widget has-divider">
-                        <%= @page.subfield_1_content %>
+                        <%= @page.subfield_1_content.html_safe %>
                     </section><!--//widget-->
                     <% end %>
                     <% unless @page.subfield_2_content.nil? %>
                     <section class="widget has-divider">
-                        <%= @page.subfield_2_content %>
+                        <%= @page.subfield_2_content.html_safe %>
                     </section><!--//widget-->
                     <% end %>
                     <% unless @page.subfield_3_content.nil? %>
                     <section class="widget">
-                        <%= @page.subfield_3_content %>
+                        <%= @page.subfield_3_content.html_safe %>
                     </section><!--//widget--> 
                     <% end %>
                 </aside>
