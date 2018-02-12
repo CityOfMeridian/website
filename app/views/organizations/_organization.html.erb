@@ -4,14 +4,5 @@
         
     </div>
     <div class="panel-body">
-        <%= organization.website %> <!-- need to address those without websites -->
-    </div>
-    <div class="panel-footer">
-        <div class="row">
-            <ul class="list-inline col-md-8 col-sm-6 col-xs-6">
-                <li><a href="#">More details</a></li>
-            </ul>
-
-        </div>
-    </div>
-</div><!--//panel--> 
+        <%= link_to organization.website, organization.website %>
+</div>
