@@ -27,7 +27,7 @@
                             <p><%= meeting.display_date %>: 
                                 <%= link_to "Agenda", meeting.agenda.asset.url if meeting.agenda.asset.present? %>
                                 <% if meeting.minutes.asset.present? %>
-                                <%= " / #{link_to "Minutes", meeting.minutes.asset.url}" %>
+                                / <%= link_to "Minutes", meeting.minutes.asset.url %>
                                 <% end %>
                         <% end %>
                         </div><!--//testimonials-carousel-->                             
