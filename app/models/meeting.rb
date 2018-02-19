@@ -13,7 +13,7 @@ class Meeting < ApplicationRecord
 
   default_scope { order(:date) }
 
-  scope :ordered, -> { order('date desc') }
+  scope :ordered, -> { reorder('date desc') }
   scope :this_year, -> { where('extract(year from date) = ?', Date.current.year) }
 
   def fae_nested_parent
