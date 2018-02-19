@@ -27,6 +27,7 @@ gem 'simple_calendar', '~> 2.0'
 gem 'sentry-raven'
 gem 'dotenv-rails'
 gem 'heroku-deflater', :group => :production
+gem 'popper_js'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
