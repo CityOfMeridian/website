@@ -16,7 +16,7 @@
                     <section class="widget has-divider" style="padding: 12px;">
                         <h3 class="title">Next <%= @organization.members_collection_name.titleize %> Meeting</h3>
                         <h5><%= @next_meeting.display_date %></h5>
-                        <%= link_to "<i class=\"fa fa-download\"></i>Download Agenda".html_safe, @next_meeting.agenda.asset.url, class: "btn btn-theme btn-sm" %>
+                        <%= link_to "<i class=\"fa fa-download\"></i>Download Agenda".html_safe, @next_meeting.agenda.asset.url, class: "btn btn-theme btn-sm" unless @next_meeting.agenda.asset.url.nil? %>
                     </section><!--//widget-->
                     <% end %>
                     <% if @year_meetings.any? %>
