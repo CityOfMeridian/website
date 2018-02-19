@@ -1,12 +1,12 @@
-<div class="item active">
-    <%= link_to public_notices_path do %>
+<div class="item <%= 'active' if public_notice_counter == 0 %>">
+    <%= link_to public_notices_path(anchor: "public_notice_#{public_notice_counter}") do %>
     <blockquote class="quote">                                  
         <span class='label label-warning'>
             <i class="fa fa-info-circle" ></i> Public Notice
         </span>
         <h4>
-            <%= truncate(public_notice.title, length: 100)%>
-            <small><%= public_notice.description %></small>
+            <%= public_notice.title%>
+            <small><%= truncate(public_notice.description, length: 150) %></small>
         </h4>
         <div class="row">
             <p class="people col-md-8 col-sm-3 col-xs-8"><span class="text-success"><%= public_notice.organization_name if public_notice.organization.present? %></span><br /><span class="title"><%= public_notice.start_date.strftime("%b %e, %Y") %></span></p>

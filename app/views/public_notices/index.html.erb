@@ -14,24 +14,24 @@
                     <p class="lead">
                     </p>
                     <!--collapse-->
+                    <% @public_notices.each_with_index do |public_notice, index| %>
                     <div class="panel-group" id="accordion">
-                    <% @public_notices.each do |public_notice| %>
                         <div class="panel panel-default">
                             <div class="panel-heading light-grey">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#public_notice_<%= index %>">
                                         <%= public_notice.title %>
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
+                            <div id="public_notice_<%= index %>" class="panel-collapse collapse in">
                                 <div class="panel-body">
                                     <p><%= public_notice.description %></p>
                                 </div>
                             </div>
                         </div>
-                    <% end %>
                     </div><!--categories--> 
+                    <% end %>
                 </div><!--faqs sidebar col-->
             </div>
         </div><!--faq-container-->
