@@ -6,7 +6,7 @@
         <div class="page-content">
             <div class="row page-row">
                 <div class="team-wrapper col-md-7 col-sm-7">
-                    <p><%= @organization_page.content_text unless @organization_page.nil? %></p>
+                    <p><%= @organization_page.content_text.html_safe unless @organization_page.nil? %></p>
                     <div style="margin-top: 15px;">
                         <%= render @members %>
                     </div>
