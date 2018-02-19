@@ -25,6 +25,6 @@ class Meeting < ApplicationRecord
   end
 
   def display_date
-    pretty_date(date)
+    date.strftime("%b. %e")
   end
 end
