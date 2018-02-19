@@ -32,7 +32,7 @@ class Organization < ApplicationRecord
   end
 
   def next_meeting
-    meetings.ordered.first
+    meetings.ordered.where('date > ?', Date.current).sort{ |a,b| (a.date - DateTime.current).to_i <=> (b.date - DateTime.current).to_i }.first
   end
 
   def page_title
