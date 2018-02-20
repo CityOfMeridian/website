@@ -35,8 +35,8 @@
                     <% @year_meetings.each do |meeting| %>
                                     <tr>
                                         <td><%= meeting.display_date %></td>
-                                        <td><%= link_to "<i class='fa fa-download'></>".html_safe, meeting.agenda.asset.url if meeting.agenda.asset.present? %></td>
-                                        <td><%= link_to "<i class='fa fa-download'></>".html_safe, meeting.minutes.asset.url if meeting.minutes.asset.present? %></td>
+                                        <td align="center"><%= link_to "<i class='fa fa-download'></>".html_safe, meeting.agenda.asset.url if meeting.agenda.asset.present? %></td>
+                                        <td align="center"><%= link_to "<i class='fa fa-download'></>".html_safe, meeting.minutes.asset.url if meeting.minutes.asset.present? %></td>
                                     </tr>
                     <% end %>
                                 </tbody>
