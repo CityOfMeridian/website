@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:success] = "Your request was submitted successfully.  Someone at the city will contact you shortly."
+      ContactNotificationEmailJob.perform_later @contact
     else
       flash[:warning] = error_messages
     end
