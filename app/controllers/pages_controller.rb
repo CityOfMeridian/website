@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   
   def home
     @title = 'City of Meridian'
-    @events = Event.limit(4)
+    @events = Event.coming_soon.limit(4)
     @public_notices = public_notices
     @latest_public_notice = @public_notices.first if @public_notices.present?
   end

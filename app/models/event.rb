@@ -13,7 +13,12 @@ class Event < ApplicationRecord
 
   scope :in_same_month_as, -> (date) { 
     where('extract(month from date) = ?', date.month).
-    where('extract(year from date) = ?', date.year) }
+    where('extract(year from date) = ?', date.year) 
+  }
+
+  scope :coming_soon, -> { 
+    where("date >= ?", Date.current)
+  }
 
   scope :recent, -> (num=3){
     order(:date).limit(num)
