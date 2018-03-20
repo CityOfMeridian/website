@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   layout 'application'
   
   def index
-    @events = Event.order('date desc').page(params[:page]).per(5)
+    @events = Event.order(:date).page(params[:page]).per(5)
   end
 
   def show
