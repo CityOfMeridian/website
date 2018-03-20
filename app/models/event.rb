@@ -17,7 +17,7 @@ class Event < ApplicationRecord
   }
 
   scope :coming_soon, -> { 
-    where("date >= ?", Date.current)
+    where("date >= ?", Date.current).order(:date)
   }
 
   scope :recent, -> (num=3){
