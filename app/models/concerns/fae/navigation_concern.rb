@@ -28,6 +28,7 @@ module Fae
             item('Events', path: admin_events_path),
             item('News Items', path: admin_news_items_path),
             item('Public Notices', path: admin_public_notices_path),
+            item('Quick Links', path: admin_quick_links_path),
             item('Places', path: admin_places_path),
             item('Roles', path: admin_roles_path)
         ]

@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     @events = Event.coming_soon.limit(4)
     @public_notices = public_notices
     @latest_public_notice = @public_notices.first if @public_notices.present?
+    @quick_links = QuickLink.active.limit(5)
   end
 
   def calendar
