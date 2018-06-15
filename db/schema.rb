@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302201151) do
+ActiveRecord::Schema.define(version: 20180615213407) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -296,6 +296,14 @@ ActiveRecord::Schema.define(version: 20180302201151) do
     t.datetime "updated_at",                    null: false
     t.index ["noticeable_type", "noticeable_id"], name: "index_public_notices_on_noticeable_type_and_noticeable_id", using: :btree
     t.index ["organization_id"], name: "index_public_notices_on_organization_id", using: :btree
+  end
+
+  create_table "quick_links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "text"
+    t.string   "url"
+    t.boolean  "active",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_foreign_key "meetings", "organizations"

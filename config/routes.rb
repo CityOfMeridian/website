@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     end
 
     namespace :admin do
+    resources :quick_links
       resources :pages, only: [:new, :create, :destroy], param: :id
       resources :roles
       resources :public_notices
