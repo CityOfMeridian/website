@@ -13,7 +13,7 @@
             </span>
             <% if event.place.present? %>
             <span class="location">
-                <%= link_to "<i class=\"fa fa-map-marker\"></i> #{event.place_name}".html_safe, "https://maps.google.com?q=#{event.place_address}", target: "_blank" %>
+                <%= link_to "<i class=\"fa fa-map-marker\"></i> #{event.place_name}".html_safe, "https://maps.google.com?q=#{event.place_name}+#{event.place_address}", target: "_blank" %>
             </span>
             <% end %>
         </p>
