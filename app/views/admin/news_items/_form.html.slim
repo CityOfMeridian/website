@@ -6,4 +6,9 @@
   main.content
     = fae_input f, :title
     = fae_input f, :content
+    = fae_datepicker f, :start_date
+    = fae_datepicker f, :end_date
     = fae_image_form f, :image
+
+  javascript:
+    $("#news_item_content").trumbowyg();
