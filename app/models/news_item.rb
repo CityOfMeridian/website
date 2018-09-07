@@ -14,7 +14,7 @@ class NewsItem < ApplicationRecord
   has_fae_image :image
 
   def preview_display
-    preview_text.nil? ? content[0..100] : preview_text
+    preview_text.blank? ? content[0..100] : preview_text[0..100]
   end
 
 end
