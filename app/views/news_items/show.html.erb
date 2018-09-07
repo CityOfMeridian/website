@@ -1,0 +1,15 @@
+<div class="content container">
+            <div class="page-wrapper">
+                <header class="page-heading clearfix">
+                    <h1 class="heading-title pull-left"><%= @news_item.title %></h1>
+                </header> 
+                <div class="page-content">
+                    <div class="row page-row">
+                        <div class="jobs-wrapper col-md-8 col-sm-7">           
+                            <%= @news_item.content.html_safe %>       
+                        </div><!--//jobs-wrapper-->
+                    </div><!--//page-row-->
+                </div><!--//page-content-->
+            </div><!--//page--> 
+        </div><!--//content-->
+    </div><!--//wrapper-->
