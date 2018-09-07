@@ -43,9 +43,6 @@ Rails.application.routes.draw do
       resources :events
       resources :places
       get "/" => "organizations#index"
-      # TODO: CRUD for organization_types and contacts
-      # resources :organization_types
-      # resources :contacts
     end
     # mount Fae below your admin namespec
     mount Fae::Engine => '/admin'

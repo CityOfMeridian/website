@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180814021159) do
+ActiveRecord::Schema.define(version: 20180907122638) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -250,6 +250,7 @@ ActiveRecord::Schema.define(version: 20180814021159) do
     t.datetime "updated_at",                    null: false
     t.date     "start_date"
     t.date     "end_date"
+    t.string   "preview_text",    limit: 100
     t.index ["organization_id"], name: "index_news_items_on_organization_id", using: :btree
   end
 
