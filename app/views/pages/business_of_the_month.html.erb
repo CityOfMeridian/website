@@ -1,0 +1,37 @@
+<div class="content container">
+    <div class="page-wrapper">
+        <header class="page-heading clearfix">
+            <h1 class="heading-title pull-left">EDC Business of the Month - <%= current_month_year %></h1>
+        <div class="page-content">
+            <div class="row page-row">
+                <div class="jobs-wrapper col-md-8 col-sm-7">
+                    <% name_text = @business_of_the_month.name.content %>
+                    <h3 class="title">
+                      <%= @business_of_the_month.url.content.blank? ? name_text : link_to(name_text, @business_of_the_month.url.content) %>
+                    </h3>
+                    <div class="box box-border page-row">
+                        <%= image_tag @business_of_the_month.photo.asset_url, class: "img-responsive" unless @business_of_the_month.photo.asset.url.nil? %>
+                        <% unless @business_of_the_month.photo.asset.url.nil? && @business_of_the_month.photo_caption.blank? %>
+                          <ul class="list-unstyled">
+                              <li><strong>Photo:</strong><%= @business_of_the_month.photo_caption.content %></li>
+                          </ul>
+                        <% end %>
+                    </div>
+                    <p><%= @business_of_the_month.description.content %></p>
+                      
+                    <h4 class="text-highlight"></h4>  
+                    <p>Nominate them by sending us an email with information about why you think they should receive the honor.<a href="mailto:info@meridiantexas.us">info@meridiantexas.us</a></p> 
+                                                                                
+                </div><!--//jobs-wrapper-->
+                <aside class="page-sidebar  col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1">      
+                    <section class="widget has-divider">
+                        <h3 class="title">Know a deserving business?</h3>
+                        <p>Nominate them by sending us an email with information about why you think they should receive the honor.</p>
+                        <br>
+                        <%= link_to "Contact", new_contact_path, class: "btn btn-theme" %>
+                    </section><!--//widget-->    
+                </aside>
+            </div><!--//page-row-->
+        </div><!--//page-content-->
+    </div><!--//page--> 
+</div>
