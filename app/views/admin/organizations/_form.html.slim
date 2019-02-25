@@ -27,5 +27,5 @@
   .col-2
   .col-2
   .col-10
-    == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :place]
+    == render 'fae/shared/nested_table', assoc: :meetings, parent_item: @parent_item, cols: [:title, :date, :agenda?, :minutes?, :place]
 .col-2
