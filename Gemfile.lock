@@ -339,7 +339,7 @@ GEM
     minitest (5.10.3)
     multi_json (1.12.2)
     multipart-post (2.0.0)
-    mysql2 (0.4.9)
+    mysql2 (0.4.10)
     netrc (0.11.0)
     nio4r (2.1.0)
     nokogiri (1.8.3)
@@ -485,7 +485,7 @@ DEPENDENCIES
   heroku-deflater
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  mysql2
+  mysql2 (~> 0.4.10)
   popper_js
   pry
   puma (~> 3.7)
@@ -503,4 +503,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.16.1
+   2.0.1
