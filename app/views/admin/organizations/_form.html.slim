@@ -8,6 +8,7 @@
     h2="Organization Information"
     = fae_input f, :name, label: 'Name'
     = fae_input f, :members_collection_name, label: 'Members Group Name', helper_text: "i.e., City Council, Board, Board of Directors, etc."
+    = fae_input f, :default_member_title, label: 'Member Title', helper_text: "i.e., Council Member, Board Member, etc."
     = fae_association f, :organization_type
     = fae_input f, :website, helper_text: 'If other than this site'
     - unless @item.community?
