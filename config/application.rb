@@ -14,7 +14,7 @@ module CityOfMeridian
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     Raven.configure do |config|
-      config.dsn = ENV.fetch('SENTRY_DSN')
+      config.dsn = ENV.fetch('SENTRY_DSN', "")
     end
     config.time_zone = 'Central Time (US & Canada)'
     config.exceptions_app = self.routes
