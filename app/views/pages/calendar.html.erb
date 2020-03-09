@@ -6,7 +6,7 @@
       <%= date.day %>
       <% events.each do |event| %>
         <div>
-          <%= link_to truncate(event.title), "#", title: generate_tooltip_content(event), data: { toggle:"tooltip",placement:"top", html: 'true'} %>
+          <%= link_to truncate(event.title), event_path(event), title: generate_tooltip_content(event), data: { toggle:"tooltip",placement:"top", html: 'true'} %>
         </div>
       <% end %>
     <% end %>
