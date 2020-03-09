@@ -1,0 +1,15 @@
+<div class="content container">
+	<div class="page-wrapper">
+		<div class="card page-row">
+		    <div class="card-header">
+		        <h3 class="card-title"><a href="job-single.html"><%= @event.title %></a> </h3>       
+		    </div>
+		    <ul class="list-group"  style="width: 500px; display: inline-block;">
+		        <li class="list-group-item"><strong>Date:</strong> <%= @event.display_date %></li>
+		        <li class="list-group-item"><strong>Time:</strong> <%= @event.time %></li>
+		        <li class="list-group-item"><strong>Location:</strong> <%= link_to "<i class=\"fa fa-map-marker\"></i> #{@event.place_name}".html_safe, "https://maps.google.com?q=#{@event.place_name}+#{@event.place_address}", target: "_blank" if @event.place.present? %></li>
+		        <li class='list-group-item'><strong>Details:</strong> <p><%= @event.message %></p></li>
+		    </ul>
+		</div>
+	</div>
+</div>
