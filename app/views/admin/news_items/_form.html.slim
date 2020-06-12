@@ -5,7 +5,7 @@
 
   main.content
     = fae_input f, :title
-    = fae_input f, :preview_text, helper_text: "This will only show on the homepage and not when viewing the page for this news item.  If not included, it defaults to the first 100 characters of the content."
+    = fae_input f, :preview_text, helper_text: "This will only show on the homepage and not when viewing the page for this news item.  If not included, it defaults to the first 100 characters of the content.  This may cause issus if you've formatted the content in anyway."
     = fae_input f, :content
     = fae_datepicker f, :start_date
     = fae_datepicker f, :end_date
