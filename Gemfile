@@ -18,7 +18,7 @@ gem "fae-rails", :github =>"RCulpepp/fae", :branch =>"fae_pages"
 gem "flex-slider-rails"
 gem "font-awesome-rails"
 gem 'mysql2', '~> 0.4.10'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 4.3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
